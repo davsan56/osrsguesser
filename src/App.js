@@ -1,7 +1,7 @@
 import "./App.css"
 import "leaflet/dist/leaflet.css"
 
-import { useState, useRef, useEffect } from "react";
+import { useState, useRef } from "react";
 
 import { MapContainer, Marker, TileLayer, useMapEvents } from "react-leaflet";
 import { LatLngBounds, latLng, CRS, Icon } from "leaflet";
@@ -53,7 +53,7 @@ function MyClickComponent() {
     iconAnchor: [12, 41],
   })
 
-  const map = useMapEvents({
+  useMapEvents({
     click: async (e) => {
       setPosition(e.latlng)
     }
