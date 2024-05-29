@@ -1,10 +1,10 @@
 import "./App.css"
 import "leaflet/dist/leaflet.css"
 
-import { useState } from "react";
+import { useState, useRef, useEffect } from "react";
 
 import { MapContainer, Marker, TileLayer, useMapEvents } from "react-leaflet";
-import { Icon } from "leaflet";
+import { LatLngBounds, latLng, CRS, Icon } from "leaflet";
 
 import markerIconPng from 'leaflet/dist/images/marker-icon.png';
 import markerShadowPng from 'leaflet/dist/images/marker-shadow.png';
@@ -16,18 +16,29 @@ function App() {
 }
 
 function MyMapComponent() {
+  const outerBounds = new LatLngBounds(
+    latLng(-78, 0),
+    latLng(0, 137.3),
+  );
 
-  
+  const mapRef = useRef(null);
 
   return (
     <MapContainer
-      center={[48.8566, 2.3522]}
-      zoom={13}
+      ref={mapRef}
+      center={[-35, 92.73]}
+      zoom={5}
+      maxZoom={6}
+      minZoom={4}
+      style={{ height: '100vh', width: '100%' }}
+      maxBounds={outerBounds}
+      maxBoundsViscosity={1}
+      crs={CRS.Simple}
     >
       <MyClickComponent />
       <TileLayer
-        attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
-        url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+        attribution='<a href="https://jingle.rs/">jingle.rs</a>'
+        url={`/osrsmap/{z}/{x}/{y}.png`}
       />
     </MapContainer>
   )
@@ -44,17 +55,17 @@ function MyClickComponent() {
 
   const map = useMapEvents({
     click: async (e) => {
-     setPosition(e.latlng)
+      setPosition(e.latlng)
     }
   })
   return (
     <>
-    {position && (
-      <Marker
-        position={position}
-        icon={myIcon}
-      />
-    )}
+      {position && (
+        <Marker
+          position={position}
+          icon={myIcon}
+        />
+      )}
     </>
   )
 }
