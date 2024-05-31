@@ -5,18 +5,19 @@ import { Icon } from "leaflet";
 import markerIconPng from 'leaflet/dist/images/marker-icon.png';
 import markerShadowPng from 'leaflet/dist/images/marker-shadow.png';
 
-function OSRSMapClickHandler() {
-    const [position, setPosition] = useState(null)
+const myIcon = new Icon({
+    iconUrl: markerIconPng,
+    shadowUrl: markerShadowPng,
+    iconAnchor: [12, 41],
+})
 
-    const myIcon = new Icon({
-        iconUrl: markerIconPng,
-        shadowUrl: markerShadowPng,
-        iconAnchor: [12, 41],
-    })
+function OSRSMapClickHandler({onClickHandler}) {
+    const [position, setPosition] = useState(null)
 
     useMapEvents({
         click: async (e) => {
             setPosition(e.latlng)
+            onClickHandler()
         }
     })
     return (
