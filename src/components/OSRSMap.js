@@ -1,4 +1,3 @@
-import "../App.css";
 import "leaflet/dist/leaflet.css";
 import OSRSMapClickHandler from "./OSRSMapClickHandler";
 import { useRef } from "react";
