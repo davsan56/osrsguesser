@@ -49,8 +49,16 @@ function App() {
   // TODO: Figure out how to initialize this better
   const [currentLocation, setCurrentLocation] = useState(locationsToGuess[0]);
 
+  const [showGuessResult, setShowGuessResult] = useState(false);
+
   function onGuessHandler() {
     numberOfLocationsGuessed++;
+
+    setShowGuessResult(true);
+  }
+
+  function nextHandler() {
+    setShowGuessResult(false);
 
     if (numberOfLocationsGuessed < numberOfLocationsToGuess) {
       let removedLocation = locationsToGuess.shift();
@@ -67,8 +75,22 @@ function App() {
 
   return (
     <div>
-      <OSRSMap onClickHandler={onGuessHandler} />
+      <OSRSMap
+        onClickHandler={onGuessHandler}
+        currentLocation={currentLocation}
+        showGuessResult={showGuessResult}
+      />
+      {showGuessResult == true && <GuessResult nextHandler={nextHandler} />}
       <HiddenLocation location={currentLocation} />
+    </div>
+  );
+}
+
+function GuessResult({ nextHandler }) {
+  return (
+    <div className="guess-result">
+      <p>Nice Guess</p>
+      <button onClick={nextHandler}>Next</button>
     </div>
   );
 }

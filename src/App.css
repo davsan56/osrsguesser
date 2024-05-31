@@ -17,10 +17,23 @@
   z-index: 0;
 }
 
+.guess-result {
+  position: fixed;
+  display: block;
+  text-align: center;
+  width: 100px;
+  height: 100px;
+  right: 50%;
+  top: 50%;
+  background-color: white;
+  box-shadow: -5px -5px 15px black;
+  z-index: 2;
+}
+
 .hidden-location {
   position: fixed;
   display: block;
-  width: 30vh;
+  width: 40vw;
   height: 20vh;
   right: 0;
   bottom: 0;

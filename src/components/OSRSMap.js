@@ -5,7 +5,7 @@ import { useRef } from "react";
 import { MapContainer, TileLayer } from "react-leaflet";
 import { LatLngBounds, latLng, CRS } from "leaflet";
 
-function OSRSMap({ onClickHandler }) {
+function OSRSMap({ onClickHandler, currentLocation, showGuessResult }) {
   const outerBounds = new LatLngBounds(latLng(-78, 0), latLng(0, 137.3));
 
   const mapRef = useRef(null);
@@ -23,7 +23,11 @@ function OSRSMap({ onClickHandler }) {
         maxBoundsViscosity={1}
         crs={CRS.Simple}
       >
-        <OSRSMapClickHandler onClickHandler={onClickHandler} />
+        <OSRSMapClickHandler
+          onClickHandler={onClickHandler}
+          currentLocation={currentLocation}
+          showGuessResult={showGuessResult}
+        />
         <TileLayer
           attribution='<a href="https://jingle.rs/">jingle.rs</a>'
           url={`/osrsmap/{z}/{x}/{y}.png`}

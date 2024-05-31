@@ -11,21 +11,29 @@ const myIcon = new Icon({
   iconAnchor: [12, 41],
 });
 
-function OSRSMapClickHandler({ onClickHandler }) {
+function OSRSMapClickHandler({
+  onClickHandler,
+  currentLocation,
+  showGuessResult,
+}) {
   const [position, setPosition] = useState(null);
 
   useMapEvents({
     click: async (e) => {
-      setPosition(e.latlng);
-      onClickHandler();
+      if (!showGuessResult) {
+        setPosition(e.latlng);
+        onClickHandler();
+      }
     },
   });
+
   return (
     <>
-      {position && (
-        <>
-          <Marker position={position} icon={myIcon} />
-        </>
+      {position && showGuessResult && (
+        <Marker position={position} icon={myIcon} />
+      )}
+      {showGuessResult && (
+        <Marker position={currentLocation.latLng} icon={myIcon} />
       )}
     </>
   );
