@@ -3,6 +3,8 @@ import "./App.css";
 
 import HiddenLocation from "./components/HiddenLocation";
 import OSRSMap from "./components/OSRSMap";
+import GameOverResult from "./components/GameOverResult";
+import GuessResult from "./components/GuessResult";
 
 import { LatLng } from "leaflet";
 class Location {
@@ -63,7 +65,7 @@ function App() {
     if (numberOfLocationsGuessed < numberOfLocationsToGuess) {
       let removedLocation = locationsToGuess.shift();
       // TODO: Remove when figure out better current location init
-      if (locationsToGuess.length == 4) {
+      if (locationsToGuess.length === 4) {
         removedLocation = locationsToGuess.shift();
       }
       setCurrentLocation(removedLocation);
@@ -80,17 +82,11 @@ function App() {
         currentLocation={currentLocation}
         showGuessResult={showGuessResult}
       />
-      {showGuessResult == true && <GuessResult nextHandler={nextHandler} />}
+      {showGuessResult && <GuessResult nextHandler={nextHandler} />}
+      {numberOfLocationsGuessed === numberOfLocationsToGuess && (
+        <GameOverResult />
+      )}
       <HiddenLocation location={currentLocation} />
-    </div>
-  );
-}
-
-function GuessResult({ nextHandler }) {
-  return (
-    <div className="guess-result">
-      <p>Nice Guess</p>
-      <button onClick={nextHandler}>Next</button>
     </div>
   );
 }
