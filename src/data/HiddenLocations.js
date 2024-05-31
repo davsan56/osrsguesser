@@ -2,7 +2,7 @@ import { Location } from "./Classes";
 
 import { LatLng } from "leaflet";
 
-const HiddenLocations = [
+export const HiddenLocations = [
   new Location("lletya", new LatLng(-46.125, 61.625)), // bank
   new Location("varrock", new LatLng(-33.671875, 101.984375)), // middle of fountain
   new Location("falador", new LatLng(-37.750789, 90.695791)), // near squire
@@ -19,4 +19,14 @@ const HiddenLocations = [
   new Location("ungael", new LatLng(-4.59375, 57.917587)), // right outside vorkath entrance
 ];
 
-export default HiddenLocations;
+export function getRandomLocations(numberOfLocationsToGuess) {
+  let randomLocations = [];
+  // TODO: Make it so you cant get the same location
+  for (let i = 0; i < numberOfLocationsToGuess; i++) {
+    randomLocations.push(
+      // TODO: Maybe change random seed
+      HiddenLocations[Math.floor(Math.random() * HiddenLocations.length)]
+    );
+  }
+  return randomLocations;
+}

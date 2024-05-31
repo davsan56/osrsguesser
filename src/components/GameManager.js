@@ -4,25 +4,11 @@ import HiddenLocation from "./HiddenLocation";
 import OSRSMap from "./OSRSMap";
 import GameOverResult from "./GameOverResult";
 import GuessResult from "./GuessResult";
-import HiddenLocations from "../data/HiddenLocations";
-
-import { LatLng } from "leaflet";
+import { getRandomLocations } from "../data/HiddenLocations";
 
 const numberOfLocationsToGuess = 5;
 
-function getRandomLocations() {
-  let randomLocations = [];
-  // TODO: Make it so you cant get the same location
-  for (let i = 0; i < numberOfLocationsToGuess; i++) {
-    randomLocations.push(
-      // TODO: Maybe change random seed
-      HiddenLocations[Math.floor(Math.random() * HiddenLocations.length)]
-    );
-  }
-  return randomLocations;
-}
-
-let locationsToGuess = getRandomLocations();
+let locationsToGuess = getRandomLocations(numberOfLocationsToGuess);
 let numberOfLocationsGuessed = 0;
 
 function GameManager() {
