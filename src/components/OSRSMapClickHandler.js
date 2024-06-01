@@ -14,6 +14,7 @@ const myIcon = new Icon({
 function OSRSMapClickHandler({
   onClickHandler,
   currentLocation,
+  setGuessedLocation,
   showGuessResult,
 }) {
   const [position, setPosition] = useState(null);
@@ -21,6 +22,7 @@ function OSRSMapClickHandler({
   useMapEvents({
     click: async (e) => {
       if (!showGuessResult) {
+        setGuessedLocation(e.latlng);
         setPosition(e.latlng);
         onClickHandler();
       }

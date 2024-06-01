@@ -17,6 +17,14 @@ function GameManager() {
 
   const [showGuessResult, setShowGuessResult] = useState(false);
 
+  const [guessedLocation, setGuessedLocation] = useState(null);
+
+  const [showGameOverResult, setShowGameOverResult] = useState(false);
+
+  function pleaseSetGuessedLocation(location) {
+    setGuessedLocation(location);
+  }
+
   function onGuessHandler() {
     numberOfLocationsGuessed++;
 
@@ -33,6 +41,10 @@ function GameManager() {
         removedLocation = locationsToGuess.shift();
       }
       setCurrentLocation(removedLocation);
+    } else {
+      if (numberOfLocationsGuessed === numberOfLocationsToGuess) {
+        setShowGameOverResult(true);
+      }
     }
   }
 
@@ -41,12 +53,17 @@ function GameManager() {
       <OSRSMap
         onClickHandler={onGuessHandler}
         currentLocation={currentLocation}
+        setGuessedLocation={pleaseSetGuessedLocation}
         showGuessResult={showGuessResult}
       />
-      {showGuessResult && <GuessResult nextHandler={nextHandler} />}
-      {numberOfLocationsGuessed === numberOfLocationsToGuess && (
-        <GameOverResult />
+      {showGuessResult && (
+        <GuessResult
+          guessedLocation={guessedLocation}
+          currentLocation={currentLocation}
+          nextHandler={nextHandler}
+        />
       )}
+      {showGameOverResult && <GameOverResult />}
       <HiddenLocation location={currentLocation} />
     </div>
   );

@@ -19,10 +19,9 @@
 
 .guess-result {
   position: fixed;
-  display: block;
+  display: inline-block;
   text-align: center;
-  width: 100px;
-  height: 100px;
+  padding: 5px;
   right: 50%;
   top: 50%;
   background-color: white;
