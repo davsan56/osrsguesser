@@ -1,11 +1,22 @@
-function GuessResult({ guessedLocation, currentLocation, nextHandler }) {
-  function determineScore(guessedLatLng, actualLatLng) {
-    let dis = guessedLatLng.distanceTo(actualLatLng);
+import { useEffect, useState } from "react";
+
+function GuessResult({
+  guessedLocation,
+  currentLocation,
+  setTotalScore,
+  nextHandler,
+}) {
+  const [roundScore, setRoundScore] = useState(0);
+
+  useEffect(() => {
+    let dis = guessedLocation.distanceTo(currentLocation.latLng);
     let distanceConversion = (dis / 1000).toFixed(0);
     let distanceKm = distanceConversion;
     let score = 1000 - distanceKm;
-    return score < 0 ? 0 : score;
-  }
+    let roundScore = score < 0 ? 0 : score;
+    setTotalScore(roundScore);
+    setRoundScore(roundScore);
+  }, [guessedLocation]);
 
   return (
     <div className="guess-result">
@@ -16,7 +27,7 @@ function GuessResult({ guessedLocation, currentLocation, nextHandler }) {
         You wanted to guess: {currentLocation.latLng.lat},{" "}
         {currentLocation.latLng.lng}
       </p>
-      <p>Score: {determineScore(guessedLocation, currentLocation.latLng)}</p>
+      <p>Score: {roundScore}</p>
       <button onClick={nextHandler}>Next</button>
     </div>
   );

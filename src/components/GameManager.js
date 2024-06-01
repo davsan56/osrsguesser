@@ -21,6 +21,14 @@ function GameManager() {
 
   const [showGameOverResult, setShowGameOverResult] = useState(false);
 
+  const [totalScore, setTotalScore] = useState(0);
+
+  function pleaseSetTotalScore(roundScore) {
+    let temp = totalScore;
+    let totalGameScore = temp + roundScore;
+    setTotalScore(totalGameScore);
+  }
+
   function pleaseSetGuessedLocation(location) {
     setGuessedLocation(location);
   }
@@ -60,11 +68,12 @@ function GameManager() {
         <GuessResult
           guessedLocation={guessedLocation}
           currentLocation={currentLocation}
+          setTotalScore={pleaseSetTotalScore}
           nextHandler={nextHandler}
         />
       )}
-      {showGameOverResult && <GameOverResult />}
-      <HiddenLocation location={currentLocation} />
+      {showGameOverResult && <GameOverResult totalScore={totalScore} />}
+      {!showGameOverResult && <HiddenLocation location={currentLocation} />}
     </div>
   );
 }

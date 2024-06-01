@@ -31,10 +31,9 @@
 
 .game-over {
   position: fixed;
-  display: block;
+  display: inline-block;
   text-align: center;
-  width: 200px;
-  height: 200px;
+  padding: 5px;
   right: 50%;
   top: 50%;
   background-color: white;
