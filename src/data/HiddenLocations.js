@@ -21,12 +21,16 @@ export const HiddenLocations = [
 
 export function getRandomLocations(numberOfLocationsToGuess) {
   let randomLocations = [];
-  // TODO: Make it so you cant get the same location
-  for (let i = 0; i < numberOfLocationsToGuess; i++) {
-    randomLocations.push(
-      // TODO: Maybe change random seed
-      HiddenLocations[Math.floor(Math.random() * HiddenLocations.length)]
-    );
+  while (randomLocations.length < numberOfLocationsToGuess) {
+    for (let i = randomLocations.length; i < numberOfLocationsToGuess; i++) {
+      randomLocations.push(
+        // TODO: Maybe change random seed
+        HiddenLocations[Math.floor(Math.random() * HiddenLocations.length)]
+      );
+      randomLocations = randomLocations.filter(
+        (item, i, ar) => ar.indexOf(item) === i
+      );
+    }
   }
   return randomLocations;
 }
