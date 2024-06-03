@@ -2,13 +2,14 @@ import "leaflet/dist/leaflet.css";
 import OSRSMapClickHandler from "./OSRSMapClickHandler";
 import { useRef } from "react";
 import { MapContainer, TileLayer } from "react-leaflet";
-import { LatLngBounds, latLng, CRS, map } from "leaflet";
+import { LatLngBounds, latLng, CRS } from "leaflet";
 
 function OSRSMap({
   onClickHandler,
   currentLocation,
   setGuessedLocation,
   showGuessResult,
+  showGameOverResult,
 }) {
   const outerBounds = new LatLngBounds(latLng(-78, 0), latLng(0, 137.3));
 
@@ -32,6 +33,7 @@ function OSRSMap({
           currentLocation={currentLocation}
           setGuessedLocation={setGuessedLocation}
           showGuessResult={showGuessResult}
+          showGameOverResult={showGameOverResult}
         />
         <TileLayer
           attribution='<a href="https://jingle.rs/">jingle.rs</a>'

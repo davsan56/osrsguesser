@@ -23,13 +23,15 @@ function OSRSMapClickHandler({
   currentLocation,
   setGuessedLocation,
   showGuessResult,
+  showGameOverResult,
 }) {
   const [position, setPosition] = useState(null);
 
-  useMapEvents({
+  const map = useMapEvents({
     click: async (e) => {
-      if (!showGuessResult) {
+      if (!showGuessResult && !showGameOverResult) {
         setGuessedLocation(e.latlng);
+        map.fitBounds([e.latlng, currentLocation.latLng]);
         setPosition(e.latlng);
         onClickHandler();
       }

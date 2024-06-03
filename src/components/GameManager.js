@@ -63,6 +63,7 @@ function GameManager() {
         currentLocation={currentLocation}
         setGuessedLocation={pleaseSetGuessedLocation}
         showGuessResult={showGuessResult}
+        showGameOverResult={showGameOverResult}
       />
       {showGuessResult && (
         <GuessResult
