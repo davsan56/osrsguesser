@@ -44,18 +44,24 @@
 .hidden-location {
   position: fixed;
   display: block;
-  width: 40vw;
   height: 20vh;
   right: 0;
   bottom: 0;
-  margin-right: 1vw;
-  margin-bottom: 1vh;
+  margin-right: 10px;
+  margin-bottom: 10px;
   background-color: white;
   box-shadow: -5px -5px 15px black;
   z-index: 2;
 }
 
 .hidden-location:hover {
-  width: 50vh;
   height: 40vh;
+  margin-right: 0;
+  margin-bottom: 0;
+}
+
+.hidden-location-image {
+  max-width: 100%;
+  height: auto;
+  max-height: 100%;
 }

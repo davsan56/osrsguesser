@@ -13,7 +13,7 @@ function GuessResult({
     let distanceConversion = (dis / 1000).toFixed(0);
     let distanceKm = distanceConversion;
     let score = 1000 - distanceKm;
-    let roundScore = score < 0 ? 0 : score;
+    let roundScore = score < 0 ? 0 : score > 975 ? 1000 : score;
     setTotalScore(roundScore);
     setRoundScore(roundScore);
   }, [guessedLocation]);

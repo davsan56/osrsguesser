@@ -3,7 +3,11 @@ import "../App.css";
 function HiddenLocation({ location }) {
   return (
     <div className="hidden-location">
-      <p>{location.image}</p>
+      <img
+        src={require("../../public/locations/" + location.image + ".png")}
+        alt={location.image}
+        className="hidden-location-image"
+      />
     </div>
   );
 }
