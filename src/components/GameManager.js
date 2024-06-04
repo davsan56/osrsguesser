@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 import HiddenLocation from "./HiddenLocation";
 import OSRSMap from "./OSRSMap";
@@ -17,20 +17,27 @@ function GameManager() {
 
   const [showGuessResult, setShowGuessResult] = useState(false);
 
-  const [guessedLocation, setGuessedLocation] = useState(null);
-
   const [showGameOverResult, setShowGameOverResult] = useState(false);
 
   const [totalScore, setTotalScore] = useState(0);
 
+  const [roundScores, setRoundScores] = useState([]);
+
   function pleaseSetTotalScore(roundScore) {
     let temp = totalScore;
     let totalGameScore = temp + roundScore;
+    setRoundScores([...roundScores, roundScore]);
     setTotalScore(totalGameScore);
   }
 
   function pleaseSetGuessedLocation(location) {
-    setGuessedLocation(location);
+    let dis = location.distanceTo(currentLocation.latLng);
+    let distanceConversion = (dis / 1000).toFixed(0);
+    let distanceKm = distanceConversion;
+    let score = 1000 - distanceKm;
+    let roundScore = score < 0 ? 0 : score > 975 ? 1000 : score;
+
+    pleaseSetTotalScore(roundScore);
   }
 
   function onGuessHandler() {
@@ -66,14 +73,11 @@ function GameManager() {
         showGameOverResult={showGameOverResult}
       />
       {showGuessResult && (
-        <GuessResult
-          guessedLocation={guessedLocation}
-          currentLocation={currentLocation}
-          setTotalScore={pleaseSetTotalScore}
-          nextHandler={nextHandler}
-        />
+        <GuessResult nextHandler={nextHandler} roundScores={roundScores} />
       )}
-      {showGameOverResult && <GameOverResult totalScore={totalScore} />}
+      {showGameOverResult && (
+        <GameOverResult totalScore={totalScore} roundScores={roundScores} />
+      )}
       {!showGameOverResult && <HiddenLocation location={currentLocation} />}
     </div>
   );

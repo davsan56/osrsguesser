@@ -29,6 +29,32 @@
   z-index: 2;
 }
 
+ul > li {
+  display: inline-block;
+}
+
+li {
+  padding: 2px;
+  margin: 2px;
+  border: 1px solid black;
+}
+
+#gold {
+  color: gold;
+}
+
+#green {
+  color: green;
+}
+
+#yellow {
+  color: yellow;
+}
+
+#red {
+  color: red;
+}
+
 .game-over {
   position: fixed;
   display: inline-block;

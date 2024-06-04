@@ -30,9 +30,13 @@ function OSRSMapClickHandler({
   const map = useMapEvents({
     click: async (e) => {
       if (!showGuessResult && !showGameOverResult) {
-        setGuessedLocation(e.latlng);
+        // Zoom map to show both markers
         map.fitBounds([e.latlng, currentLocation.latLng]);
+
+        // Set variables from other classes
+        setGuessedLocation(e.latlng);
         setPosition(e.latlng);
+
         onClickHandler();
       }
     },
