@@ -1,11 +1,18 @@
-.App {
-  text-align: center;
+@font-face {
+  font-family: "RuneScape";
+  src: url("../public/runescape.ttf");
 }
 
 * {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
+}
+
+body,
+button {
+  font-family: "RuneScape";
+  font-size: large;
 }
 
 #root {
@@ -17,16 +24,37 @@
   z-index: 0;
 }
 
+.dialog-title {
+  margin-bottom: 5px;
+}
+
 .guess-result {
   position: fixed;
   display: inline-block;
   text-align: center;
-  padding: 5px;
+  padding: 10px;
   right: 50%;
   top: 50%;
-  background-color: white;
+  border-radius: 5px;
+  border: 1px solid #6e604e;
+  outline: 1px solid #2d2a22;
   box-shadow: -5px -5px 15px black;
   z-index: 2;
+}
+
+.osrs-button {
+  margin-top: 5px;
+  padding: 5px 10px 5px 10px;
+  border: 1px solid #6e604e;
+  outline: 1px solid #2d2a22;
+  background: #554c41;
+  border-radius: 5px;
+  color: orange;
+  cursor: pointer;
+}
+
+.osrs-button:hover {
+  color: white;
 }
 
 ul > li {
@@ -34,9 +62,17 @@ ul > li {
 }
 
 li {
-  padding: 2px;
+  padding: 5px;
   margin: 2px;
-  border: 1px solid black;
+  border: 1px solid #6e604e;
+  outline: 1px solid #2d2a22;
+  background: #554c41;
+  border-radius: 5px;
+}
+
+.osrs-background {
+  color: orange;
+  background: #4e4538;
 }
 
 #gold {
@@ -59,10 +95,13 @@ li {
   position: fixed;
   display: inline-block;
   text-align: center;
-  padding: 5px;
+  padding: 10px;
   right: 50%;
   top: 50%;
-  background-color: white;
+  border-radius: 5px;
+  border: 1px solid #6e604e;
+  outline: 1px solid #2d2a22;
+  box-shadow: -5px -5px 15px black;
   box-shadow: -5px -5px 15px black;
   z-index: 2;
 }

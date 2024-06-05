@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 
 import HiddenLocation from "./HiddenLocation";
 import OSRSMap from "./OSRSMap";
