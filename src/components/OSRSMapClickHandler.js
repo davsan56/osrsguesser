@@ -1,5 +1,5 @@
 import "leaflet/dist/leaflet.css";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Marker, Polyline, useMapEvents } from "react-leaflet";
 import { Icon } from "leaflet";
 import markerIconPng from "leaflet/dist/images/marker-icon.png";
@@ -26,6 +26,13 @@ function OSRSMapClickHandler({
   showGameOverResult,
 }) {
   const [position, setPosition] = useState(null);
+
+  useEffect(() => {
+    if (!showGuessResult) {
+      // Center map
+      map.setView([-35, 92.73], 5);
+    }
+  }, [showGuessResult]);
 
   const map = useMapEvents({
     click: async (e) => {
