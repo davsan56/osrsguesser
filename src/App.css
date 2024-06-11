@@ -106,6 +106,20 @@ li {
   z-index: 2;
 }
 
+.countdown {
+  position: fixed;
+  display: block;
+  left: 50%;
+  top: 0;
+  width: 100%;
+  transform: translate(-50%, 0);
+  box-shadow: 0px 0px 10px black;
+  z-index: 2;
+  height: 100vh;
+  align-content: center;
+  backdrop-filter: blur(10px);
+}
+
 .hidden-location {
   position: fixed;
   display: block;
@@ -114,16 +128,15 @@ li {
   bottom: 0;
   margin-right: 10px;
   margin-bottom: 10px;
-  background-color: white;
-  box-shadow: -5px -5px 15px black;
+  box-shadow: 0px 0px 10px black;
   z-index: 2;
 }
 
-.hidden-location:hover {
+/* .hidden-location:hover {
   height: 40vh;
   margin-right: 0;
   margin-bottom: 0;
-}
+} */
 
 .hidden-location-image {
   max-width: 100%;
