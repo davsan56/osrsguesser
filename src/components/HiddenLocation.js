@@ -1,18 +1,33 @@
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 
 import "../App.css";
 
 function HiddenLocation({ location }) {
-  const [imageClassName, setImageClassName] = useState("countdown");
+  const [imageClassName, setImageClassName] = useState("countdown-container");
+  const [isTimerActive, setIsActive] = useState(false);
+  const [timeRemaining, setTimeRemaining] = useState(3);
 
   useEffect(() => {
-    async function changeImageClassName() {
-      setImageClassName("countdown");
-      await delay(3000);
-      setImageClassName("hidden-location");
+    let timer = null;
+    if (isTimerActive) {
+      timer = setInterval(() => {
+        if (timeRemaining <= 1) {
+          clearInterval(timer);
+          setIsActive(false);
+          setImageClassName("hidden-location");
+        }
+        setTimeRemaining((seconds) => seconds - 1);
+      }, 1000);
     }
+    return () => {
+      clearInterval(timer);
+    };
+  });
 
-    changeImageClassName();
+  useEffect(() => {
+    setTimeRemaining(3);
+    setImageClassName("countdown-container");
+    setIsActive(true);
   }, [location]);
 
   return (
@@ -22,10 +37,11 @@ function HiddenLocation({ location }) {
         alt={location.image}
         className="hidden-location-image"
       />
+      {imageClassName === "countdown-container" && (
+        <div className="countdown">{timeRemaining}</div>
+      )}
     </div>
   );
 }
-
-const delay = (ms) => new Promise((res) => setTimeout(res, ms));
 
 export default HiddenLocation;

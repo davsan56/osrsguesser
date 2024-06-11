@@ -106,7 +106,7 @@ li {
   z-index: 2;
 }
 
-.countdown {
+.countdown-container {
   position: fixed;
   display: block;
   left: 50%;
@@ -118,6 +118,18 @@ li {
   height: 100vh;
   align-content: center;
   backdrop-filter: blur(10px);
+}
+
+.countdown {
+  border: 1px solid #6e604e;
+  outline: 1px solid #2d2a22;
+  background: #554c41;
+  border-radius: 5px;
+  color: orange;
+  text-align: center;
+  width: 25%;
+  margin: 0 auto;
+  padding: 10px;
 }
 
 .hidden-location {
