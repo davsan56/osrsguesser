@@ -9,13 +9,14 @@ import { getRandomLocations } from "../data/HiddenLocations";
 const numberOfLocationsToGuess = 5;
 
 let locationsToGuess = getRandomLocations(numberOfLocationsToGuess);
-let numberOfLocationsGuessed = 0;
 
 function GameManager() {
   // TODO: Figure out how to initialize this better
   const [currentLocation, setCurrentLocation] = useState(locationsToGuess[0]);
 
   const [showGuessResult, setShowGuessResult] = useState(false);
+
+  const [numberOfLocationsGuessed, setNumberOfLocationsGuessed] = useState(0);
 
   const [showGameOverResult, setShowGameOverResult] = useState(false);
 
@@ -41,7 +42,7 @@ function GameManager() {
   }
 
   function onGuessHandler() {
-    numberOfLocationsGuessed++;
+    setNumberOfLocationsGuessed(numberOfLocationsGuessed + 1);
 
     setShowGuessResult(true);
   }
@@ -73,7 +74,11 @@ function GameManager() {
         showGameOverResult={showGameOverResult}
       />
       {showGuessResult && (
-        <GuessResult nextHandler={nextHandler} roundScores={roundScores} />
+        <GuessResult
+          nextHandler={nextHandler}
+          currentRound={numberOfLocationsGuessed}
+          roundScores={roundScores}
+        />
       )}
       {showGameOverResult && (
         <GameOverResult totalScore={totalScore} roundScores={roundScores} />
