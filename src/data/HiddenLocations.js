@@ -1,5 +1,5 @@
 import { Location } from "./Classes";
-
+import seedrandom from "seedrandom";
 import { LatLng } from "leaflet";
 
 export const HiddenLocations = [
@@ -19,13 +19,21 @@ export const HiddenLocations = [
   new Location("ungael", new LatLng(-4.59375, 57.917587)),
 ];
 
+function dateSeed() {
+  const date = new Date();
+  const day = date.getUTCDate().toString();
+  const month = (date.getUTCMonth() + 1).toString(); // Month is 0 based
+  const year = date.getUTCFullYear().toString();
+  const seed = seedrandom(month + day + year)();
+  return seed;
+}
+
 export function getRandomLocations(numberOfLocationsToGuess) {
   let randomLocations = [];
   while (randomLocations.length < numberOfLocationsToGuess) {
     for (let i = randomLocations.length; i < numberOfLocationsToGuess; i++) {
       randomLocations.push(
-        // TODO: Maybe change random seed
-        HiddenLocations[Math.floor(Math.random() * HiddenLocations.length)]
+        HiddenLocations[Math.floor(dateSeed() * HiddenLocations.length)]
       );
       randomLocations = randomLocations.filter(
         (item, i, ar) => ar.indexOf(item) === i

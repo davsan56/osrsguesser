@@ -6,7 +6,7 @@ import GameOverResult from "../components/GameOverResult";
 import GuessResult from "../components/GuessResult";
 import { getRandomLocations } from "../data/HiddenLocations";
 
-const numberOfLocationsToGuess = 1;
+const numberOfLocationsToGuess = 5;
 
 let locationsToGuess = getRandomLocations(numberOfLocationsToGuess);
 
