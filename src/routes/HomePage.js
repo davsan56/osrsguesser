@@ -2,15 +2,12 @@ import { Link } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faPlay } from "@fortawesome/free-solid-svg-icons";
 import { faGithub } from "@fortawesome/free-brands-svg-icons";
-import RoundScores from "../components/RoundScores";
 
-function Home() {
+function HomePage() {
   return (
     <div className="home osrs-background">
       <div className="home-page-container">
         <p className="dialog-title">OSRS Guesser</p>
-        {/* TODO: Round scores only if completed */}
-        {/* <RoundScores /> */}
         <ul>
           <li>
             <Link className="osrs-button" to="/Game">
@@ -33,4 +30,4 @@ function Home() {
   );
 }
 
-export default Home;
+export default HomePage;

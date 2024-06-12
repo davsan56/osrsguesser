@@ -2,7 +2,7 @@ import { Location } from "./Classes";
 import seedrandom from "seedrandom";
 import { LatLng } from "leaflet";
 
-export const HiddenLocations = [
+const HiddenLocations = [
   new Location("lletya", new LatLng(-46.125, 61.625)),
   new Location("varrock_center", new LatLng(-33.671875, 101.984375)),
   new Location("falador_castle", new LatLng(-37.750789, 90.695791)),
@@ -19,6 +19,8 @@ export const HiddenLocations = [
   new Location("ungael", new LatLng(-4.59375, 57.917587)),
 ];
 
+const editableLocations = [...HiddenLocations];
+
 function dateSeed() {
   const date = new Date();
   const day = date.getUTCDate().toString();
@@ -32,12 +34,9 @@ export function getRandomLocations(numberOfLocationsToGuess) {
   let randomLocations = [];
   while (randomLocations.length < numberOfLocationsToGuess) {
     for (let i = randomLocations.length; i < numberOfLocationsToGuess; i++) {
-      randomLocations.push(
-        HiddenLocations[Math.floor(dateSeed() * HiddenLocations.length)]
-      );
-      randomLocations = randomLocations.filter(
-        (item, i, ar) => ar.indexOf(item) === i
-      );
+      let locationIndex = Math.floor(dateSeed() * editableLocations.length);
+      randomLocations.push(editableLocations[locationIndex]);
+      editableLocations.splice(locationIndex, 1);
     }
   }
   return randomLocations;
