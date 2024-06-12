@@ -20,7 +20,11 @@ function RoundScores({ roundScores }) {
     for (let i = 0; i < 5; i++) {
       const score = roundScores[i];
       content.push(
-        <li id={getClassColor(score ?? "-")} key={i + ":" + score ?? "-"}>
+        <li
+          className="score-list"
+          id={getClassColor(score ?? "-")}
+          key={i + ":" + score ?? "-"}
+        >
           {score ?? "-"}
         </li>
       );

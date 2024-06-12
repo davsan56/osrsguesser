@@ -1,12 +1,12 @@
 import { useState } from "react";
 
-import HiddenLocation from "./HiddenLocation";
-import OSRSMap from "./OSRSMap";
-import GameOverResult from "./GameOverResult";
-import GuessResult from "./GuessResult";
+import HiddenLocation from "../components/HiddenLocation";
+import OSRSMap from "../components/OSRSMap";
+import GameOverResult from "../components/GameOverResult";
+import GuessResult from "../components/GuessResult";
 import { getRandomLocations } from "../data/HiddenLocations";
 
-const numberOfLocationsToGuess = 5;
+const numberOfLocationsToGuess = 1;
 
 let locationsToGuess = getRandomLocations(numberOfLocationsToGuess);
 

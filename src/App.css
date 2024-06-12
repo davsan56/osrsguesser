@@ -19,6 +19,27 @@ button {
   height: 100vh;
 }
 
+.home {
+  height: 100vh;
+  border: 1px solid #6e604e;
+  outline: 1px solid #2d2a22;
+}
+
+.home-page-container {
+  margin: 0;
+  position: absolute;
+  top: 50%;
+  -ms-transform: translateY(-50%);
+  transform: translateY(-50%);
+  text-align: center;
+  padding: 10px;
+  right: 50%;
+  top: 50%;
+  border-radius: 5px;
+  border: 1px solid #6e604e;
+  outline: 1px solid #2d2a22;
+}
+
 .map-container {
   position: relative;
   z-index: 0;
@@ -62,8 +83,11 @@ ul > li {
 }
 
 li {
-  padding: 5px;
   margin: 2px;
+}
+
+.score-list {
+  padding: 5px;
   border: 1px solid #6e604e;
   outline: 1px solid #2d2a22;
   background: #554c41;
