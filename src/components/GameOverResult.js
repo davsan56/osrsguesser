@@ -5,8 +5,10 @@ import { Link } from "react-router-dom";
 import { useEffect, useState } from "react";
 
 import RoundScores from "./RoundScores";
-import { getDateString } from "../data/HiddenLocations";
-import { getGamesPlayedFromStorage } from "../data/Classes";
+import {
+  getGamesPlayedFromStorage,
+  setDailyScoresToStorage,
+} from "../data/LocalStorageHelper";
 
 function GameOverResult({ totalScore, roundScores }) {
   const [numberOfGamesPlayed, setNumberOfGamesPlayed] = useState(0);
@@ -24,16 +26,8 @@ function GameOverResult({ totalScore, roundScores }) {
   }
 
   useEffect(() => {
-    localStorage.setItem(
-      getDateString() + "-dailyScores",
-      JSON.stringify(roundScores)
-    );
-    let numberOfGamesPlayed = getGamesPlayedFromStorage();
-    if (numberOfGamesPlayed === undefined) {
-      numberOfGamesPlayed = 0;
-    }
-    setNumberOfGamesPlayed(numberOfGamesPlayed + 1);
-    localStorage.setItem("numberOfGamesPlayed", numberOfGamesPlayed + 1);
+    setDailyScoresToStorage(roundScores);
+    setNumberOfGamesPlayed(getGamesPlayedFromStorage());
   }, []);
 
   return (

@@ -8,6 +8,17 @@ export function getDailyScoresFromStorage() {
   return dailyRoundScores;
 }
 
+export function setDailyScoresToStorage(roundScores) {
+  localStorage.setItem(
+    getDateString() + "-dailyScores",
+    JSON.stringify(roundScores)
+  );
+}
+
 export function getGamesPlayedFromStorage() {
   return localStorage.getItem("numberOfGamesPlayed");
+}
+
+export function setGamesPlayedToStorage(numberOfGamesPlayed) {
+  localStorage.setItem("numberOfGamesPlayed", numberOfGamesPlayed);
 }

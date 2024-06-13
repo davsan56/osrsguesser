@@ -7,7 +7,7 @@ import { useEffect, useState } from "react";
 import {
   getDailyScoresFromStorage,
   getGamesPlayedFromStorage,
-} from "../data/Classes";
+} from "../data/LocalStorageHelper";
 import Countdown from "react-countdown";
 
 function HomePage() {

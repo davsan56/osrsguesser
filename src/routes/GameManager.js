@@ -5,9 +5,13 @@ import OSRSMap from "../components/OSRSMap";
 import GameOverResult from "../components/GameOverResult";
 import GuessResult from "../components/GuessResult";
 import { getRandomLocations } from "../data/HiddenLocations";
-import { getDailyScoresFromStorage } from "../data/Classes";
+import {
+  getDailyScoresFromStorage,
+  getGamesPlayedFromStorage,
+  setGamesPlayedToStorage,
+} from "../data/LocalStorageHelper";
 
-const numberOfLocationsToGuess = 5;
+const numberOfLocationsToGuess = 1;
 
 let locationsToGuess = getRandomLocations(numberOfLocationsToGuess);
 
@@ -24,7 +28,11 @@ function GameManager() {
     let dailyRoundScores = getDailyScoresFromStorage();
     if (dailyRoundScores !== null) {
       setRoundScores(dailyRoundScores);
-      setTotalScore(dailyRoundScores.reduce((x, y) => x + y));
+      setTotalScore(
+        dailyRoundScores.reduce(
+          (totalValue, currentValue) => totalValue + currentValue
+        )
+      );
       setCurrentLocation(getRandomLocations()[0]);
       setShowGameOverResult(true);
     }
@@ -65,6 +73,14 @@ function GameManager() {
       setCurrentLocation(removedLocation);
     } else {
       if (numberOfLocationsGuessed === numberOfLocationsToGuess) {
+        // Incrememnt number of games played
+        let numberOfGamesPlayed = getGamesPlayedFromStorage();
+        if (numberOfGamesPlayed == null) {
+          numberOfGamesPlayed = 0;
+        }
+        numberOfGamesPlayed = parseInt(numberOfGamesPlayed);
+        setGamesPlayedToStorage(numberOfGamesPlayed + 1);
+
         setShowGameOverResult(true);
       }
     }
