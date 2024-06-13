@@ -1,19 +1,54 @@
 import { Link } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faPlay } from "@fortawesome/free-solid-svg-icons";
+import { faPlay, faCopy } from "@fortawesome/free-solid-svg-icons";
 import { faGithub } from "@fortawesome/free-brands-svg-icons";
+import RoundScores from "../components/RoundScores";
+import { useEffect, useState } from "react";
+import { getDailyScoresFromStorage } from "../data/Classes";
+import Countdown from "react-countdown";
 
 function HomePage() {
+  const [roundScores, setRoundScores] = useState([]);
+
+  useEffect(() => {
+    let dailyRoundScores = getDailyScoresFromStorage();
+    if (dailyRoundScores !== null) {
+      setRoundScores(dailyRoundScores);
+    }
+  }, []);
+
   return (
     <div className="home osrs-background">
       <div className="home-page-container">
         <p className="dialog-title">OSRS Guesser</p>
+        {roundScores.length !== 0 && (
+          <>
+            <p>Todays scores</p>
+            <RoundScores roundScores={roundScores} />
+            <p>Time until next game</p>
+            <Countdown
+              date={
+                Date.now() +
+                (86400 - (Math.floor(new Date() / 1000) % 86400)) * 1000
+              }
+            />
+          </>
+        )}
         <ul>
-          <li>
-            <Link className="osrs-button" to="/Game">
-              <FontAwesomeIcon icon={faPlay} />
-            </Link>
-          </li>
+          {roundScores.length === 0 && (
+            <li>
+              <Link className="osrs-button" to="/Game">
+                <FontAwesomeIcon icon={faPlay} />
+              </Link>
+            </li>
+          )}
+          {roundScores.length !== 0 && (
+            <li>
+              <button className="osrs-button">
+                <FontAwesomeIcon icon={faCopy} />
+              </button>
+            </li>
+          )}
           <li>
             <Link
               className="osrs-button"

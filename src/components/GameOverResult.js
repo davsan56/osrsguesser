@@ -2,8 +2,10 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCopy } from "@fortawesome/fontawesome-free-regular";
 import { faHouse } from "@fortawesome/free-solid-svg-icons";
 import { Link } from "react-router-dom";
+import { useEffect } from "react";
 
 import RoundScores from "./RoundScores";
+import { getDateString } from "../data/HiddenLocations";
 
 function GameOverResult({ totalScore, roundScores }) {
   function getGameOverTitle() {
@@ -17,6 +19,13 @@ function GameOverResult({ totalScore, roundScores }) {
       return "Total Noob";
     }
   }
+
+  useEffect(() => {
+    localStorage.setItem(
+      getDateString() + "-dailyScores",
+      JSON.stringify(roundScores)
+    );
+  }, []);
 
   return (
     <div className="game-over osrs-background">

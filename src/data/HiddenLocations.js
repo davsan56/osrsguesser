@@ -1,6 +1,13 @@
-import { Location } from "./Classes";
+// import { Location } from "./Classes";
 import seedrandom from "seedrandom";
 import { LatLng } from "leaflet";
+
+export class Location {
+  constructor(image, latLng) {
+    this.image = image;
+    this.latLng = latLng;
+  }
+}
 
 const HiddenLocations = [
   new Location("lletya", new LatLng(-46.125, 61.625)),
@@ -21,12 +28,16 @@ const HiddenLocations = [
 
 const editableLocations = [...HiddenLocations];
 
-function dateSeed() {
+export function getDateString() {
   const date = new Date();
   const day = date.getUTCDate().toString();
   const month = (date.getUTCMonth() + 1).toString(); // Month is 0 based
   const year = date.getUTCFullYear().toString();
-  const seed = seedrandom(month + day + year)();
+  return month + day + year;
+}
+
+function dateSeed() {
+  const seed = seedrandom(getDateString())();
   return seed;
 }
 

@@ -1,10 +1,11 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 import HiddenLocation from "../components/HiddenLocation";
 import OSRSMap from "../components/OSRSMap";
 import GameOverResult from "../components/GameOverResult";
 import GuessResult from "../components/GuessResult";
 import { getRandomLocations } from "../data/HiddenLocations";
+import { getDailyScoresFromStorage } from "../data/Classes";
 
 const numberOfLocationsToGuess = 5;
 
@@ -13,16 +14,21 @@ let locationsToGuess = getRandomLocations(numberOfLocationsToGuess);
 function GameManager() {
   // TODO: Figure out how to initialize this better
   const [currentLocation, setCurrentLocation] = useState(locationsToGuess[0]);
-
   const [showGuessResult, setShowGuessResult] = useState(false);
-
   const [numberOfLocationsGuessed, setNumberOfLocationsGuessed] = useState(0);
-
   const [showGameOverResult, setShowGameOverResult] = useState(false);
-
   const [totalScore, setTotalScore] = useState(0);
-
   const [roundScores, setRoundScores] = useState([]);
+
+  useEffect(() => {
+    let dailyRoundScores = getDailyScoresFromStorage();
+    if (dailyRoundScores !== null) {
+      setRoundScores(dailyRoundScores);
+      setTotalScore(dailyRoundScores.reduce((x, y) => x + y));
+      setCurrentLocation(getRandomLocations()[0]);
+      setShowGameOverResult(true);
+    }
+  }, []);
 
   function pleaseSetTotalScore(roundScore) {
     let temp = totalScore;
