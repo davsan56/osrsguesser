@@ -4,16 +4,25 @@ import { faPlay, faCopy } from "@fortawesome/free-solid-svg-icons";
 import { faGithub } from "@fortawesome/free-brands-svg-icons";
 import RoundScores from "../components/RoundScores";
 import { useEffect, useState } from "react";
-import { getDailyScoresFromStorage } from "../data/Classes";
+import {
+  getDailyScoresFromStorage,
+  getGamesPlayedFromStorage,
+} from "../data/Classes";
 import Countdown from "react-countdown";
 
 function HomePage() {
   const [roundScores, setRoundScores] = useState([]);
+  const [numberOfGamesPlayed, setNumberOfGamesPlayed] = useState(0);
 
   useEffect(() => {
     let dailyRoundScores = getDailyScoresFromStorage();
     if (dailyRoundScores !== null) {
       setRoundScores(dailyRoundScores);
+    }
+
+    let gamesPlayed = getGamesPlayedFromStorage();
+    if (gamesPlayed !== undefined) {
+      setNumberOfGamesPlayed(gamesPlayed);
     }
   }, []);
 
@@ -25,6 +34,9 @@ function HomePage() {
           <>
             <p>Todays scores</p>
             <RoundScores roundScores={roundScores} />
+            {numberOfGamesPlayed !== 0 && (
+              <p>Number of gamnes played: {numberOfGamesPlayed}</p>
+            )}
             <p>Time until next game</p>
             <Countdown
               date={

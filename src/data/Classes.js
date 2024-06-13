@@ -7,3 +7,7 @@ export function getDailyScoresFromStorage() {
   );
   return dailyRoundScores;
 }
+
+export function getGamesPlayedFromStorage() {
+  return localStorage.getItem("numberOfGamesPlayed");
+}
