@@ -24,6 +24,26 @@ const HiddenLocations = [
   new Location("camelot_round_table", new LatLng(-30.046875, 80.84375)),
   new Location("seers_church_yews", new LatLng(-32.140625, 78.4375)),
   new Location("ungael", new LatLng(-4.59375, 57.917587)),
+  new Location("emirs_arena", new LatLng(-42.890625, 109.984375)),
+  new Location("ardy_zoo", new LatLng(-40.890625, 74.3125)),
+  new Location("wizards_guild", new LatLng(-49.703125, 73.171875)),
+  new Location("wizards_tower", new LatLng(-46.21875, 97.21875)),
+  new Location("draynor_village_jail", new LatLng(-42.203125, 98.015625)),
+  new Location("varrock_sewers_bear", new LatLng(-30.40625, 102.75)),
+  new Location("witches_house", new LatLng(-31.640625, 87.328125)),
+  new Location("burthorpe_games_room", new LatLng(-27.34375, 87.28125)),
+  new Location("troll_stronghold", new LatLng(-21.671875, 83.671875)),
+  new Location("polar_hunter", new LatLng(-16.53125, 79.25)),
+  new Location(
+    "lighthouse_basalt_agility",
+    new Location(-25.203125, 69.421875)
+  ),
+  new Location("craken_cave", new LatLng(-25.15625, 57.96875)),
+  new Location("falcon_hunting", new LatLng(-26.71875, 62.765625)),
+  new Location("minnow_platform", new LatLng(-32.875, 73.75)),
+  new Location("observatory", new LatLng(-45.5, 66.640625)),
+  new Location("chompy_hunting", new LatLng(-50.890625, 60.984375)),
+  new Location("feldip_hills_hunter", new LatLng(-58.515625, 73)),
 ];
 
 const editableLocations = [...HiddenLocations];
