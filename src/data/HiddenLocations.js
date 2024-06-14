@@ -24,7 +24,7 @@ const HiddenLocations = [
   new Location("camelot_round_table", new LatLng(-30.046875, 80.84375)),
   new Location("seers_church_yews", new LatLng(-32.140625, 78.4375)),
   new Location("ungael", new LatLng(-4.59375, 57.917587)),
-  new Location("emirs_arena", new LatLng(-42.890625, 109.984375)),
+  new Location("emirs_arena", new LatLng(-42.859375, 109.875)),
   new Location("ardy_zoo", new LatLng(-40.890625, 74.3125)),
   new Location("wizards_guild", new LatLng(-49.703125, 73.171875)),
   new Location("wizards_tower", new LatLng(-46.21875, 97.21875)),
