@@ -12,7 +12,7 @@ import {
   setGamesPlayedToStorage,
 } from "../data/LocalStorageHelper";
 
-const numberOfLocationsToGuess = 1;
+const numberOfLocationsToGuess = 5;
 
 let locationsToGuess = getRandomLocations(numberOfLocationsToGuess);
 

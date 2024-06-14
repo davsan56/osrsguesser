@@ -23,16 +23,16 @@ export function copyOrShareResults() {
       }
     }
 
-    if (navigator.canShare) {
-      // Enable the Web Share API button
-      navigator
-        .share({
-          title: "OSRS Guesser",
-          text: retString,
-          url: "https://websitehere.com",
-        })
-        .then(() => console.log("Shared successfully"))
-        .catch((error) => console.error("Sharing failed:", error));
-    }
+    // if (navigator.canShare) {
+    //   // Enable the Web Share API button
+    //   navigator
+    //     .share({
+    //       title: "OSRS Guesser",
+    //       text: retString,
+    //       url: "https://websitehere.com",
+    //     })
+    //     .then(() => console.log("Shared successfully"))
+    //     .catch((error) => console.error("Sharing failed:", error));
+    // }
   }
 }
