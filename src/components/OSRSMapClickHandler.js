@@ -1,5 +1,6 @@
-import "leaflet/dist/leaflet.css";
 import { useEffect, useState } from "react";
+
+import "leaflet/dist/leaflet.css";
 import { Marker, Polyline, useMapEvents } from "react-leaflet";
 import { Icon } from "leaflet";
 import markerIconPng from "leaflet/dist/images/marker-icon.png";

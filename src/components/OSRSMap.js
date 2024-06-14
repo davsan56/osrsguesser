@@ -1,8 +1,10 @@
-import "leaflet/dist/leaflet.css";
-import OSRSMapClickHandler from "./OSRSMapClickHandler";
 import { useRef } from "react";
+
+import "leaflet/dist/leaflet.css";
 import { MapContainer, TileLayer } from "react-leaflet";
 import { LatLngBounds, latLng, CRS } from "leaflet";
+
+import OSRSMapClickHandler from "./OSRSMapClickHandler";
 
 function OSRSMap({
   onClickHandler,

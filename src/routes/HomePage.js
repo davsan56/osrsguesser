@@ -1,14 +1,16 @@
+import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
+import Countdown from "react-countdown";
+
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faPlay, faCopy } from "@fortawesome/free-solid-svg-icons";
 import { faGithub } from "@fortawesome/free-brands-svg-icons";
+
 import RoundScores from "../components/RoundScores";
-import { useEffect, useState } from "react";
 import {
   getDailyScoresFromStorage,
   getGamesPlayedFromStorage,
 } from "../data/LocalStorageHelper";
-import Countdown from "react-countdown";
 import { copyOrShareResults } from "../data/CopyOrShareResults";
 
 function HomePage() {

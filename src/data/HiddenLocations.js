@@ -1,4 +1,3 @@
-// import { Location } from "./Classes";
 import seedrandom from "seedrandom";
 import { LatLng } from "leaflet";
 
