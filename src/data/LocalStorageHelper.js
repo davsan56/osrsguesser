@@ -22,3 +22,12 @@ export function getGamesPlayedFromStorage() {
 export function setGamesPlayedToStorage(numberOfGamesPlayed) {
   localStorage.setItem("numberOfGamesPlayed", numberOfGamesPlayed);
 }
+
+export function deletePreviousDaysScoreFromStorage() {
+  for (var i = 0; i < localStorage.length; i++) {
+    if (localStorage.key(i) !== "numberOfGamesPlayed") {
+      localStorage.removeItem(localStorage.key(i));
+      break;
+    }
+  }
+}

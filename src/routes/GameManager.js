@@ -6,6 +6,7 @@ import GameOverResult from "../components/GameOverResult";
 import GuessResult from "../components/GuessResult";
 import { getRandomLocations } from "../data/HiddenLocations";
 import {
+  deletePreviousDaysScoreFromStorage,
   getDailyScoresFromStorage,
   getGamesPlayedFromStorage,
   setGamesPlayedToStorage,
@@ -80,6 +81,9 @@ function GameManager() {
         }
         numberOfGamesPlayed = parseInt(numberOfGamesPlayed);
         setGamesPlayedToStorage(numberOfGamesPlayed + 1);
+
+        // Delete previous days results
+        deletePreviousDaysScoreFromStorage();
 
         setShowGameOverResult(true);
       }

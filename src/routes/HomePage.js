@@ -9,6 +9,7 @@ import {
   getGamesPlayedFromStorage,
 } from "../data/LocalStorageHelper";
 import Countdown from "react-countdown";
+import { copyOrShareResults } from "../data/CopyOrShareResults";
 
 function HomePage() {
   const [roundScores, setRoundScores] = useState([]);
@@ -56,7 +57,7 @@ function HomePage() {
           )}
           {roundScores.length !== 0 && (
             <li>
-              <button className="osrs-button">
+              <button className="osrs-button" onClick={copyOrShareResults()}>
                 <FontAwesomeIcon icon={faCopy} />
               </button>
             </li>

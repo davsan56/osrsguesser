@@ -9,6 +9,7 @@ import {
   getGamesPlayedFromStorage,
   setDailyScoresToStorage,
 } from "../data/LocalStorageHelper";
+import { copyOrShareResults } from "../data/CopyOrShareResults";
 
 function GameOverResult({ totalScore, roundScores }) {
   const [numberOfGamesPlayed, setNumberOfGamesPlayed] = useState(0);
@@ -45,7 +46,7 @@ function GameOverResult({ totalScore, roundScores }) {
           </Link>
         </li>
         <li>
-          <button className="osrs-button">
+          <button className="osrs-button" onClick={copyOrShareResults()}>
             <FontAwesomeIcon icon={faCopy} />
           </button>
         </li>
