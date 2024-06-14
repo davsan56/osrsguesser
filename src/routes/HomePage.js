@@ -57,7 +57,7 @@ function HomePage() {
           )}
           {roundScores.length !== 0 && (
             <li>
-              <button className="osrs-button" onClick={copyOrShareResults()}>
+              <button className="osrs-button" onClick={copyOrShareResults}>
                 <FontAwesomeIcon icon={faCopy} />
               </button>
             </li>
