@@ -10,7 +10,7 @@ export function copyOrShareResults() {
     let retString =
       "I scored " +
       totalScore +
-      " on todays OSRSGuesser! Try and beat me!\n\nhttps://websitehere.com";
+      " on todays OSRSGuesser! Try and beat me! https://websitehere.com\n\n";
 
     for (var i = 0; i < dailyScores.length; i++) {
       const currentRoundScore = dailyScores[i];

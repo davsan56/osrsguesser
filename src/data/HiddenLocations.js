@@ -1,7 +1,7 @@
 import seedrandom from "seedrandom";
 import { LatLng } from "leaflet";
 
-export class Location {
+class Location {
   constructor(image, latLng) {
     this.image = image;
     this.latLng = latLng;
@@ -33,10 +33,7 @@ const HiddenLocations = [
   new Location("burthorpe_games_room", new LatLng(-27.34375, 87.28125)),
   new Location("troll_stronghold", new LatLng(-21.671875, 83.671875)),
   new Location("polar_hunter", new LatLng(-16.53125, 79.25)),
-  new Location(
-    "lighthouse_basalt_agility",
-    new Location(-25.203125, 69.421875)
-  ),
+  new Location("lighthouse_basalt_agility", new LatLng(-25.203125, 69.421875)),
   new Location("craken_cave", new LatLng(-25.15625, 57.96875)),
   new Location("falcon_hunting", new LatLng(-26.71875, 62.765625)),
   new Location("minnow_platform", new LatLng(-32.875, 73.75)),
