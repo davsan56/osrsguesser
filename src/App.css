@@ -21,20 +21,19 @@ button {
 
 .home {
   height: 100vh;
+  width: 100vw;
+  text-align: center;
   border: 1px solid #6e604e;
   outline: 1px solid #2d2a22;
 }
 
 .home-page-container {
-  margin: 0;
-  position: absolute;
+  margin-inline: auto;
+  position: relative;
+  display: inline-block;
   top: 50%;
-  -ms-transform: translateY(-50%);
   transform: translateY(-50%);
-  text-align: center;
   padding: 10px;
-  right: 50%;
-  top: 50%;
   border-radius: 5px;
   border: 1px solid #6e604e;
   outline: 1px solid #2d2a22;
@@ -54,7 +53,8 @@ button {
   display: inline-block;
   text-align: center;
   padding: 10px;
-  right: 50%;
+  left: 50%;
+  transform: translate(-50%, 0);
   top: 50%;
   border-radius: 5px;
   border: 1px solid #6e604e;
@@ -120,7 +120,8 @@ li {
   display: inline-block;
   text-align: center;
   padding: 10px;
-  right: 50%;
+  left: 50%;
+  transform: translate(-50%, 0);
   top: 50%;
   border-radius: 5px;
   border: 1px solid #6e604e;
@@ -142,6 +143,11 @@ li {
   height: 100vh;
   align-content: center;
   backdrop-filter: blur(10px);
+}
+
+.countdown-container > img {
+  display: block;
+  margin: auto;
 }
 
 .countdown {

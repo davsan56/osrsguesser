@@ -34,7 +34,7 @@ const HiddenLocations = [
   new Location("troll_stronghold", new LatLng(-21.671875, 83.671875)),
   new Location("polar_hunter", new LatLng(-16.53125, 79.25)),
   new Location("lighthouse_basalt_agility", new LatLng(-25.203125, 69.421875)),
-  new Location("craken_cave", new LatLng(-25.15625, 57.96875)),
+  new Location("kraken_cave", new LatLng(-25.15625, 57.96875)),
   new Location("falcon_hunting", new LatLng(-26.71875, 62.765625)),
   new Location("minnow_platform", new LatLng(-32.875, 73.75)),
   new Location("observatory", new LatLng(-45.5, 66.640625)),
