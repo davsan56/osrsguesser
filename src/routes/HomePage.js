@@ -1,17 +1,16 @@
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import Countdown from "react-countdown";
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faPlay, faCopy } from "@fortawesome/free-solid-svg-icons";
 import { faGithub } from "@fortawesome/free-brands-svg-icons";
 
-import RoundScores from "../components/RoundScores";
 import {
   getDailyScoresFromStorage,
   getGamesPlayedFromStorage,
 } from "../data/LocalStorageHelper";
 import { copyOrShareResults } from "../data/CopyOrShareResults";
+import HomePageContainer from "../components/HomePageContainer";
 
 function HomePage() {
   const [roundScores, setRoundScores] = useState([]);
@@ -34,20 +33,10 @@ function HomePage() {
       <div className="home-page-container">
         <p className="dialog-title">OSRS Guesser</p>
         {roundScores.length !== 0 && (
-          <>
-            <p>Todays scores</p>
-            <RoundScores roundScores={roundScores} />
-            {numberOfGamesPlayed !== 0 && (
-              <p>Number of gamnes played: {numberOfGamesPlayed}</p>
-            )}
-            <p>Time until next game</p>
-            <Countdown
-              date={
-                Date.now() +
-                (86400 - (Math.floor(new Date() / 1000) % 86400)) * 1000
-              }
-            />
-          </>
+          <HomePageContainer
+            roundScores={roundScores}
+            numberOfGamesPlayed={numberOfGamesPlayed}
+          />
         )}
         <ul>
           {roundScores.length === 0 && (

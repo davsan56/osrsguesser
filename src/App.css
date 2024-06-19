@@ -54,7 +54,7 @@ button {
   text-align: center;
   padding: 10px;
   left: 50%;
-  transform: translate(-50%, 0);
+  transform: translate(-50%, -50%);
   top: 50%;
   border-radius: 5px;
   border: 1px solid #6e604e;
@@ -121,12 +121,11 @@ li {
   text-align: center;
   padding: 10px;
   left: 50%;
-  transform: translate(-50%, 0);
+  transform: translate(-50%, -50%);
   top: 50%;
   border-radius: 5px;
   border: 1px solid #6e604e;
   outline: 1px solid #2d2a22;
-  box-shadow: -5px -5px 15px black;
   box-shadow: -5px -5px 15px black;
   z-index: 2;
 }
