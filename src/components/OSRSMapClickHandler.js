@@ -31,6 +31,7 @@ function OSRSMapClickHandler({
   const map = useMapEvents({
     click: async (e) => {
       if (!showGuessResult && !showGameOverResult) {
+        alert(e.latlng);
         // Zoom map to show both markers
         map.fitBounds([e.latlng, currentLocation.latLng]);
 
