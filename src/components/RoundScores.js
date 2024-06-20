@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useMemo, useState } from "react";
 
 function RoundScores({ roundScores }) {
   const [listContent, setListContent] = useState(null);
@@ -15,7 +15,7 @@ function RoundScores({ roundScores }) {
       : "";
   }
 
-  useEffect(() => {
+  useMemo(() => {
     let content = [];
     for (let i = 0; i < 5; i++) {
       const score = roundScores[i];

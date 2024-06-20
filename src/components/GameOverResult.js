@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { useEffect, useState } from "react";
+import { useMemo, useState } from "react";
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCopy } from "@fortawesome/fontawesome-free-regular";
@@ -27,7 +27,7 @@ function GameOverResult({ totalScore, roundScores }) {
     }
   }
 
-  useEffect(() => {
+  useMemo(() => {
     setDailyScoresToStorage(roundScores);
     setNumberOfGamesPlayed(getGamesPlayedFromStorage());
   }, []);

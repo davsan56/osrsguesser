@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 
 import "../App.css";
 
@@ -24,7 +24,7 @@ function HiddenLocation({ location }) {
     };
   });
 
-  useEffect(() => {
+  useMemo(() => {
     setTimeRemaining(3);
     setImageClassName("countdown-container");
     setIsActive(true);

@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useMemo, useState } from "react";
 import { Link } from "react-router-dom";
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -16,7 +16,7 @@ function HomePage() {
   const [roundScores, setRoundScores] = useState([]);
   const [numberOfGamesPlayed, setNumberOfGamesPlayed] = useState(0);
 
-  useEffect(() => {
+  useMemo(() => {
     let dailyRoundScores = getDailyScoresFromStorage();
     if (dailyRoundScores !== null) {
       setRoundScores(dailyRoundScores);

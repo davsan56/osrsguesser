@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useMemo, useState } from "react";
 
 import "leaflet/dist/leaflet.css";
 import { Marker, Polyline, useMapEvents } from "react-leaflet";
@@ -28,13 +28,6 @@ function OSRSMapClickHandler({
 }) {
   const [position, setPosition] = useState(null);
 
-  useEffect(() => {
-    if (!showGuessResult) {
-      // Center map
-      map.setView([-35, 92.73], 5);
-    }
-  }, [showGuessResult]);
-
   const map = useMapEvents({
     click: async (e) => {
       if (!showGuessResult && !showGameOverResult) {
@@ -49,6 +42,13 @@ function OSRSMapClickHandler({
       }
     },
   });
+
+  useMemo(() => {
+    if (!showGuessResult) {
+      // Center map
+      map.setView([-35, 92.73], 5);
+    }
+  }, [showGuessResult]);
 
   return (
     <>

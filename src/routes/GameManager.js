@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useMemo, useState } from "react";
 
 import HiddenLocation from "../components/HiddenLocation";
 import OSRSMap from "../components/OSRSMap";
@@ -25,7 +25,7 @@ function GameManager() {
   const [totalScore, setTotalScore] = useState(0);
   const [roundScores, setRoundScores] = useState([]);
 
-  useEffect(() => {
+  useMemo(() => {
     let dailyRoundScores = getDailyScoresFromStorage();
     if (dailyRoundScores !== null) {
       setRoundScores(dailyRoundScores);
