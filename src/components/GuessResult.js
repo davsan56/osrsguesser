@@ -16,9 +16,7 @@ function GuessResult({ nextHandler, currentRound, roundScores }) {
 
   return (
     <div className="guess-result osrs-background">
-      <p className="dialog-title">
-        <b>{getGuessTitle()}</b>
-      </p>
+      <p className="dialog-title">{getGuessTitle()}</p>
       <RoundScores roundScores={roundScores} />
       <button className="osrs-button" onClick={nextHandler}>
         Next

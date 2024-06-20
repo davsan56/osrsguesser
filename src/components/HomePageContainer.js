@@ -21,16 +21,17 @@ function HomePageContainer({ roundScores, numberOfGamesPlayed }) {
     <>
       <p>Todays scores</p>
       <RoundScores roundScores={roundScores} />
-      {numberOfGamesPlayed !== 0 && (
-        <p>Number of gamnes played: {numberOfGamesPlayed}</p>
-      )}
-      <p>Time until next game</p>
-      <Countdown
-        date={
-          Date.now() + (86400 - (Math.floor(new Date() / 1000) % 86400)) * 1000
-        }
-        renderer={renderer}
-      />
+      {numberOfGamesPlayed !== 0 && <p>Games played: {numberOfGamesPlayed}</p>}
+      <p>
+        Next game in:{" "}
+        <Countdown
+          date={
+            Date.now() +
+            (86400 - (Math.floor(new Date() / 1000) % 86400)) * 1000
+          }
+          renderer={renderer}
+        />
+      </p>
     </>
   );
 }

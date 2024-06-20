@@ -2,7 +2,7 @@ import { useMemo, useState } from "react";
 import { Link } from "react-router-dom";
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faPlay, faCopy } from "@fortawesome/free-solid-svg-icons";
+import { faPlay, faCopy, faDonate } from "@fortawesome/free-solid-svg-icons";
 import { faGithub } from "@fortawesome/free-brands-svg-icons";
 
 import {
@@ -40,11 +40,14 @@ function HomePage() {
         )}
         <ul>
           {roundScores.length === 0 && (
-            <li>
-              <Link className="osrs-button" to="/Game">
-                <FontAwesomeIcon icon={faPlay} />
-              </Link>
-            </li>
+            <>
+              <p>Guess the locations on the OSRS map based on the image!</p>
+              <li>
+                <Link className="osrs-button" to="/Game">
+                  <FontAwesomeIcon icon={faPlay} />
+                </Link>
+              </li>
+            </>
           )}
           {roundScores.length !== 0 && (
             <li>
@@ -61,6 +64,16 @@ function HomePage() {
               rel="noopener noreferrer"
             >
               <FontAwesomeIcon icon={faGithub} />
+            </Link>
+          </li>
+          <li>
+            <Link
+              className="osrs-button"
+              to="https://donatewebsitehere.com"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <FontAwesomeIcon icon={faDonate} />
             </Link>
           </li>
         </ul>

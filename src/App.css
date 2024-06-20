@@ -49,7 +49,8 @@ button {
 }
 
 .dialog-title {
-  margin-bottom: 5px;
+  font-size: xx-large;
+  color: yellow;
 }
 
 .guess-result {
@@ -84,6 +85,7 @@ button {
 
 ul > li {
   display: inline-block;
+  margin-top: 15px;
 }
 
 li {
