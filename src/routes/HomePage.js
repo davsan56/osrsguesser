@@ -29,8 +29,8 @@ function HomePage() {
   }, []);
 
   return (
-    <div className="home osrs-background">
-      <div className="home-page-container">
+    <div className="home">
+      <div className="home-page-container osrs-background">
         <p className="dialog-title">OSRS Guesser</p>
         {roundScores.length !== 0 && (
           <HomePageContainer
