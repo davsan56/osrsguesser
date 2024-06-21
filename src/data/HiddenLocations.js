@@ -69,6 +69,7 @@ const HiddenLocations = [
   new Location("fossil_island_tar_swamp", new LatLng(-18.359375, 124.015625)),
   new Location("fossil_island_volcano", new LatLng(-16.984375, 129.46875)),
   new Location("fossil_island_volcano_2", new LatLng(-18.734375, 127.484375)),
+  new Location("lithriken", new LatLng(-6.453125, 118.28125)),
 ];
 
 const editableLocations = [...HiddenLocations];
