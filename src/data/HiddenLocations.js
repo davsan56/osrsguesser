@@ -61,6 +61,14 @@ const HiddenLocations = [
   new Location("slepe", new LatLng(-39.640625, 126.6875)),
   new Location("mos_le'harmless", new LatLng(-55.0625, 126.34375)),
   new Location("harmony_island", new LatLng(-59.907989, 129.423482)),
+  new Location("fossil_island_house", new Location(-13.03125, 127.484375)),
+  new Location(
+    "fossil_island_mushroom_forest",
+    new LatLng(-13.9375, 123.78125)
+  ),
+  new Location("fossil_island_tar_swamp", new LatLng(-18.359375, 124.015625)),
+  new Location("fossil_island_volcano", new LatLng(-16.984375, 129.46875)),
+  new Location("fossil_island_volcano_2", new LatLng(-18.734375, 127.484375)),
 ];
 
 const editableLocations = [...HiddenLocations];
