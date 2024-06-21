@@ -70,6 +70,15 @@ const HiddenLocations = [
   new Location("fossil_island_volcano", new LatLng(-16.984375, 129.46875)),
   new Location("fossil_island_volcano_2", new LatLng(-18.734375, 127.484375)),
   new Location("lithriken", new LatLng(-6.453125, 118.28125)),
+  new Location("al_kharid", new LatLng(-44.78125, 106.71875)),
+  new Location("mta", new LatLng(-40.046875, 108.203125)),
+  new Location("giants_plateau", new LatLng(-46.703125, 110.28125)),
+  new Location("nardah_oven", new LatLng(-59.1875, 112.421875)),
+  new Location("pollnivneach", new LatLng(-55.125, 109.171875)),
+  new Location("river_elid", new LatLng(-49.875, 109.5)),
+  new Location("bedabin_camp", new LatLng(-52.453125, 99.796875)),
+  new Location("ruins_of_unkah", new LatLng(-61.09375, 100.15625)),
+  new Location("necropolis", new LatLng(-66.890625, 106.78125)),
 ];
 
 const editableLocations = [...HiddenLocations];
