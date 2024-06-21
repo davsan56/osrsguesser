@@ -87,7 +87,7 @@ const HiddenLocations = [
   new Location("slayer_tower", new LatLng(-27.9375, 111.421875)),
   new Location("slepe", new LatLng(-39.640625, 126.6875)),
   new Location("soul_altar", new LatLng(-12.921875, 37.21875)),
-  new Location("soul_wars", new LatLng(-61.3125, 54.96875)),
+  new Location("soul_wars", new LatLng(-61.671875, 55)),
   new Location("tai_bwo_wannai", new LatLng(-51.234375, 82.390625)),
   new Location("tithe_farm", new LatLng(-31.09375, 37.046875)),
   new Location("troll_stronghold", new LatLng(-21.671875, 83.671875)),
