@@ -50,6 +50,17 @@ const HiddenLocations = [
   new Location("island_of_stone", new LatLng(-6.296875, 67.171875)),
   new Location("pirates_cove", new LatLng(-15.828125, 54.671875)),
   new Location("lunar_island_flax", new LatLng(-12.65625, 50.6875)),
+  new Location("canifis", new LatLng(-31.96875, 115.234375)),
+  new Location("slayer_tower", new LatLng(-27.9375, 111.421875)),
+  new Location("mort_myre_swamp", new LatLng(-39.828125, 111.859375)),
+  new Location("burgh_de_rott", new LatLng(-43.234375, 115.453125)),
+  new Location("meiyerditch", new LatLng(-43.734375, 121.109375)),
+  new Location("darkmeyer", new LatLng(-38.84375, 120.4375)),
+  new Location("undead_cow_pen", new LatLng(-29.328125, 120.984375)),
+  new Location("port_phasmatys", new LatLng(-31.40625, 123.890625)),
+  new Location("slepe", new LatLng(-39.640625, 126.6875)),
+  new Location("mos_le'harmless", new LatLng(-55.0625, 126.34375)),
+  new Location("harmony_island", new LatLng(-59.907989, 129.423482)),
 ];
 
 const editableLocations = [...HiddenLocations];
