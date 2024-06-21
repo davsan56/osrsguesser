@@ -80,6 +80,13 @@ const HiddenLocations = [
   new Location("ruins_of_unkah", new LatLng(-61.09375, 100.15625)),
   new Location("necropolis", new LatLng(-66.890625, 106.78125)),
   new Location("draynor_manor", new LatLng(-38, 96.25)),
+  new Location("entrana", new LatLng(-37.453125, 84.453125)),
+  new Location("ape_atoll", new LatLng(-65.078125, 82.890625)),
+  new Location("void_knights_outpost", new LatLng(-70.34375, 75.5625)),
+  new Location("musa_point", new LatLng(-45.34375, 88.515625)),
+  new Location("brimhaven", new LatLng(-45.421875, 82.328125)),
+  new Location("tai_bwo_wannai", new LatLng(-51.234375, 82.390625)),
+  new Location("shilo_village", new LatLng(-55.015625, 84.125)),
 ];
 
 const editableLocations = [...HiddenLocations];
