@@ -87,6 +87,9 @@ const HiddenLocations = [
   new Location("brimhaven", new LatLng(-45.421875, 82.328125)),
   new Location("tai_bwo_wannai", new LatLng(-51.234375, 82.390625)),
   new Location("shilo_village", new LatLng(-55.015625, 84.125)),
+  new Location("soul_wars", new LatLng(-61.3125, 54.96875)),
+  new Location("poison_waste", new LatLng(-49.609375, 55.3125)),
+  new Location("weiss", new LatLng(-9.859375, 86.671875)),
 ];
 
 const editableLocations = [...HiddenLocations];
