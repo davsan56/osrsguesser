@@ -90,6 +90,20 @@ const HiddenLocations = [
   new Location("soul_wars", new LatLng(-61.3125, 54.96875)),
   new Location("poison_waste", new LatLng(-49.609375, 55.3125)),
   new Location("weiss", new LatLng(-9.859375, 86.671875)),
+  new Location("chambers_of_xeric", new LatLng(-27.817596, 9.20369)),
+  new Location("farming_guild", new LatLng(-18.734375, 8.96875)),
+  new Location("kebos_swamp", new LatLng(-23.109375, 9.421875)),
+  new Location("lovakengj_statue", new LatLng(-17.078125, 19.765625)),
+  new Location("arceuus_church", new LatLng(-16.5625, 30.3125)),
+  new Location("wintertodt_camp", new LatLng(-10.21875, 27.829994)),
+  new Location("soul_altar", new LatLng(-12.921875, 37.21875)),
+  new Location("port_piscarilius", new LatLng(-19.71875, 36.546875)),
+  new Location("kourned_castle", new LatLng(-23.46875, 27.734375)),
+  new Location("hosidius_apples", new LatLng(-24.28125, 31.9375)),
+  new Location("tithe_farm", new LatLng(-31.09375, 37.046875)),
+  new Location("kourend_woodlands", new LatLng(-31.4375, 22.640625)),
+  new Location("shayzien_graveyard", new LatLng(-26.96875, 20.671875)),
+  new Location("shayzien_encampment", new LatLng(-22.328849, 22.831785)),
 ];
 
 const editableLocations = [...HiddenLocations];
