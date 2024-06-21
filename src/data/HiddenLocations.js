@@ -79,6 +79,7 @@ const HiddenLocations = [
   new Location("bedabin_camp", new LatLng(-52.453125, 99.796875)),
   new Location("ruins_of_unkah", new LatLng(-61.09375, 100.15625)),
   new Location("necropolis", new LatLng(-66.890625, 106.78125)),
+  new Location("draynor_manor", new LatLng(-38, 96.25)),
 ];
 
 const editableLocations = [...HiddenLocations];
