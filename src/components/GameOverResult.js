@@ -2,7 +2,6 @@ import { Link } from "react-router-dom";
 import { useMemo, useState } from "react";
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faCopy } from "@fortawesome/fontawesome-free-regular";
 import { faDonate, faHouse } from "@fortawesome/free-solid-svg-icons";
 
 import RoundScores from "./RoundScores";
@@ -10,7 +9,7 @@ import {
   getGamesPlayedFromStorage,
   setDailyScoresToStorage,
 } from "../data/LocalStorageHelper";
-import { copyOrShareResults } from "../data/CopyOrShareResults";
+import { CopyOrShareButton } from "../data/CopyOrShareResults";
 
 function GameOverResult({ totalScore, roundScores }) {
   const [numberOfGamesPlayed, setNumberOfGamesPlayed] = useState(0);
@@ -44,9 +43,7 @@ function GameOverResult({ totalScore, roundScores }) {
           </Link>
         </li>
         <li>
-          <button className="osrs-button" onClick={copyOrShareResults}>
-            <FontAwesomeIcon icon={faCopy} />
-          </button>
+          <CopyOrShareButton />
         </li>
         <li>
           <Link

@@ -1,6 +1,12 @@
-import { getDailyScoresFromStorage } from "./LocalStorageHelper";
+import { faCopy } from "@fortawesome/fontawesome-free-regular";
+import { faCheck, faShare } from "@fortawesome/free-solid-svg-icons";
 
-export function copyOrShareResults() {
+import { getDailyScoresFromStorage } from "./LocalStorageHelper";
+import { useState } from "react";
+import { isMobile } from "react-device-detect";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+
+function copyOrShareResults() {
   let dailyScores = getDailyScoresFromStorage();
   if (dailyScores) {
     let totalScore = dailyScores.reduce(
@@ -25,18 +31,41 @@ export function copyOrShareResults() {
       }
     }
 
+    // if (isMobile) {
+    //   if (navigator.canShare) {
+    //     // Enable the Web Share API button
+    //     navigator
+    //       .share({
+    //         title: "OSRS Guesser",
+    //         text: retString,
+    //         url: "https://websitehere.com",
+    //       })
+    //       .then(() => console.log("Shared successfully"))
+    //       .catch((error) => console.error("Sharing failed:", error));
+    //   }
+    // } else {
     navigator.clipboard.writeText(retString);
-
-    // if (navigator.canShare) {
-    //   // Enable the Web Share API button
-    //   navigator
-    //     .share({
-    //       title: "OSRS Guesser",
-    //       text: retString,
-    //       url: "https://websitehere.com",
-    //     })
-    //     .then(() => console.log("Shared successfully"))
-    //     .catch((error) => console.error("Sharing failed:", error));
     // }
   }
+}
+
+export function CopyOrShareButton() {
+  const [iconImage, setIconImage] = useState(isMobile ? faCopy : faCopy);
+
+  function onClickHandler() {
+    if (iconImage === faCheck) {
+      return;
+    }
+    setIconImage(faCheck);
+    copyOrShareResults();
+    setTimeout(() => {
+      setIconImage(isMobile ? faCopy : faCopy);
+    }, 2000);
+  }
+
+  return (
+    <button className="osrs-button" onClick={onClickHandler}>
+      <FontAwesomeIcon icon={iconImage} />
+    </button>
+  );
 }

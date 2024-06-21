@@ -9,8 +9,8 @@ import {
   getDailyScoresFromStorage,
   getGamesPlayedFromStorage,
 } from "../data/LocalStorageHelper";
-import { copyOrShareResults } from "../data/CopyOrShareResults";
 import HomePageContainer from "../components/HomePageContainer";
+import { CopyOrShareButton } from "../data/CopyOrShareResults";
 
 function HomePage() {
   const [roundScores, setRoundScores] = useState([]);
@@ -51,9 +51,7 @@ function HomePage() {
           )}
           {roundScores.length !== 0 && (
             <li>
-              <button className="osrs-button" onClick={copyOrShareResults}>
-                <FontAwesomeIcon icon={faCopy} />
-              </button>
+              <CopyOrShareButton />
             </li>
           )}
           <li>
