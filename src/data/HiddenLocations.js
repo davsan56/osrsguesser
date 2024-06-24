@@ -36,7 +36,7 @@ const HiddenLocations = [
   new Location("farming_guild", new LatLng(-18.734375, 8.96875)),
   new Location("feldip_hills_hunter", new LatLng(-58.515625, 73)),
   new Location("ferox_enclave", new LatLng(-23.96875, 98.046875)),
-  new Location("fossil_island_house", new Location(-13.03125, 127.484375)),
+  new Location("fossil_island_house", new LatLng(-13.03125, 127.484375)),
   new Location(
     "fossil_island_mushroom_forest",
     new LatLng(-13.9375, 123.78125)
@@ -116,8 +116,8 @@ export function getDateString() {
   return month + day + year;
 }
 
-function dateSeed() {
-  const seed = seedrandom(getDateString())();
+function dateSeed(index) {
+  const seed = seedrandom(getDateString() + index)();
   return seed;
 }
 
@@ -125,7 +125,7 @@ export function getRandomLocations(numberOfLocationsToGuess) {
   let randomLocations = [];
   while (randomLocations.length < numberOfLocationsToGuess) {
     for (let i = randomLocations.length; i < numberOfLocationsToGuess; i++) {
-      let locationIndex = Math.floor(dateSeed() * editableLocations.length);
+      let locationIndex = Math.floor(dateSeed(i) * editableLocations.length);
       randomLocations.push(editableLocations[locationIndex]);
       editableLocations.splice(locationIndex, 1);
     }
