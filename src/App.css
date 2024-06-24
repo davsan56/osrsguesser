@@ -192,12 +192,6 @@ li {
   cursor: pointer;
 }
 
-/* .hidden-location:hover {
-  height: 40vh;
-  margin-right: 0;
-  margin-bottom: 0;
-} */
-
 .hidden-location-image {
   max-width: 100%;
   height: auto;
