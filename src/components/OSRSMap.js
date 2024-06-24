@@ -24,7 +24,7 @@ function OSRSMap({
         center={[-35, 92.73]}
         zoom={5}
         maxZoom={6}
-        minZoom={4}
+        minZoom={3}
         style={{ height: "100vh", width: "100%" }}
         maxBounds={outerBounds}
         maxBoundsViscosity={1}
