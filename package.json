@@ -1,7 +1,10 @@
 {
   "name": "osrsguesser",
   "version": "0.1.0",
-  "private": true,
+  "homepage": "https://davsan56.github.io/osrsguesser",
+  "private": false,
+  "predeploy": "npm run build",
+  "deploy": "gh-pages -d build",
   "dependencies": {
     "@fortawesome/fontawesome-free-regular": "^5.0.13",
     "@fortawesome/fontawesome-svg-core": "^6.5.2",
@@ -46,6 +49,7 @@
     ]
   },
   "devDependencies": {
+    "gh-pages": "^6.1.1",
     "react-router-dom": "^6.23.1"
   }
 }
