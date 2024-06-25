@@ -39,7 +39,7 @@ function OSRSMap({
         />
         <TileLayer
           attribution='<a href="https://jingle.rs/">jingle.rs</a>'
-          url={`/osrsmap/{z}/{x}/{y}.png`}
+          url={`osrsmap/{z}/{x}/{y}.png`}
         />
       </MapContainer>
     </div>

@@ -43,7 +43,7 @@ function HomePage() {
             <>
               <p>Guess the locations on the OSRS map based on the image!</p>
               <li>
-                <Link className="osrs-button" to="/Game">
+                <Link className="osrs-button" to="/game">
                   <FontAwesomeIcon icon={faPlay} />
                 </Link>
               </li>

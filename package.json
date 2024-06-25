@@ -2,7 +2,7 @@
   "name": "osrsguesser",
   "version": "0.1.0",
   "homepage": "https://davsan56.github.io/osrsguesser/",
-  "private": true,
+  "private": false,
   "dependencies": {
     "@fortawesome/fontawesome-free-regular": "^5.0.13",
     "@fortawesome/fontawesome-svg-core": "^6.5.2",
