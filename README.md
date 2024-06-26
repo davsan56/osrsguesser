@@ -1,7 +1,9 @@
 # OSRSGuesser
 A location guessing game for Old School RuneScape. Inspired by GeoGuessr, OSRSGuesser is a game where you guess where on the map the given picture is. You get points based on how close your guess is!
 
-The daily OSRSGuesser resets at Midnight GMT. 
+The daily OSRSGuesser resets at Midnight GMT.
+
+You can play at https://davsan56.github.io/osrsguesser
 
 ## Contributing
 
