@@ -3,15 +3,15 @@ import Countdown from "react-countdown";
 import RoundScores from "../components/RoundScores";
 
 function HomePageContainer({ roundScores, numberOfGamesPlayed }) {
-  const renderer = ({ hours, minutes, seconds, completed }) => {
-    if (completed) {
+  const renderer = (props) => {
+    if (props.completed) {
       // Render a completed state
-      return <p>Refresh to play!</p>;
+      return <span>Refresh to play!</span>;
     } else {
       // Render a countdown
       return (
         <span>
-          {hours}:{minutes}:{seconds}
+          {props.hours}:{props.formatted.minutes}:{props.formatted.seconds}
         </span>
       );
     }
@@ -30,6 +30,7 @@ function HomePageContainer({ roundScores, numberOfGamesPlayed }) {
             (86400 - (Math.floor(new Date() / 1000) % 86400)) * 1000
           }
           renderer={renderer}
+          zeroPadTime={2}
         />
       </p>
     </>
