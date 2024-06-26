@@ -48,7 +48,7 @@ function GameOverResult({ totalScore, roundScores }) {
         <li>
           <Link
             className="osrs-button"
-            to="https://donatewebsitehere.com"
+            to="https://ko-fi.com/davsan56"
             target="_blank"
             rel="noopener noreferrer"
           >

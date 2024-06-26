@@ -57,7 +57,7 @@ function HomePage() {
           <li>
             <Link
               className="osrs-button"
-              to="https://github.com/davsan56/OSRSGuesser"
+              to="https://github.com/davsan56/osrsguesser"
               target="_blank"
               rel="noopener noreferrer"
             >
@@ -67,7 +67,7 @@ function HomePage() {
           <li>
             <Link
               className="osrs-button"
-              to="https://donatewebsitehere.com"
+              to="https://ko-fi.com/davsan56"
               target="_blank"
               rel="noopener noreferrer"
             >
