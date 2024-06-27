@@ -2,6 +2,7 @@ import { useMemo, useState } from "react";
 
 function RoundScores({ roundScores }) {
   const [listContent, setListContent] = useState(null);
+  const [totalScore, setTotalScore] = useState(0);
 
   function getClassColor(score) {
     return score === 1000
@@ -30,9 +31,21 @@ function RoundScores({ roundScores }) {
       );
     }
     setListContent(content);
-  }, []);
 
-  return <ul>{listContent}</ul>;
+    setTotalScore(
+      roundScores.reduce(
+        (accumulator, currentValue) => accumulator + currentValue,
+        0
+      )
+    );
+  }, [roundScores]);
+
+  return (
+    <div className="round-scores">
+      <p className="todays-total-score">{totalScore} / 5000</p>
+      <ul>{listContent}</ul>
+    </div>
+  );
 }
 
 export default RoundScores;

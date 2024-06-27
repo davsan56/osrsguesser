@@ -83,9 +83,18 @@ button {
   color: white;
 }
 
+.round-scores {
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+.todays-total-score {
+  font-size: 20px;
+  margin-bottom: 2px;
+}
+
 ul > li {
   display: inline-block;
-  margin-top: 15px;
 }
 
 li {
