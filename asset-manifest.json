@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/osrsguesser/static/css/main.938a834b.css",
-    "main.js": "/osrsguesser/static/js/main.ec6559e4.js",
+    "main.css": "/osrsguesser/static/css/main.8f10f90c.css",
+    "main.js": "/osrsguesser/static/js/main.8e668f6c.js",
     "static/media/entrana.png": "/osrsguesser/static/media/entrana.df658a640ce7710a50b3.png",
     "static/media/kourend_woodlands.png": "/osrsguesser/static/media/kourend_woodlands.2d4886a0ef2016e98879.png",
     "static/media/wizards_guild.png": "/osrsguesser/static/media/wizards_guild.876369b6eaac431f0b62.png",
@@ -97,11 +97,11 @@
     "static/media/bg2.jpg": "/osrsguesser/static/media/bg2.6b469c844d1740751acc.jpg",
     "static/media/runescape.ttf": "/osrsguesser/static/media/runescape.3c4bbb0ca8ee1b13d551.ttf",
     "index.html": "/osrsguesser/index.html",
-    "main.938a834b.css.map": "/osrsguesser/static/css/main.938a834b.css.map",
-    "main.ec6559e4.js.map": "/osrsguesser/static/js/main.ec6559e4.js.map"
+    "main.8f10f90c.css.map": "/osrsguesser/static/css/main.8f10f90c.css.map",
+    "main.8e668f6c.js.map": "/osrsguesser/static/js/main.8e668f6c.js.map"
   },
   "entrypoints": [
-    "static/css/main.938a834b.css",
-    "static/js/main.ec6559e4.js"
+    "static/css/main.8f10f90c.css",
+    "static/js/main.8e668f6c.js"
   ]
 }
