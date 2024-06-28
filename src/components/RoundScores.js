@@ -1,6 +1,6 @@
 import { useMemo, useState } from "react";
 
-function RoundScores({ roundScores }) {
+function RoundScores({ roundScores, isGameOver }) {
   const [listContent, setListContent] = useState(null);
   const [totalScore, setTotalScore] = useState(0);
 
@@ -42,7 +42,10 @@ function RoundScores({ roundScores }) {
 
   return (
     <div className="round-scores">
-      <p className="todays-total-score">{totalScore} / 5000</p>
+      <p className="todays-total-score">
+        {totalScore}
+        {isGameOver ? <span> / 5000</span> : <span></span>}
+      </p>
       <ul>{listContent}</ul>
     </div>
   );
