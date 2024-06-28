@@ -43,7 +43,7 @@ function RoundScores({ roundScores, isGameOver }) {
   return (
     <div className="round-scores">
       <p className="todays-total-score">
-        {totalScore}
+        {isGameOver ? totalScore : roundScores.at(-1)}
         {isGameOver ? <span> / 5000</span> : <span></span>}
       </p>
       <ul>{listContent}</ul>
