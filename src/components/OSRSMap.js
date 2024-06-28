@@ -23,7 +23,7 @@ function OSRSMap({
         ref={mapRef}
         center={[-35, 92.73]}
         zoom={5}
-        maxZoom={6}
+        maxZoom={7}
         minZoom={3}
         style={{ height: "100vh", width: "100%" }}
         maxBounds={outerBounds}
@@ -38,7 +38,6 @@ function OSRSMap({
           showGameOverResult={showGameOverResult}
         />
         <TileLayer
-          attribution='<a href="https://jingle.rs/">jingle.rs</a>'
           url={`osrsmap/{z}/{x}/{y}.png`}
         />
       </MapContainer>
