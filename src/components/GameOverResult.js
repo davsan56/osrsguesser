@@ -34,7 +34,7 @@ function GameOverResult({ totalScore, roundScores }) {
   return (
     <div className="game-over osrs-background">
       <p className="dialog-title">{getGameOverTitle(totalScore)}</p>
-      <RoundScores roundScores={roundScores} />
+      <RoundScores roundScores={roundScores} isGameOver={true} />
       <p>Number of games played: {numberOfGamesPlayed}</p>
       <ul>
         <li>

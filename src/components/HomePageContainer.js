@@ -20,7 +20,7 @@ function HomePageContainer({ roundScores, numberOfGamesPlayed }) {
   return (
     <>
       <p>Todays scores</p>
-      <RoundScores roundScores={roundScores} />
+      <RoundScores roundScores={roundScores} isGameOver={true} />
       {numberOfGamesPlayed !== 0 && <p>Games played: {numberOfGamesPlayed}</p>}
       <p>
         Next game in:{" "}
