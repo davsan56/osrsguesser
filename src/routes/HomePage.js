@@ -41,7 +41,9 @@ function HomePage() {
         <ul>
           {roundScores.length === 0 && (
             <>
-              <p>Guess the locations on the OSRS map based on the image!</p>
+              <p style={{ marginBottom: 10 }}>
+                Guess the locations on the OSRS map based on the image!
+              </p>
               <li>
                 <Link className="osrs-button" to="/game">
                   <FontAwesomeIcon icon={faPlay} />
