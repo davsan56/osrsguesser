@@ -1,6 +1,7 @@
 import { useEffect, useMemo, useState } from "react";
 
 import "../App.css";
+import KeyDetector from "./KeyDetector";
 
 let timer = null;
 
@@ -43,10 +44,19 @@ function HiddenLocation({ location }) {
     }
   }
 
+  function onKeyDown(event) {
+    if (event.key === "Escape") {
+      onClickHandler();
+    }
+  }
+
   return (
     <div className={imageClassName} onClick={onClickHandler}>
       {imageClassName === "countdown-container" && (
-        <div className="x-button osrs-button">X</div>
+        <>
+          <div className="x-button osrs-button">X</div>
+          <KeyDetector callback={onKeyDown} />
+        </>
       )}
       <img
         src={require("../../public/locations/" + location.image + ".png")}
