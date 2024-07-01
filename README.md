@@ -15,7 +15,7 @@ Have an idea for a location? Here are some of the ways you can submit your own!
 3. Want to help even further? You can follow these steps:
 
 - Clone the repo
-- Rename the `.env.example` file to `.env` and have the variable `REACT_APP_LAT_LNG_TESTING` to `true`
+- Rename the `.env.example` file to `.env` and set the variable `REACT_APP_LAT_LNG_TESTING` to `true`
 - `npm install`
 - `npm start`
 - You will be brought to a testing mode where, when you click on the map, you will see the lat/lng of the location as a pop up
