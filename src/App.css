@@ -114,12 +114,12 @@ li {
   background: #4e4538;
 }
 
-#gold {
-  color: gold;
+#green {
+  color: #0ead0d;
 }
 
-#green {
-  color: green;
+#light-green {
+  color: rgb(169, 228, 51);
 }
 
 #yellow {

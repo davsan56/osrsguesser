@@ -6,9 +6,9 @@ function RoundScores({ roundScores, isGameOver }) {
 
   function getClassColor(score) {
     return score === 1000
-      ? "gold"
-      : score > 850
       ? "green"
+      : score > 850
+      ? "light-green"
       : score > 0
       ? "yellow"
       : score === 0

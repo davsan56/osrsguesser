@@ -21,15 +21,17 @@ function copyOrShareResults() {
     for (var i = 0; i < dailyScores.length; i++) {
       const currentRoundScore = dailyScores[i];
       if (currentRoundScore === 1000) {
-        retString += "🥇 " + currentRoundScore;
+        retString += "🥇 " + currentRoundScore + " ";
       } else if (currentRoundScore >= 850) {
-        retString += "🟢 " + currentRoundScore;
+        retString += "🟢 " + currentRoundScore + " ";
       } else if (currentRoundScore > 0) {
-        retString += "🟡 " + currentRoundScore;
+        retString += "🟡 " + currentRoundScore + " ";
       } else {
-        retString += "🔴 " + currentRoundScore;
+        retString += "🔴 " + currentRoundScore + " ";
       }
     }
+
+    retString = retString.trim();
 
     // if (isMobile) {
     //   if (navigator.canShare) {
