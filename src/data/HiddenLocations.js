@@ -1,4 +1,3 @@
-import seedrandom from "seedrandom";
 import { LatLng } from "leaflet";
 
 class Location {
@@ -106,8 +105,74 @@ const HiddenLocations = [
   new Location("woodcutting_guild", new LatLng(-30.921875, 25.015625)),
 ];
 
-const editableLocations = [...HiddenLocations];
+// Helper function to create a consistent pseudo-random number generator
+function mulberry32(seed) {
+  return function () {
+    var t = (seed += 0x6d2b79f5);
+    t = Math.imul(t ^ (t >>> 15), t | 1);
+    t ^= t + Math.imul(t ^ (t >>> 7), t | 61);
+    return ((t ^ (t >>> 14)) >>> 0) / 4294967296;
+  };
+}
 
+// Fisher-Yates shuffle algorithm with a seeded random number generator
+function shuffle(array, seed) {
+  let rng = mulberry32(seed);
+  for (let i = array.length - 1; i > 0; i--) {
+    const j = Math.floor(rng() * (i + 1));
+    [array[i], array[j]] = [array[j], array[i]];
+  }
+  return array;
+}
+
+// Function to get unique items consistently over multiple days
+function getUniqueItemsOverDays(
+  array,
+  numItemsPerDay,
+  totalDays,
+  currentDay,
+  usedItemsHistory
+) {
+  // Ensure we don't ask for more items than available in the array
+  if (numItemsPerDay * totalDays > array.length) {
+    throw new Error("Requested more unique items than available in the array");
+  }
+
+  // Function to generate unique items for a single day
+  function generateUniqueItemsForDay(day) {
+    const baseSeed = 12345 + day; // Change seed for each day to ensure randomness
+    const usedItemsSet = new Set(usedItemsHistory.flat());
+    let availableItems = array.filter((item) => !usedItemsSet.has(item));
+    availableItems = shuffle(availableItems, baseSeed);
+
+    const itemsForToday = availableItems.slice(0, numItemsPerDay);
+    usedItemsHistory.push(itemsForToday);
+
+    // Keep only the last (totalDays - 1) days' items in the history
+    if (usedItemsHistory.length > totalDays - 1) {
+      usedItemsHistory.shift();
+    }
+
+    return itemsForToday;
+  }
+
+  // Generate items for the current day
+  return generateUniqueItemsForDay(currentDay);
+}
+
+// Function to get current day number out of 365
+// numberOfPreviousDaysFromToday parameter will give the day of x number of days previous
+// ie if 1 is passed, it will return yesterdays number, 2 will be 2 days ago etc..
+function getCurrentDayNumber(numberOfPreviousDaysFromToday = 0) {
+  const now = new Date();
+  now.setDate(now.getDate() - numberOfPreviousDaysFromToday);
+  const startOfYear = new Date(Date.UTC(now.getUTCFullYear(), 0, 1));
+  const diff = now - startOfYear;
+  const oneDay = 24 * 60 * 60 * 1000;
+  return Math.floor(diff / oneDay);
+}
+
+// Function to get the date as a string, ie july 3rd 2024 = 732024
 export function getDateString() {
   const date = new Date();
   const day = date.getUTCDate().toString();
@@ -116,19 +181,28 @@ export function getDateString() {
   return month + day + year;
 }
 
-function dateSeed(index) {
-  const seed = seedrandom(getDateString() + index)();
-  return seed;
-}
-
+// Returns an array of todays hidden location
 export function getRandomLocations(numberOfLocationsToGuess) {
-  let randomLocations = [];
-  while (randomLocations.length < numberOfLocationsToGuess) {
-    for (let i = randomLocations.length; i < numberOfLocationsToGuess; i++) {
-      let locationIndex = Math.floor(dateSeed(i) * editableLocations.length);
-      randomLocations.push(editableLocations[locationIndex]);
-      editableLocations.splice(locationIndex, 1);
-    }
+  const items = HiddenLocations;
+  const numberOfItemsPerDay = numberOfLocationsToGuess;
+  const numberOfUniqueDays = 3; // Ensuring uniqueness over the course of 3 days
+  let usedItemsHistory = [];
+  let uniqueItemsForToday = [];
+
+  // Loop through past numberOfUniqueDays and add them to history list
+  // Loops backwards starting at furthest day, so the last time the for loop runs
+  // is todays items.
+  for (let i = numberOfUniqueDays; i >= 0; i--) {
+    let currentDay = getCurrentDayNumber(i);
+    const uniqueItems = getUniqueItemsOverDays(
+      items,
+      numberOfItemsPerDay,
+      numberOfUniqueDays,
+      currentDay,
+      usedItemsHistory
+    );
+    uniqueItemsForToday = uniqueItems;
   }
-  return randomLocations;
+
+  return uniqueItemsForToday;
 }
