@@ -134,7 +134,7 @@ function getUniqueItemsOverDays(
   usedItemsHistory
 ) {
   // Ensure we don't ask for more items than available in the array
-  if (numItemsPerDay * totalDays > array.length) {
+  if (numItemsPerDay * totalDays + numItemsPerDay > array.length) {
     throw new Error("Requested more unique items than available in the array");
   }
 
@@ -149,7 +149,7 @@ function getUniqueItemsOverDays(
     usedItemsHistory.push(itemsForToday);
 
     // Keep only the last (totalDays - 1) days' items in the history
-    if (usedItemsHistory.length > totalDays - 1) {
+    if (usedItemsHistory.length > totalDays) {
       usedItemsHistory.shift();
     }
 
