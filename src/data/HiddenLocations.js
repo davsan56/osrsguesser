@@ -125,51 +125,51 @@ function shuffle(array, seed) {
   return array;
 }
 
-// Function to get unique items consistently over multiple days
-function getUniqueItemsOverDays(
-  array,
-  numItemsPerDay,
-  totalDays,
-  currentDay,
-  usedItemsHistory
-) {
-  // Ensure we don't ask for more items than available in the array
-  if (numItemsPerDay * totalDays + numItemsPerDay > array.length) {
-    throw new Error("Requested more unique items than available in the array");
-  }
-
-  // Function to generate unique items for a single day
-  function generateUniqueItemsForDay(day) {
-    const baseSeed = 12345 + day; // Change seed for each day to ensure randomness
-    const usedItemsSet = new Set(usedItemsHistory.flat());
-    let availableItems = array.filter((item) => !usedItemsSet.has(item));
-    availableItems = shuffle(availableItems, baseSeed);
-
-    const itemsForToday = availableItems.slice(0, numItemsPerDay);
-    usedItemsHistory.push(itemsForToday);
-
-    // Keep only the last (totalDays - 1) days' items in the history
-    if (usedItemsHistory.length > totalDays) {
-      usedItemsHistory.shift();
-    }
-
-    return itemsForToday;
-  }
-
-  // Generate items for the current day
-  return generateUniqueItemsForDay(currentDay);
-}
-
-// Function to get current day number out of 365
-// numberOfPreviousDaysFromToday parameter will give the day of x number of days previous
-// ie if 1 is passed, it will return yesterdays number, 2 will be 2 days ago etc..
-function getCurrentDayNumber(numberOfPreviousDaysFromToday = 0) {
+// Function to get the current day number based on GMT
+function getCurrentDayNumber() {
   const now = new Date();
-  now.setDate(now.getDate() - numberOfPreviousDaysFromToday);
   const startOfYear = new Date(Date.UTC(now.getUTCFullYear(), 0, 1));
   const diff = now - startOfYear;
   const oneDay = 24 * 60 * 60 * 1000;
   return Math.floor(diff / oneDay);
+}
+
+// Function to get the current year based on GMT
+function getCurrentYear() {
+  const now = new Date();
+  return now.getUTCFullYear();
+}
+
+// Function to sort an array the same way for a given number of days, then change the order after that period
+function sortArrayOnCycle(array, seed) {
+  // Create a copy of the array to avoid modifying the original array
+  const arrayCopy = array.slice();
+  return shuffle(arrayCopy, seed);
+}
+
+// Function to get unique entries ensuring they don't repeat within the configured period
+function getUniqueEntries(
+  array,
+  numberOfLocationsToGuess,
+  daysBeforeReshuffle
+) {
+  const currentDay = getCurrentDayNumber();
+  const currentYear = getCurrentYear();
+  const daySeed = Math.floor(currentDay / daysBeforeReshuffle); // Seed changes after the given number of days
+
+  // Create a unique seed using the current year and daySeed
+  const seed = 12345 + currentYear * 10000 + daySeed; // Multiply currentYear by 10000 to make the seed more unique
+
+  const sortedArray = sortArrayOnCycle(array, seed);
+
+  // Calculate the offset within the shuffled array
+  const offset = (currentDay % daysBeforeReshuffle) * numberOfLocationsToGuess;
+  const uniqueEntries = sortedArray.slice(
+    offset,
+    offset + numberOfLocationsToGuess
+  );
+
+  return uniqueEntries;
 }
 
 // Function to get the date as a string, ie july 3rd 2024 = 732024
@@ -183,26 +183,14 @@ export function getDateString() {
 
 // Returns an array of todays hidden location
 export function getRandomLocations(numberOfLocationsToGuess) {
+  // Example usage
   const items = HiddenLocations;
-  const numberOfItemsPerDay = numberOfLocationsToGuess;
-  const numberOfUniqueDays = 3; // Ensuring uniqueness over the course of 3 days
-  let usedItemsHistory = [];
-  let uniqueItemsForToday = [];
+  const daysBeforeReshuffle = 5;
+  const uniqueEntriesToday = getUniqueEntries(
+    items,
+    numberOfLocationsToGuess,
+    daysBeforeReshuffle
+  );
 
-  // Loop through past numberOfUniqueDays and add them to history list
-  // Loops backwards starting at furthest day, so the last time the for loop runs
-  // is todays items.
-  for (let i = numberOfUniqueDays; i >= 0; i--) {
-    let currentDay = getCurrentDayNumber(i);
-    const uniqueItems = getUniqueItemsOverDays(
-      items,
-      numberOfItemsPerDay,
-      numberOfUniqueDays,
-      currentDay,
-      usedItemsHistory
-    );
-    uniqueItemsForToday = uniqueItems;
-  }
-
-  return uniqueItemsForToday;
+  return uniqueEntriesToday;
 }
