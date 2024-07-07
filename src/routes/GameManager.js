@@ -6,6 +6,8 @@ import GameOverResult from "../components/GameOverResult";
 import GuessResult from "../components/GuessResult";
 import { getRandomLocations } from "../data/HiddenLocations";
 import {
+  addGuessedLocation,
+  deleteAllGuessedLocations,
   deletePreviousDaysScoreFromStorage,
   getDailyScoresFromStorage,
   getGamesPlayedFromStorage,
@@ -47,6 +49,7 @@ function GameManager() {
   }
 
   function pleaseSetGuessedLocation(location) {
+    addGuessedLocation(location);
     let dis = location.distanceTo(currentLocation.latLng);
     let distanceConversion = (dis / 1000).toFixed(0);
     let distanceKm = distanceConversion;
@@ -84,6 +87,8 @@ function GameManager() {
 
         // Delete previous days results
         deletePreviousDaysScoreFromStorage();
+        // Delete guessed locations
+        deleteAllGuessedLocations();
 
         setShowGameOverResult(true);
       }
