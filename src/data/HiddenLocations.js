@@ -30,7 +30,7 @@ const HiddenLocations = [
   new Location("emirs_arena", new LatLng(-42.859375, 109.875)),
   new Location("entrana", new LatLng(-37.453125, 84.453125)),
   new Location("etceteria_farm", new LatLng(-13.296875, 72.515625)),
-  new Location("falador_castle", new LatLng(-37.750789, 90.695791)),
+  new Location("falador_castle", new LatLng(-37.5546875, 90.421875)),
   new Location("falcon_hunting", new LatLng(-26.71875, 62.765625)),
   new Location("farming_guild", new LatLng(-18.734375, 8.96875)),
   new Location("feldip_hills_hunter", new LatLng(-58.515625, 73)),
