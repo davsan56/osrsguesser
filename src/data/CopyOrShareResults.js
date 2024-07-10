@@ -16,7 +16,7 @@ function copyOrShareResults() {
     let retString =
       "I scored " +
       totalScore +
-      " on todays OSRSGuesser! Try and beat me! https://davsan56.github.io/osrsguesser/\n\n";
+      " on todays OSRSGuesser! Try and beat me! https://osrsguesser.app\n\n";
 
     for (var i = 0; i < dailyScores.length; i++) {
       const currentRoundScore = dailyScores[i];
@@ -40,7 +40,7 @@ function copyOrShareResults() {
     //       .share({
     //         title: "OSRS Guesser",
     //         text: retString,
-    //         url: "https://davsan56.github.io/osrsguesser/",
+    //         url: "https://osrsguesser.app",
     //       })
     //       .then(() => console.log("Shared successfully"))
     //       .catch((error) => console.error("Sharing failed:", error));

@@ -4,7 +4,7 @@ A location guessing game for Old School RuneScape. Inspired by GeoGuessr, OSRSGu
 
 The daily OSRSGuesser resets at Midnight GMT.
 
-You can play at https://davsan56.github.io/osrsguesser
+You can play at https://osrsguesser.app
 
 ## Contributing
 
