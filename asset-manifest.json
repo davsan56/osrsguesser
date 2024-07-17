@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/static/css/main.627a3717.css",
-    "main.js": "/static/js/main.d388ca1d.js",
+    "main.js": "/static/js/main.9a856eb4.js",
     "static/media/entrana.png": "/static/media/entrana.df658a640ce7710a50b3.png",
     "static/media/kourend_woodlands.png": "/static/media/kourend_woodlands.2d4886a0ef2016e98879.png",
     "static/media/wizards_guild.png": "/static/media/wizards_guild.876369b6eaac431f0b62.png",
@@ -98,10 +98,10 @@
     "static/media/runescape.ttf": "/static/media/runescape.3c4bbb0ca8ee1b13d551.ttf",
     "index.html": "/index.html",
     "main.627a3717.css.map": "/static/css/main.627a3717.css.map",
-    "main.d388ca1d.js.map": "/static/js/main.d388ca1d.js.map"
+    "main.9a856eb4.js.map": "/static/js/main.9a856eb4.js.map"
   },
   "entrypoints": [
     "static/css/main.627a3717.css",
-    "static/js/main.d388ca1d.js"
+    "static/js/main.9a856eb4.js"
   ]
 }
