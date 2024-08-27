@@ -9,11 +9,11 @@ import OSRSTestingMapClickHandler from "./OSRSTestingMapClickHandler";
 import { isLatLngTesting } from "../data/IsLatLngTesting";
 
 function OSRSMap({
-  onClickHandler,
   currentLocation,
   setGuessedLocation,
   showGuessResult,
   showGameOverResult,
+  resetMap,
 }) {
   const outerBounds = new LatLngBounds(latLng(-78, 0), latLng(0, 137.3));
 
@@ -35,11 +35,11 @@ function OSRSMap({
         {isLatLngTesting() && <OSRSTestingMapClickHandler />}
         {!isLatLngTesting() && (
           <OSRSMapClickHandler
-            onClickHandler={onClickHandler}
             currentLocation={currentLocation}
             setGuessedLocation={setGuessedLocation}
             showGuessResult={showGuessResult}
             showGameOverResult={showGameOverResult}
+            resetMap={resetMap}
           />
         )}
         <TileLayer url={`osrsmap/{z}/{x}/{y}.png`} />

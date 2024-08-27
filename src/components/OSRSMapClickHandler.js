@@ -1,4 +1,4 @@
-import { useMemo, useState } from "react";
+import { useMemo, useState, useEffect } from "react";
 
 import "leaflet/dist/leaflet.css";
 import { Marker, Polyline, useMapEvents } from "react-leaflet";
@@ -20,25 +20,19 @@ const resultIcon = new Icon({
 });
 
 function OSRSMapClickHandler({
-  onClickHandler,
   currentLocation,
   setGuessedLocation,
   showGuessResult,
   showGameOverResult,
+  resetMap,
 }) {
   const [position, setPosition] = useState(null);
 
   const map = useMapEvents({
     click: async (e) => {
       if (!showGuessResult && !showGameOverResult) {
-        // Zoom map to show both markers
-        map.fitBounds([e.latlng, currentLocation.latLng]);
-
-        // Set variables from other classes
         setGuessedLocation(e.latlng);
         setPosition(e.latlng);
-
-        onClickHandler();
       }
     },
   });
@@ -50,11 +44,18 @@ function OSRSMapClickHandler({
     }
   }, [showGuessResult]);
 
+  useEffect(() => {
+    if (resetMap === true) {
+      // Zoom map to show both markers
+      map.fitBounds([position, currentLocation.latLng]);
+    } else {
+      setPosition(null);
+    }
+  }, [resetMap]);
+
   return (
     <>
-      {position && showGuessResult && (
-        <Marker position={position} icon={guessIcon} />
-      )}
+      {position && <Marker position={position} icon={guessIcon} />}
       {showGuessResult && (
         <>
           <Marker position={currentLocation.latLng} icon={resultIcon} />
