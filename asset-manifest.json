@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/static/css/main.45a130ba.css",
-    "main.js": "/static/js/main.07dd2bdb.js",
+    "main.js": "/static/js/main.9a2f2690.js",
     "static/media/entrana.png": "/static/media/entrana.df658a640ce7710a50b3.png",
     "static/media/kourend_woodlands.png": "/static/media/kourend_woodlands.2d4886a0ef2016e98879.png",
     "static/media/wizards_guild.png": "/static/media/wizards_guild.876369b6eaac431f0b62.png",
@@ -9,6 +9,8 @@
     "static/media/falcon_hunting.png": "/static/media/falcon_hunting.4c2a5f2bf7bba739c428.png",
     "static/media/hosidius_apples.png": "/static/media/hosidius_apples.e29eff2216f188ff72fd.png",
     "static/media/west_ardy.png": "/static/media/west_ardy.1cfdb88e68d2ca6ce621.png",
+    "static/media/soul_wars_ruins.png": "/static/media/soul_wars_ruins.b0897d529ddaa0a4b369.png",
+    "static/media/varlamore_waterfall.png": "/static/media/varlamore_waterfall.1b435a035bd87b3d8f62.png",
     "static/media/tithe_farm.png": "/static/media/tithe_farm.29baf279660655e93929.png",
     "static/media/shilo_village.png": "/static/media/shilo_village.f01f1dcced6eee6a1bd3.png",
     "static/media/witches_house.png": "/static/media/witches_house.48d8823aa1eb9bd52de3.png",
@@ -30,6 +32,7 @@
     "static/media/chambers_of_xeric.png": "/static/media/chambers_of_xeric.db578ef585d97f430c89.png",
     "static/media/ardy_monastary.png": "/static/media/ardy_monastary.a286e76f4f789bd1045a.png",
     "static/media/mort_myre_swamp.png": "/static/media/mort_myre_swamp.4489497ea00484c46e5f.png",
+    "static/media/ice_mountain.png": "/static/media/ice_mountain.de949226e46afac19558.png",
     "static/media/ardy_zoo.png": "/static/media/ardy_zoo.24bffb94757b3b488f95.png",
     "static/media/chompy_hunting.png": "/static/media/chompy_hunting.268427a98b497f38370c.png",
     "static/media/harmony_island.png": "/static/media/harmony_island.922efd0664f24817799a.png",
@@ -49,6 +52,7 @@
     "static/media/lletya.png": "/static/media/lletya.4bc2ba1ce9286cb92bbb.png",
     "static/media/weiss.png": "/static/media/weiss.1d266f511fb73eb56bef.png",
     "static/media/catherby_beach.png": "/static/media/catherby_beach.e285ea2c07d7ffa17cb6.png",
+    "static/media/lovakenji_flowers.png": "/static/media/lovakenji_flowers.db30353141cbc3b42ae2.png",
     "static/media/lighthouse_basalt_agility.png": "/static/media/lighthouse_basalt_agility.c9907013b6ac58186285.png",
     "static/media/giants_plateau.png": "/static/media/giants_plateau.ef49dc2f61474d13ae2c.png",
     "static/media/fossil_island_volcano_2.png": "/static/media/fossil_island_volcano_2.1eec851f9e11c3eba8eb.png",
@@ -98,10 +102,10 @@
     "static/media/runescape.ttf": "/static/media/runescape.3c4bbb0ca8ee1b13d551.ttf",
     "index.html": "/index.html",
     "main.45a130ba.css.map": "/static/css/main.45a130ba.css.map",
-    "main.07dd2bdb.js.map": "/static/js/main.07dd2bdb.js.map"
+    "main.9a2f2690.js.map": "/static/js/main.9a2f2690.js.map"
   },
   "entrypoints": [
     "static/css/main.45a130ba.css",
-    "static/js/main.07dd2bdb.js"
+    "static/js/main.9a2f2690.js"
   ]
 }
