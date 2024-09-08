@@ -157,21 +157,24 @@ function getUniqueEntries(
   numberOfLocationsToGuess,
   daysBeforeReshuffle
 ) {
-  const currentDay = getCurrentDayNumber();
+  const currentDayNumber = getCurrentDayNumber();
   const currentYear = getCurrentYear();
-  const daySeed = Math.floor(currentDay / daysBeforeReshuffle); // Seed changes after the given number of days
+  const daySeed = Math.floor(currentDayNumber / daysBeforeReshuffle); // Seed changes after the given number of days
 
   // Create a unique seed using the current year and daySeed
   const seed = 12345 + currentYear * 10000 + daySeed; // Multiply currentYear by 10000 to make the seed more unique
 
   const sortedArray = sortArrayOnCycle(array, seed);
 
-  // Calculate the offset within the shuffled array
-  const offset = (currentDay % daysBeforeReshuffle) * numberOfLocationsToGuess;
-  const uniqueEntries = sortedArray.slice(
-    offset,
-    offset + numberOfLocationsToGuess
-  );
+  // Calculate the offset to ensure non-overlapping segments within the period
+  const offset =
+    (currentDayNumber % daysBeforeReshuffle) * numberOfLocationsToGuess;
+
+  // If offset + numberOfLocationsToGuess exceeds the array length, wrap around
+  const uniqueEntries = [];
+  for (let i = 0; i < numberOfLocationsToGuess; i++) {
+    uniqueEntries.push(sortedArray[(offset + i) % sortedArray.length]);
+  }
 
   return uniqueEntries;
 }
@@ -187,14 +190,12 @@ export function getDateString() {
 
 // Returns an array of todays hidden location
 export function getRandomLocations(numberOfLocationsToGuess) {
-  // Example usage
-  const items = HiddenLocations;
-  const daysBeforeReshuffle = 5;
-  const uniqueEntriesToday = getUniqueEntries(
-    items,
+  const daysBeforeReshuffle = 7;
+  const todayLocations = getUniqueEntries(
+    HiddenLocations,
     numberOfLocationsToGuess,
     daysBeforeReshuffle
   );
 
-  return uniqueEntriesToday;
+  return todayLocations;
 }

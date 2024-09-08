@@ -37,7 +37,7 @@ function GameManager() {
           (totalValue, currentValue) => totalValue + currentValue
         )
       );
-      setCurrentLocation(getRandomLocations()[0]);
+      setCurrentLocation(locationsToGuess[0]);
       setShowGameOverResult(true);
     }
   }, []);
