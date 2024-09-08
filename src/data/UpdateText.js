@@ -1,3 +1,3 @@
 export function newUpdateText() {
-  return "Submit guess button is now live!";
+  return "Four new locations from community member fitzzero!";
 }
