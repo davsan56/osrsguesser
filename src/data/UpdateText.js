@@ -1,3 +1,3 @@
 export function newUpdateText() {
-  return "Four new locations from community member fitzzero!";
+  return "14 new locations now live!!";
 }
