@@ -7,7 +7,7 @@ class Location {
   }
 }
 
-const HiddenLocations = [
+export const HiddenLocations = [
   new Location("al_kharid", new LatLng(-44.78125, 106.71875)),
   new Location("ape_atoll", new LatLng(-65.078125, 82.890625)),
   new Location("arceuus_church", new LatLng(-16.5625, 30.3125)),

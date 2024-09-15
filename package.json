@@ -9,9 +9,8 @@
     "@fortawesome/free-brands-svg-icons": "^6.5.2",
     "@fortawesome/free-solid-svg-icons": "^6.5.2",
     "@fortawesome/react-fontawesome": "^0.2.2",
-    "@testing-library/jest-dom": "^5.17.0",
-    "@testing-library/react": "^13.4.0",
     "@testing-library/user-event": "^13.5.0",
+    "@types/jest": "^29.5.13",
     "leaflet": "^1.9.4",
     "react": "^18.3.1",
     "react-countdown": "^2.3.5",
@@ -49,7 +48,10 @@
     ]
   },
   "devDependencies": {
+    "@testing-library/jest-dom": "^6.5.0",
+    "@testing-library/react": "^16.0.1",
     "gh-pages": "^6.1.1",
+    "jest": "^27.5.1",
     "react-router-dom": "^6.23.1"
   }
 }
