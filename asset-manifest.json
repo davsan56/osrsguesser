@@ -1,7 +1,8 @@
 {
   "files": {
     "main.css": "/static/css/main.45a130ba.css",
-    "main.js": "/static/js/main.9a2f2690.js",
+    "main.js": "/static/js/main.320c575e.js",
+    "static/media/heroes_guild.png": "/static/media/heroes_guild.6cf442b30a554e96ed14.png",
     "static/media/entrana.png": "/static/media/entrana.df658a640ce7710a50b3.png",
     "static/media/kourend_woodlands.png": "/static/media/kourend_woodlands.2d4886a0ef2016e98879.png",
     "static/media/wizards_guild.png": "/static/media/wizards_guild.876369b6eaac431f0b62.png",
@@ -10,6 +11,7 @@
     "static/media/hosidius_apples.png": "/static/media/hosidius_apples.e29eff2216f188ff72fd.png",
     "static/media/west_ardy.png": "/static/media/west_ardy.1cfdb88e68d2ca6ce621.png",
     "static/media/soul_wars_ruins.png": "/static/media/soul_wars_ruins.b0897d529ddaa0a4b369.png",
+    "static/media/ranging_guild.png": "/static/media/ranging_guild.1353811581f8a8764942.png",
     "static/media/varlamore_waterfall.png": "/static/media/varlamore_waterfall.1b435a035bd87b3d8f62.png",
     "static/media/tithe_farm.png": "/static/media/tithe_farm.29baf279660655e93929.png",
     "static/media/shilo_village.png": "/static/media/shilo_village.f01f1dcced6eee6a1bd3.png",
@@ -19,11 +21,14 @@
     "static/media/musa_point.png": "/static/media/musa_point.6b1740ff7e2691e2fb5d.png",
     "static/media/miscellania_castle.png": "/static/media/miscellania_castle.9154d3348dcaa508441b.png",
     "static/media/edgeville_yews.png": "/static/media/edgeville_yews.560244b3e6ae061ab7d9.png",
+    "static/media/warriors_guild.png": "/static/media/warriors_guild.61f468213dfd4d7ea9b9.png",
     "static/media/tai_bwo_wannai.png": "/static/media/tai_bwo_wannai.ad32932924644df4e73d.png",
     "static/media/waterbirth_island.png": "/static/media/waterbirth_island.17ca5b8e9b96c9c2c343.png",
     "static/media/brimhaven.png": "/static/media/brimhaven.20ef1ec71e8d16c3194e.png",
+    "static/media/crafting_guild.png": "/static/media/crafting_guild.9bc7b5622b6b4678d041.png",
     "static/media/feldip_hills_hunter.png": "/static/media/feldip_hills_hunter.537ff0a027e1b9f98854.png",
     "static/media/kebos_swamp.png": "/static/media/kebos_swamp.383e7e317109def78f2a.png",
+    "static/media/port_sarim.png": "/static/media/port_sarim.f2386e62466f2900a4d0.png",
     "static/media/grand_tree_entrance.png": "/static/media/grand_tree_entrance.5f299d07b2deedc1d729.png",
     "static/media/river_elid.png": "/static/media/river_elid.04d5b328ccf8c7f159cd.png",
     "static/media/port_piscarilius.png": "/static/media/port_piscarilius.9e540aa599ebf0b5b22f.png",
@@ -40,6 +45,7 @@
     "static/media/observatory.png": "/static/media/observatory.f239416b0bc410ca0851.png",
     "static/media/lumbridge_castle.png": "/static/media/lumbridge_castle.42606197567f9ef2b30f.png",
     "static/media/canifis.png": "/static/media/canifis.66b760cb6c3a650d8f51.png",
+    "static/media/mining_guild.png": "/static/media/mining_guild.6c52c7839fb0a6bd16a1.png",
     "static/media/minnow_platform.png": "/static/media/minnow_platform.066e96856c671dfa14a0.png",
     "static/media/farming_guild.png": "/static/media/farming_guild.e57e1b1a306519d96d00.png",
     "static/media/island_of_stone.png": "/static/media/island_of_stone.e2a1ee3a81cdd3b910f6.png",
@@ -49,6 +55,7 @@
     "static/media/mta.png": "/static/media/mta.3557ad53d315d543928e.png",
     "static/media/port_phasmatys.png": "/static/media/port_phasmatys.1181cc128fa9386e498d.png",
     "static/media/woodcutting_guild.png": "/static/media/woodcutting_guild.6f8e5c97aec3a9ca436f.png",
+    "static/media/vardorvis.png": "/static/media/vardorvis.6251f4991741c354ca6c.png",
     "static/media/lletya.png": "/static/media/lletya.4bc2ba1ce9286cb92bbb.png",
     "static/media/weiss.png": "/static/media/weiss.1d266f511fb73eb56bef.png",
     "static/media/catherby_beach.png": "/static/media/catherby_beach.e285ea2c07d7ffa17cb6.png",
@@ -63,12 +70,16 @@
     "static/media/wintertodt_camp.png": "/static/media/wintertodt_camp.3d5e1e218979ccc28798.png",
     "static/media/lunar_island_flax.png": "/static/media/lunar_island_flax.cdb3af70a8786e742b41.png",
     "static/media/burgh_de_rott.png": "/static/media/burgh_de_rott.35f3849c45f476e48417.png",
+    "static/media/stranglewood1.png": "/static/media/stranglewood1.f776010cb44a67ae8c34.png",
     "static/media/varrock_sewers_bear.png": "/static/media/varrock_sewers_bear.2e3cc87e9844152a5ac3.png",
     "static/media/varrock_center.png": "/static/media/varrock_center.ec925d111542208f07e6.png",
+    "static/media/crandor.png": "/static/media/crandor.5e3c4e90174f29899b38.png",
     "static/media/pollnivneach.png": "/static/media/pollnivneach.9c32eef7ff702f679784.png",
     "static/media/draynor_manor.png": "/static/media/draynor_manor.6d5d23a0fa7025a11ea0.png",
     "static/media/necropolis.png": "/static/media/necropolis.38bb2fbf4438eb36ec69.png",
     "static/media/kraken_cave.png": "/static/media/kraken_cave.40b3a80ddceb5274cfbe.png",
+    "static/media/legends_guild.png": "/static/media/legends_guild.620848ab438326925d70.png",
+    "static/media/myths_guild.png": "/static/media/myths_guild.dbb1ee68a2cc8767f32d.png",
     "static/media/polar_hunter.png": "/static/media/polar_hunter.33219e8fe8d58209f8ee.png",
     "static/media/mos_le'harmless.png": "/static/media/mos_le'harmless.edec6074499eb3711515.png",
     "static/media/draynor_village_jail.png": "/static/media/draynor_village_jail.8909ff790efef865a43a.png",
@@ -93,6 +104,8 @@
     "static/media/kourned_castle.png": "/static/media/kourned_castle.1b3bce4e407a0f1c6672.png",
     "static/media/wizards_tower.png": "/static/media/wizards_tower.590ab8abd2b3b45e44cc.png",
     "static/media/slayer_tower.png": "/static/media/slayer_tower.2208dbf30fc9ea8747f9.png",
+    "static/media/champions_guild.png": "/static/media/champions_guild.fc8d4ae6c5e615ebe649.png",
+    "static/media/cooks_guild.png": "/static/media/cooks_guild.d0314d92781b46df8bea.png",
     "static/media/jatizo_entrance.png": "/static/media/jatizo_entrance.5a200299fdcbacec82b2.png",
     "static/media/arceuus_church.png": "/static/media/arceuus_church.1e17fe51d59c2076b2f1.png",
     "static/media/meiyerditch.png": "/static/media/meiyerditch.32a42cd0f25358f30c1f.png",
@@ -102,10 +115,10 @@
     "static/media/runescape.ttf": "/static/media/runescape.3c4bbb0ca8ee1b13d551.ttf",
     "index.html": "/index.html",
     "main.45a130ba.css.map": "/static/css/main.45a130ba.css.map",
-    "main.9a2f2690.js.map": "/static/js/main.9a2f2690.js.map"
+    "main.320c575e.js.map": "/static/js/main.320c575e.js.map"
   },
   "entrypoints": [
     "static/css/main.45a130ba.css",
-    "static/js/main.9a2f2690.js"
+    "static/js/main.320c575e.js"
   ]
 }
