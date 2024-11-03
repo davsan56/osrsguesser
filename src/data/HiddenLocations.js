@@ -31,6 +31,7 @@ export const HiddenLocations = [
   new Location("darkmeyer", new LatLng(-38.84375, 120.4375)),
   new Location("draynor_manor", new LatLng(-38, 96.25)),
   new Location("draynor_village_jail", new LatLng(-42.203125, 98.015625)),
+  new Location("eagles_peak", new LatLng(-31.3984375, 60.4453125)),
   new Location("edgeville_yews", new LatLng(-31.75, 96.125)),
   new Location("emirs_arena", new LatLng(-42.859375, 109.875)),
   new Location("entrana", new LatLng(-37.453125, 84.453125)),
