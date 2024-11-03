@@ -26,6 +26,7 @@ export const HiddenLocations = [
   new Location("chompy_hunting", new LatLng(-50.890625, 60.984375)),
   new Location("crandor", new LatLng(-41.21875, 84.28125)),
   new Location("crafting_guild", new LatLng(-40.71875, 88.515625)),
+  new Location("crash_island", new LatLng(-66.703125, 88.25)),
   new Location("cooks_guild", new LatLng(-32.6015625, 98.6328125)),
   new Location("darkmeyer", new LatLng(-38.84375, 120.4375)),
   new Location("draynor_manor", new LatLng(-38, 96.25)),
