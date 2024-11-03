@@ -82,6 +82,7 @@ export const HiddenLocations = [
   new Location("necropolis", new LatLng(-66.890625, 106.78125)),
   new Location("neitiznot_yaks", new LatLng(-16.84375, 60.203125)),
   new Location("observatory", new LatLng(-45.5, 66.640625)),
+  new Location("old_crones_house", new LatLng(-28.046875, 113.671875)),
   new Location("pirates_cove", new LatLng(-15.828125, 54.671875)),
   new Location("poison_waste", new LatLng(-49.609375, 55.3125)),
   new Location("polar_hunter", new LatLng(-16.53125, 79.25)),
