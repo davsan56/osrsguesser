@@ -1,7 +1,8 @@
 {
   "files": {
     "main.css": "/static/css/main.45a130ba.css",
-    "main.js": "/static/js/main.320c575e.js",
+    "main.js": "/static/js/main.090930ee.js",
+    "static/media/crash_island.png": "/static/media/crash_island.03d7fa898cb9a97e5045.png",
     "static/media/heroes_guild.png": "/static/media/heroes_guild.6cf442b30a554e96ed14.png",
     "static/media/entrana.png": "/static/media/entrana.df658a640ce7710a50b3.png",
     "static/media/kourend_woodlands.png": "/static/media/kourend_woodlands.2d4886a0ef2016e98879.png",
@@ -10,6 +11,7 @@
     "static/media/falcon_hunting.png": "/static/media/falcon_hunting.4c2a5f2bf7bba739c428.png",
     "static/media/hosidius_apples.png": "/static/media/hosidius_apples.e29eff2216f188ff72fd.png",
     "static/media/west_ardy.png": "/static/media/west_ardy.1cfdb88e68d2ca6ce621.png",
+    "static/media/eagles_peak.png": "/static/media/eagles_peak.90565e803a7b78d7d3a8.png",
     "static/media/soul_wars_ruins.png": "/static/media/soul_wars_ruins.b0897d529ddaa0a4b369.png",
     "static/media/ranging_guild.png": "/static/media/ranging_guild.1353811581f8a8764942.png",
     "static/media/varlamore_waterfall.png": "/static/media/varlamore_waterfall.1b435a035bd87b3d8f62.png",
@@ -24,6 +26,7 @@
     "static/media/warriors_guild.png": "/static/media/warriors_guild.61f468213dfd4d7ea9b9.png",
     "static/media/tai_bwo_wannai.png": "/static/media/tai_bwo_wannai.ad32932924644df4e73d.png",
     "static/media/waterbirth_island.png": "/static/media/waterbirth_island.17ca5b8e9b96c9c2c343.png",
+    "static/media/old_crones_house.png": "/static/media/old_crones_house.472dbb3c1f7c3ec2b336.png",
     "static/media/brimhaven.png": "/static/media/brimhaven.20ef1ec71e8d16c3194e.png",
     "static/media/crafting_guild.png": "/static/media/crafting_guild.9bc7b5622b6b4678d041.png",
     "static/media/feldip_hills_hunter.png": "/static/media/feldip_hills_hunter.537ff0a027e1b9f98854.png",
@@ -115,10 +118,10 @@
     "static/media/runescape.ttf": "/static/media/runescape.3c4bbb0ca8ee1b13d551.ttf",
     "index.html": "/index.html",
     "main.45a130ba.css.map": "/static/css/main.45a130ba.css.map",
-    "main.320c575e.js.map": "/static/js/main.320c575e.js.map"
+    "main.090930ee.js.map": "/static/js/main.090930ee.js.map"
   },
   "entrypoints": [
     "static/css/main.45a130ba.css",
-    "static/js/main.320c575e.js"
+    "static/js/main.090930ee.js"
   ]
 }
