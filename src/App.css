@@ -20,6 +20,8 @@ button {
 }
 
 .home {
+  display: flex;
+  flex-direction: column;
   height: 100vh;
   width: 100vw;
   text-align: center;
@@ -51,6 +53,31 @@ button {
 .dialog-title {
   font-size: xx-large;
   color: yellow;
+}
+
+.dialog-message {
+  font-size: 20px;
+  margin-bottom: 10px;
+}
+
+.rotate-text {
+  position: fixed;
+  transform: rotateY(0deg) rotate(-45deg);
+  color: yellow;
+  top: -10px;
+  left: -10px;
+}
+
+.submit-guess-button {
+  position: absolute;
+  display: block;
+  top: 0;
+  left: 50%;
+  transform: translate(-50%, 0);
+  font-size: xxx-large;
+  z-index: 1000;
+  font-family: "RuneScape";
+  margin-right: 5px;
 }
 
 .guess-result {

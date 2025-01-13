@@ -21,11 +21,14 @@ let locationsToGuess = getRandomLocations(numberOfLocationsToGuess);
 function GameManager() {
   // TODO: Figure out how to initialize this better
   const [currentLocation, setCurrentLocation] = useState(locationsToGuess[0]);
+  const [guessedLocation, setGuessedLocation] = useState(null);
   const [showGuessResult, setShowGuessResult] = useState(false);
   const [numberOfLocationsGuessed, setNumberOfLocationsGuessed] = useState(0);
   const [showGameOverResult, setShowGameOverResult] = useState(false);
   const [totalScore, setTotalScore] = useState(0);
   const [roundScores, setRoundScores] = useState([]);
+
+  const [resetMap, setResetMap] = useState(false);
 
   useMemo(() => {
     let dailyRoundScores = getDailyScoresFromStorage();
@@ -36,7 +39,7 @@ function GameManager() {
           (totalValue, currentValue) => totalValue + currentValue
         )
       );
-      setCurrentLocation(getRandomLocations()[0]);
+      setCurrentLocation(locationsToGuess[0]);
       setShowGameOverResult(true);
     }
   }, []);
@@ -49,14 +52,22 @@ function GameManager() {
   }
 
   function pleaseSetGuessedLocation(location) {
+    setGuessedLocation(location);
     addGuessedLocation(location);
-    let dis = location.distanceTo(currentLocation.latLng);
+  }
+
+  function submitGuess() {
+    let dis = guessedLocation.distanceTo(currentLocation.latLng);
     let distanceConversion = (dis / 1000).toFixed(0);
     let distanceKm = distanceConversion;
     let score = 1000 - distanceKm;
     let roundScore = score < 0 ? 0 : score > 975 ? 1000 : score;
 
+    setResetMap(true);
+
     pleaseSetTotalScore(roundScore);
+
+    onGuessHandler();
   }
 
   function onGuessHandler() {
@@ -66,6 +77,8 @@ function GameManager() {
   }
 
   function nextHandler() {
+    setGuessedLocation(null);
+    setResetMap(false);
     setShowGuessResult(false);
 
     if (numberOfLocationsGuessed < numberOfLocationsToGuess) {
@@ -98,12 +111,20 @@ function GameManager() {
   return (
     <div>
       <OSRSMap
-        onClickHandler={onGuessHandler}
         currentLocation={currentLocation}
         setGuessedLocation={pleaseSetGuessedLocation}
         showGuessResult={showGuessResult}
         showGameOverResult={showGameOverResult}
+        resetMap={resetMap}
       />
+      {guessedLocation && !showGuessResult && (
+        <button
+          className="submit-guess-button osrs-button"
+          onClick={submitGuess}
+        >
+          Submit
+        </button>
+      )}
       {showGuessResult && (
         <GuessResult
           nextHandler={nextHandler}

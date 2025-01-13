@@ -1,11 +1,7 @@
 {
-  "short_name": "React App",
-  "name": "Create React App Sample",
-  "icons": [
-    
-  ],
+  "short_name": "OSRS Guesser",
+  "name": "OSRS Guesser",
+  "description": "Guess the locations on the OSRS map based on the image!",
   "start_url": ".",
-  "display": "standalone",
-  "theme_color": "#000000",
-  "background_color": "#ffffff"
+  "display": "standalone"
 }

@@ -1,0 +1,36 @@
+name: Run React Unit Tests
+
+# Trigger this workflow on pull requests to any branch
+on:
+  pull_request:
+    branches:
+      - '**'
+
+# Define the jobs that will run
+jobs:
+  test:
+    name: Run Tests
+    runs-on: ubuntu-latest
+
+    strategy:
+      matrix:
+        node-version: [16.x, 18.x] # Specify the Node.js versions you want to test with
+
+    steps:
+      # Step 1: Checkout the code from your repository
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      # Step 2: Set up Node.js environment
+      - name: Setup Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: ${{ matrix.node-version }}
+
+      # Step 3: Install dependencies using npm
+      - name: Install dependencies
+        run: npm install
+
+      # Step 4: Run tests using npm
+      - name: Run unit tests
+        run: npm test -- --ci # --ci flag ensures that Jest exits after tests

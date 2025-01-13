@@ -7,7 +7,7 @@ class Location {
   }
 }
 
-const HiddenLocations = [
+export const HiddenLocations = [
   new Location("al_kharid", new LatLng(-44.78125, 106.71875)),
   new Location("ape_atoll", new LatLng(-65.078125, 82.890625)),
   new Location("arceuus_church", new LatLng(-16.5625, 30.3125)),
@@ -22,15 +22,21 @@ const HiddenLocations = [
   new Location("canifis", new LatLng(-31.96875, 115.234375)),
   new Location("catherby_beach", new LatLng(-33.59375, 84.953125)),
   new Location("chambers_of_xeric", new LatLng(-27.817596, 9.20369)),
+  new Location("champions_guild", new LatLng(-36.9921875, 101.2421875)),
   new Location("chompy_hunting", new LatLng(-50.890625, 60.984375)),
+  new Location("crandor", new LatLng(-41.21875, 84.28125)),
+  new Location("crafting_guild", new LatLng(-40.71875, 88.515625)),
+  new Location("crash_island", new LatLng(-66.703125, 88.25)),
+  new Location("cooks_guild", new LatLng(-32.6015625, 98.6328125)),
   new Location("darkmeyer", new LatLng(-38.84375, 120.4375)),
   new Location("draynor_manor", new LatLng(-38, 96.25)),
   new Location("draynor_village_jail", new LatLng(-42.203125, 98.015625)),
+  new Location("eagles_peak", new LatLng(-31.3984375, 60.4453125)),
   new Location("edgeville_yews", new LatLng(-31.75, 96.125)),
   new Location("emirs_arena", new LatLng(-42.859375, 109.875)),
   new Location("entrana", new LatLng(-37.453125, 84.453125)),
   new Location("etceteria_farm", new LatLng(-13.296875, 72.515625)),
-  new Location("falador_castle", new LatLng(-37.750789, 90.695791)),
+  new Location("falador_castle", new LatLng(-37.5546875, 90.421875)),
   new Location("falcon_hunting", new LatLng(-26.71875, 62.765625)),
   new Location("farming_guild", new LatLng(-18.734375, 8.96875)),
   new Location("feldip_hills_hunter", new LatLng(-58.515625, 73)),
@@ -41,25 +47,30 @@ const HiddenLocations = [
     new LatLng(-13.9375, 123.78125)
   ),
   new Location("fossil_island_tar_swamp", new LatLng(-18.359375, 124.015625)),
-  new Location("fossil_island_volcano", new LatLng(-16.984375, 129.46875)),
   new Location("fossil_island_volcano_2", new LatLng(-18.734375, 127.484375)),
+  new Location("fossil_island_volcano", new LatLng(-16.984375, 129.46875)),
   new Location("giants_plateau", new LatLng(-46.703125, 110.28125)),
   new Location("grand_tree_entrance", new LatLng(-30.859375, 66.984375)),
   new Location("harmony_island", new LatLng(-59.907989, 129.423482)),
+  new Location("heroes_guild", new LatLng(-29.84375, 86.7578125)),
   new Location("hosidius_apples", new LatLng(-24.28125, 31.9375)),
+  new Location("ice_mountain", new LatLng(-30.6171875, 91.6796875)),
   new Location("island_of_stone", new LatLng(-6.296875, 67.171875)),
   new Location("jatizo_entrance", new LatLng(-16.5, 64.5)),
   new Location("kebos_swamp", new LatLng(-23.109375, 9.421875)),
   new Location("kourend_woodlands", new LatLng(-31.4375, 22.640625)),
   new Location("kourned_castle", new LatLng(-23.46875, 27.734375)),
   new Location("kraken_cave", new LatLng(-25.15625, 57.96875)),
+  new Location("legends_guild", new LatLng(-36.0390625, 79.3125)),
   new Location("lighthouse_basalt_agility", new LatLng(-25.203125, 69.421875)),
   new Location("lithriken", new LatLng(-6.453125, 118.28125)),
   new Location("lletya", new LatLng(-46.125, 61.625)),
   new Location("lovakengj_statue", new LatLng(-17.078125, 19.765625)),
+  new Location("lovakenji_flowers", new LatLng(-17.953125, 23.8046875)),
   new Location("lumbridge_castle", new LatLng(-43.53125, 102.078125)),
   new Location("lunar_island_flax", new LatLng(-12.65625, 50.6875)),
   new Location("meiyerditch", new LatLng(-43.734375, 121.109375)),
+  new Location("mining_guild", new LatLng(-38.015625, 93.3125)),
   new Location("minnow_platform", new LatLng(-32.875, 73.75)),
   new Location("miscellania_castle", new LatLng(-13.390625, 69.21875)),
   new Location("mort_myre_swamp", new LatLng(-39.828125, 111.859375)),
@@ -67,16 +78,20 @@ const HiddenLocations = [
   new Location("mount_karuulm", new LatLng(-15.953125, 12.859375)),
   new Location("mta", new LatLng(-40.046875, 108.203125)),
   new Location("musa_point", new LatLng(-45.34375, 88.515625)),
+  new Location("myths_guild", new LatLng(-61.1640625, 67.0078125)),
   new Location("nardah_oven", new LatLng(-59.1875, 112.421875)),
   new Location("necropolis", new LatLng(-66.890625, 106.78125)),
   new Location("neitiznot_yaks", new LatLng(-16.84375, 60.203125)),
   new Location("observatory", new LatLng(-45.5, 66.640625)),
+  new Location("old_crones_house", new LatLng(-28.046875, 113.671875)),
   new Location("pirates_cove", new LatLng(-15.828125, 54.671875)),
   new Location("poison_waste", new LatLng(-49.609375, 55.3125)),
   new Location("polar_hunter", new LatLng(-16.53125, 79.25)),
   new Location("pollnivneach", new LatLng(-55.125, 109.171875)),
   new Location("port_phasmatys", new LatLng(-31.40625, 123.890625)),
   new Location("port_piscarilius", new LatLng(-19.71875, 36.546875)),
+  new Location("port_sarim", new LatLng(-42.7421875, 93.6484375)),
+  new Location("ranging_guild", new LatLng(-34.2265625, 76.7109375)),
   new Location("river_elid", new LatLng(-49.875, 109.5)),
   new Location("ruins_of_unkah", new LatLng(-61.09375, 100.15625)),
   new Location("seers_church_yews", new LatLng(-32.140625, 78.4375)),
@@ -86,16 +101,21 @@ const HiddenLocations = [
   new Location("slayer_tower", new LatLng(-27.9375, 111.421875)),
   new Location("slepe", new LatLng(-39.640625, 126.6875)),
   new Location("soul_altar", new LatLng(-12.921875, 37.21875)),
+  new Location("soul_wars_ruins", new LatLng(-62.921875, 52.4921875)),
   new Location("soul_wars", new LatLng(-61.671875, 55)),
+  new Location("stranglewood1", new LatLng(-32.9609375, 6.9296875)),
   new Location("tai_bwo_wannai", new LatLng(-51.234375, 82.390625)),
   new Location("tithe_farm", new LatLng(-31.09375, 37.046875)),
   new Location("troll_stronghold", new LatLng(-21.671875, 83.671875)),
   new Location("undead_cow_pen", new LatLng(-29.328125, 120.984375)),
   new Location("ungael", new LatLng(-4.59375, 57.917587)),
+  new Location("vardorvis", new LatLng(-34.5859375, 4.3125)),
+  new Location("varlamore_waterfall", new LatLng(-45.5078125, 21.4140625)),
   new Location("varrock_center", new LatLng(-33.671875, 101.984375)),
   new Location("varrock_sewers_bear", new LatLng(-30.40625, 102.75)),
   new Location("void_knights_outpost", new LatLng(-70.34375, 75.5625)),
   new Location("waterbirth_island", new LatLng(-19.046875, 69.6875)),
+  new Location("warriors_guild", new LatLng(-27.953125, 84.5078125)),
   new Location("weiss", new LatLng(-9.859375, 86.671875)),
   new Location("west_ardy", new LatLng(-39.69308, 67.509671)),
   new Location("wintertodt_camp", new LatLng(-10.21875, 27.829994)),
@@ -153,21 +173,24 @@ function getUniqueEntries(
   numberOfLocationsToGuess,
   daysBeforeReshuffle
 ) {
-  const currentDay = getCurrentDayNumber();
+  const currentDayNumber = getCurrentDayNumber();
   const currentYear = getCurrentYear();
-  const daySeed = Math.floor(currentDay / daysBeforeReshuffle); // Seed changes after the given number of days
+  const daySeed = Math.floor(currentDayNumber / daysBeforeReshuffle); // Seed changes after the given number of days
 
   // Create a unique seed using the current year and daySeed
   const seed = 12345 + currentYear * 10000 + daySeed; // Multiply currentYear by 10000 to make the seed more unique
 
   const sortedArray = sortArrayOnCycle(array, seed);
 
-  // Calculate the offset within the shuffled array
-  const offset = (currentDay % daysBeforeReshuffle) * numberOfLocationsToGuess;
-  const uniqueEntries = sortedArray.slice(
-    offset,
-    offset + numberOfLocationsToGuess
-  );
+  // Calculate the offset to ensure non-overlapping segments within the period
+  const offset =
+    (currentDayNumber % daysBeforeReshuffle) * numberOfLocationsToGuess;
+
+  // If offset + numberOfLocationsToGuess exceeds the array length, wrap around
+  const uniqueEntries = [];
+  for (let i = 0; i < numberOfLocationsToGuess; i++) {
+    uniqueEntries.push(sortedArray[(offset + i) % sortedArray.length]);
+  }
 
   return uniqueEntries;
 }
@@ -183,14 +206,12 @@ export function getDateString() {
 
 // Returns an array of todays hidden location
 export function getRandomLocations(numberOfLocationsToGuess) {
-  // Example usage
-  const items = HiddenLocations;
-  const daysBeforeReshuffle = 5;
-  const uniqueEntriesToday = getUniqueEntries(
-    items,
+  const daysBeforeReshuffle = 7;
+  const todayLocations = getUniqueEntries(
+    HiddenLocations,
     numberOfLocationsToGuess,
     daysBeforeReshuffle
   );
 
-  return uniqueEntriesToday;
+  return todayLocations;
 }

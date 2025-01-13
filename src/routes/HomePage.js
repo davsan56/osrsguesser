@@ -12,6 +12,7 @@ import {
 import HomePageContainer from "../components/HomePageContainer";
 import { CopyOrShareButton } from "../data/CopyOrShareResults";
 import { isLatLngTesting } from "../data/IsLatLngTesting";
+import { newUpdateText } from "../data/UpdateText";
 
 function HomePage() {
   const [roundScores, setRoundScores] = useState([]);
@@ -59,7 +60,7 @@ function HomePage() {
           <ul>
             {roundScores.length === 0 && (
               <>
-                <p style={{ marginBottom: 10 }}>
+                <p className="dialog-message">
                   Guess the locations on the OSRS map based on the image!
                 </p>
                 <li>
@@ -96,6 +97,12 @@ function HomePage() {
             </li>
           </ul>
         </div>
+        {roundScores.length === 0 && newUpdateText().length !== 0 && (
+          <div className="home-page-container osrs-background">
+            <div className="rotate-text">new</div>
+            {newUpdateText()}
+          </div>
+        )}
       </div>
     );
   }

@@ -22,11 +22,11 @@ const resultIcon = new Icon({
 });
 
 function OSRSMapClickHandler({
-  onClickHandler,
   currentLocation,
   setGuessedLocation,
   showGuessResult,
   showGameOverResult,
+  resetMap,
 }) {
   const [position, setPosition] = useState(null);
   const [allLocations, setAllLocations] = useState([]);
@@ -35,14 +35,8 @@ function OSRSMapClickHandler({
   const map = useMapEvents({
     click: async (e) => {
       if (!showGuessResult && !showGameOverResult) {
-        // Zoom map to show both markers
-        map.fitBounds([e.latlng, currentLocation.latLng]);
-
-        // Set variables from other classes
         setGuessedLocation(e.latlng);
         setPosition(e.latlng);
-
-        onClickHandler();
       }
     },
   });
@@ -59,23 +53,30 @@ function OSRSMapClickHandler({
   }, [showGuessResult]);
 
   useEffect(() => {
-    const allLocationsLatLng = allLocations.map(function (location) {
-      return location.latLng;
-    });
-    const allGuessLocationsLatLng = allGuessedLocations.map(function (
-      guessedLocation
-    ) {
-      return new LatLng(guessedLocation.lat, guessedLocation.lng);
-    });
-    const bounds = allLocationsLatLng.concat(allGuessLocationsLatLng);
-    map.fitBounds(bounds);
-  }, [allLocations, allGuessedLocations]);
+    if (resetMap === true) {
+      // Zoom map to show both markers
+      map.fitBounds([position, currentLocation.latLng]);
+    } else {
+      setPosition(null);
+
+      if (showGameOverResult) {
+        const allLocationsLatLng = allLocations.map(function (location) {
+          return location.latLng;
+        });
+        const allGuessLocationsLatLng = allGuessedLocations.map(function (
+          guessedLocation
+        ) {
+          return new LatLng(guessedLocation.lat, guessedLocation.lng);
+        });
+        const bounds = allLocationsLatLng.concat(allGuessLocationsLatLng);
+        map.fitBounds(bounds);
+      }
+    }
+  }, [resetMap]);
 
   return (
     <>
-      {position && showGuessResult && (
-        <Marker position={position} icon={guessIcon} />
-      )}
+      {position && <Marker position={position} icon={guessIcon} />}
       {showGuessResult && (
         <>
           <Marker position={currentLocation.latLng} icon={resultIcon} />
