@@ -1,3 +1,3 @@
 export function newUpdateText() {
-  return "Three new locations from community member Yenof!";
+  return "Sixteen new Varlamore Locations! With an updated map!!";
 }
