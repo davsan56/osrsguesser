@@ -8,9 +8,9 @@ class Location {
 }
 
 export const HiddenLocations = [
-  new Location("aldarin", new LatLng(-57.4296875, 16.46875)),
-  new Location("aldarin_grapes", new LatLng(-58.5078125, 15.8203125)),
   new Location("al_kharid", new LatLng(-44.78125, 106.71875)),
+  new Location("aldarin_grapes", new LatLng(-58.5078125, 15.8203125)),
+  new Location("aldarin", new LatLng(-57.4296875, 16.46875)),
   new Location("ape_atoll", new LatLng(-65.078125, 82.890625)),
   new Location("arceuus_church", new LatLng(-16.5625, 30.3125)),
   new Location("ardy_monastary", new LatLng(-43.953125, 73.562)),
@@ -20,17 +20,17 @@ export const HiddenLocations = [
   new Location("brimhaven", new LatLng(-45.421875, 82.328125)),
   new Location("burgh_de_rott", new LatLng(-43.234375, 115.453125)),
   new Location("burthorpe_games_room", new LatLng(-27.34375, 87.28125)),
-  new Location("camelot_round_table", new LatLng(-30.046875, 80.84375)),
   new Location("cam_torum_entrance", new LatLng(-47.84375, 18.7109375)),
+  new Location("camelot_round_table", new LatLng(-30.046875, 80.84375)),
   new Location("canifis", new LatLng(-31.96875, 115.234375)),
   new Location("catherby_beach", new LatLng(-33.59375, 84.953125)),
   new Location("chambers_of_xeric", new LatLng(-27.817596, 9.20369)),
   new Location("champions_guild", new LatLng(-36.9921875, 101.2421875)),
   new Location("chompy_hunting", new LatLng(-50.890625, 60.984375)),
-  new Location("crandor", new LatLng(-41.21875, 84.28125)),
-  new Location("crafting_guild", new LatLng(-40.71875, 88.515625)),
-  new Location("crash_island", new LatLng(-66.703125, 88.25)),
   new Location("cooks_guild", new LatLng(-32.6015625, 98.6328125)),
+  new Location("crafting_guild", new LatLng(-40.71875, 88.515625)),
+  new Location("crandor", new LatLng(-41.21875, 84.28125)),
+  new Location("crash_island", new LatLng(-66.703125, 88.25)),
   new Location("darkmeyer", new LatLng(-38.84375, 120.4375)),
   new Location("draynor_manor", new LatLng(-38, 96.25)),
   new Location("draynor_village_jail", new LatLng(-42.203125, 98.015625)),
@@ -129,8 +129,8 @@ export const HiddenLocations = [
   new Location("varrock_sewers_bear", new LatLng(-30.40625, 102.75)),
   new Location("villa_lucens_stage", new LatLng(-56.921875, 20.1953125)),
   new Location("void_knights_outpost", new LatLng(-70.34375, 75.5625)),
-  new Location("waterbirth_island", new LatLng(-19.046875, 69.6875)),
   new Location("warriors_guild", new LatLng(-27.953125, 84.5078125)),
+  new Location("waterbirth_island", new LatLng(-19.046875, 69.6875)),
   new Location("weiss", new LatLng(-9.859375, 86.671875)),
   new Location("west_ardy", new LatLng(-39.69308, 67.509671)),
   new Location("wintertodt_camp", new LatLng(-10.21875, 27.829994)),
@@ -230,4 +230,34 @@ export function getRandomLocations(numberOfLocationsToGuess) {
   );
 
   return todayLocations;
+}
+
+function getEntryByString(arr, str) {
+  return arr.find((entry) =>
+    Object.values(entry).some((value) => String(value) === str)
+  );
+}
+
+function fillLeft(array, size, value) {
+  const currentLength = array.length;
+
+  if (currentLength < size) {
+    const elementsToPrepend = size - currentLength;
+    for (let i = 0; i < elementsToPrepend; i++) {
+      array.unshift(value);
+    }
+  }
+  return array;
+}
+
+// Returns an array of locations based on the passed in names
+export function getLocationsFrom(locations) {
+  const locationArray = [];
+  locations.forEach((location) => {
+    locationArray.push(getEntryByString(HiddenLocations, location));
+  });
+
+  fillLeft(locationArray, 5, getEntryByString(HiddenLocations, locations[0]));
+
+  return locationArray;
 }
