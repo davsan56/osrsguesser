@@ -33,7 +33,7 @@ function GameManager() {
     if (isNewLocationTesting()) {
       // Fill this variable to test specific locations
       // Can be an array of up to 5 length
-      const testingLocations = ["aldarin", "aldarin_grapes"];
+      const testingLocations = ["icy_rune_rock"];
       if (testingLocations !== null) {
         locationsToGuess = getLocationsFrom(testingLocations);
       }
