@@ -50,7 +50,7 @@ export function getGuessedLocations() {
 
 export function deleteAllGuessedLocations() {
   for (var i = 0; i < localStorage.length; i++) {
-    if (localStorage.key(i) === "guessLocations") {
+    if (localStorage.key(i) === "guessedLocations") {
       localStorage.removeItem(localStorage.key(i));
       break;
     }

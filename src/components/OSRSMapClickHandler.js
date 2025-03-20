@@ -92,20 +92,11 @@ function OSRSMapClickHandler({
             allGuessedLocations[i].lng
           );
           return (
-            <>
-              <Marker position={location.latLng} icon={resultIcon}>
-                <Popup>
-                  <img
-                    src={require("../../public/locations/" +
-                      location.image +
-                      ".png")}
-                    alt={location.image}
-                  />
-                </Popup>
-              </Marker>
+            <div key={i}>
+              <Marker position={location.latLng} icon={resultIcon}></Marker>
               <Marker position={guessedLocation} icon={guessIcon}></Marker>
               <Polyline positions={[location.latLng, guessedLocation]} />
-            </>
+            </div>
           );
         })}
     </>
