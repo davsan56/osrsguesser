@@ -10,6 +10,7 @@ import {
   setDailyScoresToStorage,
 } from "../data/LocalStorageHelper";
 import { CopyOrShareButton } from "../data/CopyOrShareResults";
+import { isNewLocationTesting } from "../data/IsLatLngTesting";
 
 function GameOverResult({ totalScore, roundScores }) {
   const [numberOfGamesPlayed, setNumberOfGamesPlayed] = useState(0);
@@ -27,8 +28,10 @@ function GameOverResult({ totalScore, roundScores }) {
   }
 
   useMemo(() => {
-    setDailyScoresToStorage(roundScores);
-    setNumberOfGamesPlayed(getGamesPlayedFromStorage());
+    if (!isNewLocationTesting()) {
+      setDailyScoresToStorage(roundScores);
+      setNumberOfGamesPlayed(getGamesPlayedFromStorage());
+    }
   }, []);
 
   return (

@@ -4,7 +4,7 @@ import HiddenLocation from "../components/HiddenLocation";
 import OSRSMap from "../components/OSRSMap";
 import GameOverResult from "../components/GameOverResult";
 import GuessResult from "../components/GuessResult";
-import { getRandomLocations } from "../data/HiddenLocations";
+import { getRandomLocations, getLocationsFrom } from "../data/HiddenLocations";
 import {
   addGuessedLocation,
   deleteAllGuessedLocations,
@@ -13,6 +13,7 @@ import {
   getGamesPlayedFromStorage,
   setGamesPlayedToStorage,
 } from "../data/LocalStorageHelper";
+import { isNewLocationTesting } from "../data/IsLatLngTesting";
 
 const numberOfLocationsToGuess = 5;
 
@@ -31,6 +32,15 @@ function GameManager() {
   const [resetMap, setResetMap] = useState(false);
 
   useMemo(() => {
+    if (isNewLocationTesting()) {
+      // Fill this variable to test specific locations
+      // Can be an array of up to 5 length
+      const testingLocations = ["icy_rune_rock"];
+      if (testingLocations !== null) {
+        locationsToGuess = getLocationsFrom(testingLocations);
+      }
+    }
+
     let dailyRoundScores = getDailyScoresFromStorage();
     if (dailyRoundScores !== null) {
       setRoundScores(dailyRoundScores);

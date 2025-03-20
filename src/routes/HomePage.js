@@ -11,7 +11,7 @@ import {
 } from "../data/LocalStorageHelper";
 import HomePageContainer from "../components/HomePageContainer";
 import { CopyOrShareButton } from "../data/CopyOrShareResults";
-import { isLatLngTesting } from "../data/IsLatLngTesting";
+import { isLatLngTesting, isNewLocationTesting } from "../data/IsLatLngTesting";
 import { newUpdateText } from "../data/UpdateText";
 
 function HomePage() {
@@ -37,6 +37,22 @@ function HomePage() {
           <p className="dialog-title">OSRS Guesser</p>
           <ul>
             <p style={{ marginBottom: 10 }}>Lat Lng Testing</p>
+            <li>
+              <Link className="osrs-button" to="/game">
+                <FontAwesomeIcon icon={faPlay} />
+              </Link>
+            </li>
+          </ul>
+        </div>
+      </div>
+    );
+  } else if (isNewLocationTesting()) {
+    return (
+      <div className="home">
+        <div className="home-page-container osrs-background">
+          <p className="dialog-title">OSRS Guesser</p>
+          <ul>
+            <p style={{ marginBottom: 10 }}>New Location Testing</p>
             <li>
               <Link className="osrs-button" to="/game">
                 <FontAwesomeIcon icon={faPlay} />
