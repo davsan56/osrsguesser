@@ -50,7 +50,7 @@ function OSRSMapClickHandler({
       setAllLocations(getRandomLocations(5));
       setAllGuessedLocations(getGuessedLocations());
     }
-  }, [showGuessResult]);
+  }, [showGuessResult, map, showGameOverResult]);
 
   useEffect(() => {
     if (resetMap === true) {
