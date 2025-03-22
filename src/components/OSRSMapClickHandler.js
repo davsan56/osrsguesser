@@ -1,11 +1,11 @@
 import { useEffect, useMemo, useState } from "react";
 
 import "leaflet/dist/leaflet.css";
-import { Marker, Polyline, Popup, useMapEvents } from "react-leaflet";
+import { Marker, Polyline, useMapEvents } from "react-leaflet";
 import { Icon, LatLng } from "leaflet";
 import markerIconPng from "leaflet/dist/images/marker-icon.png";
 import markerShadowPng from "leaflet/dist/images/marker-shadow.png";
-import { getRandomLocations, Location } from "../data/HiddenLocations";
+import { getRandomLocations } from "../data/HiddenLocations";
 import { getGuessedLocations } from "../data/LocalStorageHelper";
 
 const guessIcon = new Icon({
