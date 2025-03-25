@@ -1,3 +1,3 @@
 export function newUpdateText() {
-  return "New map, Varlamore locations, and Wilderness locations!!";
+  return "Updated game over experience and new locations!!";
 }
