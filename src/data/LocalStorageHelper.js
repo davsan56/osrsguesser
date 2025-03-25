@@ -25,8 +25,9 @@ export function setGamesPlayedToStorage(numberOfGamesPlayed) {
 
 export function deletePreviousDaysScoreFromStorage() {
   for (var i = 0; i < localStorage.length; i++) {
-    if (localStorage.key(i) === getDateString() + "-dailyScores") {
-      localStorage.removeItem(localStorage.key(i));
+    let localStorageKey = localStorage.key(i);
+    if (localStorageKey !== null && localStorageKey.includes("-dailyScores")) {
+      localStorage.removeItem(localStorageKey);
       break;
     }
   }
