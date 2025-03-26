@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/static/css/main.45a130ba.css",
-    "main.js": "/static/js/main.01357bee.js",
+    "main.js": "/static/js/main.8b0d1a96.js",
     "static/media/crash_island.png": "/static/media/crash_island.03d7fa898cb9a97e5045.png",
     "static/media/heroes_guild.png": "/static/media/heroes_guild.6cf442b30a554e96ed14.png",
     "static/media/entrana.png": "/static/media/entrana.df658a640ce7710a50b3.png",
@@ -158,10 +158,10 @@
     "static/media/runescape.ttf": "/static/media/runescape.3c4bbb0ca8ee1b13d551.ttf",
     "index.html": "/index.html",
     "main.45a130ba.css.map": "/static/css/main.45a130ba.css.map",
-    "main.01357bee.js.map": "/static/js/main.01357bee.js.map"
+    "main.8b0d1a96.js.map": "/static/js/main.8b0d1a96.js.map"
   },
   "entrypoints": [
     "static/css/main.45a130ba.css",
-    "static/js/main.01357bee.js"
+    "static/js/main.8b0d1a96.js"
   ]
 }
