@@ -1,10 +1,12 @@
-import { useMemo, useState, useEffect } from "react";
+import { useEffect, useMemo, useState } from "react";
 
 import "leaflet/dist/leaflet.css";
 import { Marker, Polyline, useMapEvents } from "react-leaflet";
-import { Icon } from "leaflet";
+import { Icon, LatLng } from "leaflet";
 import markerIconPng from "leaflet/dist/images/marker-icon.png";
 import markerShadowPng from "leaflet/dist/images/marker-shadow.png";
+import { getRandomLocations } from "../data/HiddenLocations";
+import { getGuessedLocations } from "../data/LocalStorageHelper";
 
 const guessIcon = new Icon({
   iconUrl: markerIconPng,
@@ -27,6 +29,8 @@ function OSRSMapClickHandler({
   resetMap,
 }) {
   const [position, setPosition] = useState(null);
+  const [allLocations, setAllLocations] = useState([]);
+  const [allGuessedLocations, setAllGuessedLocations] = useState([]);
 
   const map = useMapEvents({
     click: async (e) => {
@@ -42,7 +46,11 @@ function OSRSMapClickHandler({
       // Center map
       map.setView([-35, 92.73], 5);
     }
-  }, [showGuessResult]);
+    if (showGameOverResult) {
+      setAllLocations(getRandomLocations(5));
+      setAllGuessedLocations(getGuessedLocations());
+    }
+  }, [showGuessResult, map, showGameOverResult]);
 
   useEffect(() => {
     if (resetMap === true) {
@@ -50,6 +58,19 @@ function OSRSMapClickHandler({
       map.fitBounds([position, currentLocation.latLng]);
     } else {
       setPosition(null);
+
+      if (showGameOverResult) {
+        const allLocationsLatLng = allLocations.map(function (location) {
+          return location.latLng;
+        });
+        const allGuessLocationsLatLng = allGuessedLocations.map(function (
+          guessedLocation
+        ) {
+          return new LatLng(guessedLocation.lat, guessedLocation.lng);
+        });
+        const bounds = allLocationsLatLng.concat(allGuessLocationsLatLng);
+        map.fitBounds(bounds);
+      }
     }
   }, [resetMap]);
 
@@ -62,6 +83,22 @@ function OSRSMapClickHandler({
           <Polyline positions={[position, currentLocation.latLng]} />
         </>
       )}
+      {showGameOverResult &&
+        allLocations.length !== 0 &&
+        allGuessedLocations.length !== 0 &&
+        allLocations.map(function (location, i) {
+          const guessedLocation = new LatLng(
+            allGuessedLocations[i].lat,
+            allGuessedLocations[i].lng
+          );
+          return (
+            <div key={i}>
+              <Marker position={location.latLng} icon={resultIcon}></Marker>
+              <Marker position={guessedLocation} icon={guessIcon}></Marker>
+              <Polyline positions={[location.latLng, guessedLocation]} />
+            </div>
+          );
+        })}
     </>
   );
 }

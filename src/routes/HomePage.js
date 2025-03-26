@@ -2,7 +2,11 @@ import { useMemo, useState } from "react";
 import { Link } from "react-router-dom";
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faPlay, faDonate } from "@fortawesome/free-solid-svg-icons";
+import {
+  faPlay,
+  faDonate,
+  faMapLocationDot,
+} from "@fortawesome/free-solid-svg-icons";
 import { faGithub } from "@fortawesome/free-brands-svg-icons";
 
 import {
@@ -87,9 +91,16 @@ function HomePage() {
               </>
             )}
             {roundScores.length !== 0 && (
-              <li>
-                <CopyOrShareButton />
-              </li>
+              <>
+                <li>
+                  <CopyOrShareButton />
+                </li>
+                <li>
+                  <Link className="osrs-button" to="/game">
+                    <FontAwesomeIcon icon={faMapLocationDot} />
+                  </Link>
+                </li>
+              </>
             )}
             <li>
               <Link

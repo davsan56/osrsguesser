@@ -6,9 +6,12 @@ import GameOverResult from "../components/GameOverResult";
 import GuessResult from "../components/GuessResult";
 import { getRandomLocations, getLocationsFrom } from "../data/HiddenLocations";
 import {
+  addGuessedLocation,
+  deleteAllGuessedLocations,
   deletePreviousDaysScoreFromStorage,
   getDailyScoresFromStorage,
   getGamesPlayedFromStorage,
+  getGuessedLocations,
   setGamesPlayedToStorage,
 } from "../data/LocalStorageHelper";
 import { isNewLocationTesting } from "../data/IsLatLngTesting";
@@ -69,6 +72,17 @@ function GameManager() {
     let distanceKm = distanceConversion;
     let score = 1000 - distanceKm;
     let roundScore = score < 0 ? 0 : score > 975 ? 1000 : score;
+
+    // If the number of guessed locations in storage is different than the number of current game guesses
+    // Delete all guessed locations from storage because a new game has started
+    let locationsGuessedInStorage = getGuessedLocations();
+    if (locationsGuessedInStorage !== null) {
+      if (numberOfLocationsGuessed != locationsGuessedInStorage.length) {
+        deleteAllGuessedLocations();
+      }
+    }
+
+    addGuessedLocation(guessedLocation);
 
     setResetMap(true);
 
