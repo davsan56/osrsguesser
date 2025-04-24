@@ -16,13 +16,13 @@ button {
 }
 
 #root {
-  height: 100vh;
+  height: 100svh;
 }
 
 .home {
   display: flex;
   flex-direction: column;
-  height: 100vh;
+  height: 100svh;
   width: 100vw;
   text-align: center;
   border: 1px solid #6e604e;
@@ -181,7 +181,7 @@ li {
   transform: translate(-50%, 0);
   box-shadow: 0px 0px 10px black;
   z-index: 2;
-  height: 100vh;
+  height: 100svh;
   align-content: center;
   backdrop-filter: blur(10px);
   cursor: pointer;

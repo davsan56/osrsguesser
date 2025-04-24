@@ -27,7 +27,7 @@ function OSRSMap({
         zoom={5}
         maxZoom={7}
         minZoom={3}
-        style={{ height: "100vh", width: "100%" }}
+        style={{ height: "100svh", width: "100%" }}
         maxBounds={outerBounds}
         maxBoundsViscosity={1}
         crs={CRS.Simple}
