@@ -1,3 +1,3 @@
 export function newUpdateText() {
-  return "Updated game over experience and new locations!!";
+  return "5 New Locations to Guess from Community Member FrostFire397!!";
 }

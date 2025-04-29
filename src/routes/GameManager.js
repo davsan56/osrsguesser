@@ -36,7 +36,13 @@ function GameManager() {
     if (isNewLocationTesting()) {
       // Fill this variable to test specific locations
       // Can be an array of up to 5 length
-      const testingLocations = ["icy_rune_rock"];
+      const testingLocations = [
+        "arandar",
+        "fortis_cothon_thieves",
+        "keep_la_faye",
+        "mos_le'harmless_trees",
+        "ruins_of_ullek_teaks",
+      ];
       if (testingLocations !== null) {
         locationsToGuess = getLocationsFrom(testingLocations);
       }
@@ -77,7 +83,7 @@ function GameManager() {
     // Delete all guessed locations from storage because a new game has started
     let locationsGuessedInStorage = getGuessedLocations();
     if (locationsGuessedInStorage !== null) {
-      if (numberOfLocationsGuessed != locationsGuessedInStorage.length) {
+      if (numberOfLocationsGuessed !== locationsGuessedInStorage.length) {
         deleteAllGuessedLocations();
       }
     }
