@@ -1,4 +1,4 @@
-import { useMemo, useState } from "react";
+import { useMemo, useState, useEffect } from "react";
 
 import HiddenLocation from "../components/HiddenLocation";
 import OSRSMap from "../components/OSRSMap";
@@ -132,6 +132,24 @@ function GameManager() {
       }
     }
   }
+
+  /**
+   * Adds and removes the listener to bind spacebar to submitting a guess.
+   * Note that this currently has no dependency array and will run every render.
+   * Consider pulling `submitGuess` and its dependencies out of the component or
+   * into useCallbacks if this becomes a problem.
+   */
+  useEffect(() => {
+    const spacebarHandler = (event) => {
+      // match on several different spacebar codes for browser support
+      if (event.key === " " || event.code === "Space" || event.keyCode === 32) submitGuess();
+    }
+    window.addEventListener("keydown", spacebarHandler);
+
+    return () => {
+      window.removeEventListener("keydown", spacebarHandler);
+    }
+  });
 
   return (
     <div>
