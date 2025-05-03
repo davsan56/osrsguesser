@@ -8,6 +8,7 @@ function App() {
     <Routes>
       <Route path="/" element={<HomePage />} />
       <Route path="/game" element={<GameManager />} />
+      <Route path="/timedGame" element={<GameManager isTimedGame={true} />} />
     </Routes>
   );
 }

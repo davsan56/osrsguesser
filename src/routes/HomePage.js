@@ -77,7 +77,7 @@ function HomePage() {
               numberOfGamesPlayed={numberOfGamesPlayed}
             />
           )}
-          <ul>
+          <ul id="padding-bottom">
             {roundScores.length === 0 && (
               <>
                 <p className="dialog-message">
@@ -88,8 +88,15 @@ function HomePage() {
                     <FontAwesomeIcon icon={faPlay} />
                   </Link>
                 </li>
+                <li>
+                  <Link className="osrs-button" to="/timedGame">
+                    <FontAwesomeIcon icon={faPlay} /> Timed Game
+                  </Link>
+                </li>
               </>
             )}
+          </ul>
+          <ul>
             {roundScores.length !== 0 && (
               <>
                 <li>

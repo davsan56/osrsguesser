@@ -1,4 +1,4 @@
-import { useMemo, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 
 import HiddenLocation from "../components/HiddenLocation";
 import OSRSMap from "../components/OSRSMap";
@@ -20,7 +20,7 @@ const numberOfLocationsToGuess = 5;
 
 let locationsToGuess = getRandomLocations(numberOfLocationsToGuess);
 
-function GameManager() {
+function GameManager(isTimedGame = false) {
   // TODO: Figure out how to initialize this better
   const [currentLocation, setCurrentLocation] = useState(locationsToGuess[0]);
   const [guessedLocation, setGuessedLocation] = useState(null);
@@ -31,6 +31,8 @@ function GameManager() {
   const [roundScores, setRoundScores] = useState([]);
 
   const [resetMap, setResetMap] = useState(false);
+
+  const [currentScore, setCurrentScore] = useState(1000);
 
   useMemo(() => {
     if (isNewLocationTesting()) {
@@ -61,6 +63,28 @@ function GameManager() {
     }
   }, []);
 
+  useEffect(() => {
+    let interval;
+
+    // Only start the timer if the round is not over
+    if (!showGuessResult) {
+      interval = setInterval(() => {
+        setCurrentScore((prevScore) => {
+          if (prevScore > 0) {
+            return prevScore - 1; // Decrease score by 1
+          } else {
+            clearInterval(interval); // Stop the interval when score reaches 0
+            submitGuess(); // Call submitGuess when score reaches 0
+            return 0;
+          }
+        });
+      }, 100); // Run every 100 milliseconds
+    }
+
+    // Cleanup the interval when the component unmounts or game ends
+    return () => clearInterval(interval);
+  }, [showGameOverResult]);
+
   function pleaseSetTotalScore(roundScore) {
     let temp = totalScore;
     let totalGameScore = temp + roundScore;
@@ -78,6 +102,18 @@ function GameManager() {
     let distanceKm = distanceConversion;
     let score = 1000 - distanceKm;
     let roundScore = score < 0 ? 0 : score > 975 ? 1000 : score;
+
+    // If the game is a timed game, factor in the current score to the distance score
+    if (isTimedGame) {
+      // If perfect guess, set score to current score
+      if (roundScore === 1000) {
+        roundScore = currentScore;
+      }
+      // If the score is less than 1000, factor in the current score to the distance score
+      else {
+        roundScore = Math.floor((roundScore * currentScore) / 1000);
+      }
+    }
 
     // If the number of guessed locations in storage is different than the number of current game guesses
     // Delete all guessed locations from storage because a new game has started
@@ -107,6 +143,7 @@ function GameManager() {
     setGuessedLocation(null);
     setResetMap(false);
     setShowGuessResult(false);
+    setCurrentScore(1000);
 
     if (numberOfLocationsGuessed < numberOfLocationsToGuess) {
       let removedLocation = locationsToGuess.shift();
@@ -160,9 +197,18 @@ function GameManager() {
       {showGameOverResult && (
         <GameOverResult totalScore={totalScore} roundScores={roundScores} />
       )}
-      {!showGameOverResult && <HiddenLocation location={currentLocation} />}
+      <div className="botom-right-container">
+        {!showGuessResult && (
+          <TimedScoreContainer currentScore={currentScore} />
+        )}
+        {!showGameOverResult && <HiddenLocation location={currentLocation} />}
+      </div>
     </div>
   );
+}
+
+function TimedScoreContainer({ currentScore }) {
+  return <div className="score-remaining">Remaining Score: {currentScore}</div>;
 }
 
 export default GameManager;

@@ -120,6 +120,10 @@ button {
   margin-bottom: 2px;
 }
 
+#padding-bottom {
+  padding-bottom: 15px;
+}
+
 ul > li {
   display: inline-block;
 }
@@ -215,16 +219,35 @@ li {
   padding: 10px;
 }
 
-.hidden-location {
+.botom-right-container {
   position: fixed;
   display: block;
-  height: 20vh;
   right: 0;
   bottom: 0;
   margin-right: 20px;
   margin-bottom: 20px;
-  box-shadow: 0px 0px 10px black;
   z-index: 2;
+}
+
+.score-remaining {
+  margin: 0 auto; /* Centers the element horizontally */
+  width: auto; /* Allows the width to adjust dynamically */
+  max-width: 80%; /* Optional: Limits the maximum width */
+  text-align: center; /* Centers the content inside the element */
+  margin-bottom: 10px;
+  box-shadow: 0px 0px 10px black;
+  cursor: default;
+  border: 1px solid #6e604e;
+  outline: 1px solid #2d2a22;
+  background: #554c41;
+  border-radius: 5px;
+  color: orange;
+  padding: 10px;
+}
+
+.hidden-location {
+  height: 20vh;
+  box-shadow: 0px 0px 10px black;
   cursor: pointer;
 }
 
