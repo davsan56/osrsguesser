@@ -25,7 +25,7 @@ function HiddenLocation({ location, onRoundStartNotification }) {
     return () => {
       clearInterval(timer);
     };
-  }, [isTimerActive, timeRemaining]);
+  }, [isTimerActive, timeRemaining, onRoundStartNotification]);
 
   useMemo(() => {
     setTimeRemaining(3);
