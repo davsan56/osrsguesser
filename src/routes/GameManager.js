@@ -4,6 +4,7 @@ import HiddenLocation from "../components/HiddenLocation";
 import OSRSMap from "../components/OSRSMap";
 import GameOverResult from "../components/GameOverResult";
 import GuessResult from "../components/GuessResult";
+import TimedScoreContainer from "../components/TimedScoreContainer";
 import { getRandomLocations, getLocationsFrom } from "../data/HiddenLocations";
 import {
   addGuessedLocation,
@@ -20,7 +21,7 @@ const numberOfLocationsToGuess = 5;
 
 let locationsToGuess = getRandomLocations(numberOfLocationsToGuess);
 
-function GameManager(isTimedGame = false) {
+function GameManager({ isTimedGame = false }) {
   // TODO: Figure out how to initialize this better
   const [currentLocation, setCurrentLocation] = useState(locationsToGuess[0]);
   const [guessedLocation, setGuessedLocation] = useState(null);
@@ -33,6 +34,7 @@ function GameManager(isTimedGame = false) {
   const [resetMap, setResetMap] = useState(false);
 
   const [currentScore, setCurrentScore] = useState(1000);
+  const [startRound, setStartRound] = useState(false);
 
   useMemo(() => {
     if (isNewLocationTesting()) {
@@ -66,8 +68,8 @@ function GameManager(isTimedGame = false) {
   useEffect(() => {
     let interval;
 
-    // Only start the timer if the round is not over
-    if (!showGuessResult) {
+    // Only start the timer if the round is not over and it is a timed game
+    if (!showGuessResult && isTimedGame && startRound) {
       interval = setInterval(() => {
         setCurrentScore((prevScore) => {
           if (prevScore > 0) {
@@ -83,7 +85,7 @@ function GameManager(isTimedGame = false) {
 
     // Cleanup the interval when the component unmounts or game ends
     return () => clearInterval(interval);
-  }, [showGameOverResult]);
+  }, [showGuessResult, isTimedGame, startRound]);
 
   function pleaseSetTotalScore(roundScore) {
     let temp = totalScore;
@@ -125,12 +127,10 @@ function GameManager(isTimedGame = false) {
     }
 
     addGuessedLocation(guessedLocation);
-
     setResetMap(true);
-
     pleaseSetTotalScore(roundScore);
-
     onGuessHandler();
+    setStartRound(false);
   }
 
   function onGuessHandler() {
@@ -143,7 +143,9 @@ function GameManager(isTimedGame = false) {
     setGuessedLocation(null);
     setResetMap(false);
     setShowGuessResult(false);
-    setCurrentScore(1000);
+    if (isTimedGame) {
+      setCurrentScore(1000);
+    }
 
     if (numberOfLocationsGuessed < numberOfLocationsToGuess) {
       let removedLocation = locationsToGuess.shift();
@@ -168,6 +170,12 @@ function GameManager(isTimedGame = false) {
         setShowGameOverResult(true);
       }
     }
+  }
+
+  // This function is called when the hidden location is dismissed,
+  // indicating the start of the round
+  function onRoundStartNotification() {
+    setStartRound(true);
   }
 
   return (
@@ -198,17 +206,18 @@ function GameManager(isTimedGame = false) {
         <GameOverResult totalScore={totalScore} roundScores={roundScores} />
       )}
       <div className="botom-right-container">
-        {!showGuessResult && (
+        {!showGuessResult && isTimedGame && (
           <TimedScoreContainer currentScore={currentScore} />
         )}
-        {!showGameOverResult && <HiddenLocation location={currentLocation} />}
+        {!showGameOverResult && (
+          <HiddenLocation
+            location={currentLocation}
+            onRoundStartNotification={onRoundStartNotification}
+          />
+        )}
       </div>
     </div>
   );
-}
-
-function TimedScoreContainer({ currentScore }) {
-  return <div className="score-remaining">Remaining Score: {currentScore}</div>;
 }
 
 export default GameManager;
