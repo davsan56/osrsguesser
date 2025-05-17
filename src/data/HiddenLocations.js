@@ -123,7 +123,10 @@ export const HiddenLocations = [
   new Location("revenant_crevice", new LatLng(-19.046875, 95.2421875)),
   new Location("river_elid", new LatLng(-49.875, 109.5)),
   new Location("rogues_castle", new LatLng(-9.484375, 105.5703125)),
-  new Location("ruins_of_ullek_teaks", new LatLng(-63.724079418535865, 112.73443143366964)),
+  new Location(
+    "ruins_of_ullek_teaks",
+    new LatLng(-63.724079418535865, 112.73443143366964)
+  ),
   new Location("ruins_of_unkah", new LatLng(-61.09375, 100.15625)),
   new Location("scorpia_entrance", new LatLng(-9.40625, 103.0390625)),
   new Location("seers_church_yews", new LatLng(-32.140625, 78.4375)),
@@ -216,14 +219,15 @@ function sortArrayOnCycle(array, seed) {
 function getUniqueEntries(
   array,
   numberOfLocationsToGuess,
-  daysBeforeReshuffle
+  daysBeforeReshuffle,
+  modeSeed = 0
 ) {
   const currentDayNumber = getCurrentDayNumber();
   const currentYear = getCurrentYear();
   const daySeed = Math.floor(currentDayNumber / daysBeforeReshuffle); // Seed changes after the given number of days
 
   // Create a unique seed using the current year and daySeed
-  const seed = 12345 + currentYear * 10000 + daySeed; // Multiply currentYear by 10000 to make the seed more unique
+  const seed = 12345 + currentYear * 10000 + daySeed + modeSeed; // Multiply currentYear by 10000 to make the seed more unique
 
   const sortedArray = sortArrayOnCycle(array, seed);
 
@@ -250,12 +254,18 @@ export function getDateString() {
 }
 
 // Returns an array of todays hidden location
-export function getRandomLocations(numberOfLocationsToGuess) {
+export function getRandomLocations(
+  numberOfLocationsToGuess,
+  isTimedGame = false
+) {
   const daysBeforeReshuffle = 7;
+  const modeSeed = isTimedGame ? 1000 : 0;
+
   const todayLocations = getUniqueEntries(
     HiddenLocations,
     numberOfLocationsToGuess,
-    daysBeforeReshuffle
+    daysBeforeReshuffle,
+    modeSeed
   );
 
   return todayLocations;

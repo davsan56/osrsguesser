@@ -1,29 +1,42 @@
 import { useEffect, useMemo, useState } from "react";
 
+import { useLocalStorageHelper } from "../context/LocalStorageHelperContext";
 import HiddenLocation from "../components/HiddenLocation";
 import OSRSMap from "../components/OSRSMap";
 import GameOverResult from "../components/GameOverResult";
 import GuessResult from "../components/GuessResult";
 import TimedScoreContainer from "../components/TimedScoreContainer";
 import { getRandomLocations, getLocationsFrom } from "../data/HiddenLocations";
-import {
-  addGuessedLocation,
-  deleteAllGuessedLocations,
-  deletePreviousDaysScoreFromStorage,
-  getDailyScoresFromStorage,
-  getGamesPlayedFromStorage,
-  getGuessedLocations,
-  setGamesPlayedToStorage,
-} from "../data/LocalStorageHelper";
 import { isNewLocationTesting } from "../data/IsLatLngTesting";
 
-const numberOfLocationsToGuess = 5;
-
-let locationsToGuess = getRandomLocations(numberOfLocationsToGuess);
-
 function GameManager({ isTimedGame = false }) {
-  // TODO: Figure out how to initialize this better
-  const [currentLocation, setCurrentLocation] = useState(locationsToGuess[0]);
+  const numberOfLocationsToGuess = 5;
+
+  // Memoize locationsToGuess so it only recalculates when isTimedGame changes
+  const [locationsToGuess, setLocationsToGuess] = useState([]);
+  useEffect(() => {
+    setLocationsToGuess(
+      getRandomLocations(numberOfLocationsToGuess, isTimedGame)
+    );
+  }, [isTimedGame]);
+
+  // Only initialize currentLocation after locationsToGuess is set
+  const [currentLocation, setCurrentLocation] = useState(null);
+  useEffect(() => {
+    if (locationsToGuess.length > 0) {
+      setCurrentLocation(locationsToGuess[0]);
+    }
+  }, [locationsToGuess]);
+
+  const {
+    addGuessedLocation,
+    deleteAllGuessedLocations,
+    deletePreviousDaysScoreFromStorage,
+    getDailyScoresFromStorage,
+    getGamesPlayedFromStorage,
+    getGuessedLocations,
+    setGamesPlayedToStorage,
+  } = useLocalStorageHelper();
   const [guessedLocation, setGuessedLocation] = useState(null);
   const [showGuessResult, setShowGuessResult] = useState(false);
   const [numberOfLocationsGuessed, setNumberOfLocationsGuessed] = useState(0);
@@ -199,46 +212,48 @@ function GameManager({ isTimedGame = false }) {
     setStartRound(true);
   }
 
-  return (
-    <div>
-      <OSRSMap
-        currentLocation={currentLocation}
-        setGuessedLocation={pleaseSetGuessedLocation}
-        showGuessResult={showGuessResult}
-        showGameOverResult={showGameOverResult}
-        resetMap={resetMap}
-      />
-      {guessedLocation && !showGuessResult && (
-        <button
-          className="submit-guess-button osrs-button"
-          onClick={submitGuess}
-        >
-          Submit
-        </button>
-      )}
-      {showGuessResult && (
-        <GuessResult
-          nextHandler={nextHandler}
-          currentRound={numberOfLocationsGuessed}
-          roundScores={roundScores}
+  return currentLocation ? (
+    <>
+      <div>
+        <OSRSMap
+          currentLocation={currentLocation}
+          setGuessedLocation={pleaseSetGuessedLocation}
+          showGuessResult={showGuessResult}
+          showGameOverResult={showGameOverResult}
+          resetMap={resetMap}
         />
-      )}
-      {showGameOverResult && (
-        <GameOverResult totalScore={totalScore} roundScores={roundScores} />
-      )}
-      <div className="botom-right-container">
-        {!showGuessResult && isTimedGame && (
-          <TimedScoreContainer currentScore={currentScore} />
+        {guessedLocation && !showGuessResult && (
+          <button
+            className="submit-guess-button osrs-button"
+            onClick={submitGuess}
+          >
+            Submit
+          </button>
         )}
-        {!showGameOverResult && (
-          <HiddenLocation
-            location={currentLocation}
-            onRoundStartNotification={onRoundStartNotification}
+        {showGuessResult && (
+          <GuessResult
+            nextHandler={nextHandler}
+            currentRound={numberOfLocationsGuessed}
+            roundScores={roundScores}
           />
         )}
+        {showGameOverResult && (
+          <GameOverResult totalScore={totalScore} roundScores={roundScores} />
+        )}
+        <div className="botom-right-container">
+          {!showGuessResult && !showGameOverResult && isTimedGame && (
+            <TimedScoreContainer currentScore={currentScore} />
+          )}
+          {!showGameOverResult && (
+            <HiddenLocation
+              location={currentLocation}
+              onRoundStartNotification={onRoundStartNotification}
+            />
+          )}
+        </div>
       </div>
-    </div>
-  );
+    </>
+  ) : null;
 }
 
 export default GameManager;

@@ -43,6 +43,8 @@ button {
   border-radius: 5px;
   border: 1px solid #6e604e;
   outline: 1px solid #2d2a22;
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
 }
 
 .map-container {
@@ -255,4 +257,42 @@ li {
   max-width: 100%;
   height: auto;
   max-height: 100%;
+}
+
+.tab-switcher {
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  position: absolute;
+  top: -42px;
+  left: 0;
+  width: 100%;
+  z-index: 3;
+}
+
+.tab-switcher .osrs-button {
+  flex: 1 1 0;
+  border-radius: 0;
+  border-bottom: none;
+  background: #3a3227;
+  color: orange;
+  border: 1px solid #6e604e;
+  border-bottom: none;
+  margin: -1px;
+  padding: 12px 0;
+  font-size: 1.1em;
+  top: 2px;
+  outline: none;
+}
+
+.tab-switcher .osrs-button {
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+}
+
+.tab-switcher .osrs-button.active {
+  background: #4e4538;
+  color: yellow; /* Make the active tab connect to the container */
+  z-index: 4;
+  top: 0;
 }
