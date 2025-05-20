@@ -1,3 +1,3 @@
 export function newUpdateText() {
-  return "You can now hit spacebar to submit your guess thanks to davlin93!";
+  return "Try playing the new Timed Game mode!!";
 }
