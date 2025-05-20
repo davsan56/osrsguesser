@@ -1,3 +1,3 @@
 export function newUpdateText() {
-  return "5 New Locations to Guess from Community Member FrostFire397!!";
+  return "You can now hit spacebar to submit your guess thanks to davlin93!";
 }

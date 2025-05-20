@@ -87,8 +87,11 @@ function GameManager({ isTimedGame = false }) {
   useEffect(() => {
     const spacebarHandler = (event) => {
       // match on several different spacebar codes for browser support
-      if (event.key === " " || event.code === "Space" || event.keyCode === 32)
-        submitGuess();
+      if (event.key === " " || event.code === "Space" || event.keyCode === 32) {
+        if (guessedLocation && !showGuessResult) {
+          submitGuess();
+        }
+      }
     };
     window.addEventListener("keydown", spacebarHandler);
 
