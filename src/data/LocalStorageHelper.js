@@ -42,7 +42,7 @@ export function deletePreviousDaysScoreFromStorage() {
   let suffix = "-dailyScores" + getModeSuffix();
   for (var i = 0; i < localStorage.length; i++) {
     let localStorageKey = localStorage.key(i);
-    if (localStorageKey !== null && localStorageKey.includes(suffix)) {
+    if (localStorageKey !== null && localStorageKey.endsWith(suffix)) {
       localStorage.removeItem(localStorageKey);
       break;
     }

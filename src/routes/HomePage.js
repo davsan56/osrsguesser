@@ -124,6 +124,9 @@ function HomePage() {
                     <p className="dialog-message">
                       Guess the locations on the OSRS map based on the image!
                     </p>
+                    <p className="dialog-message">
+                      Try and get as close as possible to get the best score!
+                    </p>
                     <li>
                       <Link className="osrs-button" to="/game">
                         <FontAwesomeIcon icon={faPlay} />
@@ -149,10 +152,13 @@ function HomePage() {
                     <p className="dialog-message">
                       Guess the locations on the OSRS map based on the image!
                     </p>
+                    <p className="dialog-message">
+                      Your score will be based on how quickly and acurrately you
+                      can guess!
+                    </p>
                     <li>
                       <Link className="osrs-button" to="/timedGame">
                         <FontAwesomeIcon icon={faPlay} />
-                        Timed Game
                       </Link>
                     </li>
                   </>
