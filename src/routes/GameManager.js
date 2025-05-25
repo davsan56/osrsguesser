@@ -36,6 +36,7 @@ function GameManager({ isTimedGame = false }) {
     getGamesPlayedFromStorage,
     getGuessedLocations,
     setGamesPlayedToStorage,
+    setCurrentGameMode,
   } = useLocalStorageHelper();
   const [guessedLocation, setGuessedLocation] = useState(null);
   const [showGuessResult, setShowGuessResult] = useState(false);
@@ -64,6 +65,10 @@ function GameManager({ isTimedGame = false }) {
         locationsToGuess = getLocationsFrom(testingLocations);
       }
     }
+
+    // Set the game mode to timed or normal
+    // This is used so if /game or /timedGame is accessed directly
+    setCurrentGameMode(isTimedGame ? "timed" : "normal");
 
     let dailyRoundScores = getDailyScoresFromStorage();
     if (dailyRoundScores !== null) {
