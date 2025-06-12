@@ -4,15 +4,14 @@ import { useMemo, useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faDonate, faHouse } from "@fortawesome/free-solid-svg-icons";
 
+import { useLocalStorageHelper } from "../context/LocalStorageHelperContext";
 import RoundScores from "./RoundScores";
-import {
-  getGamesPlayedFromStorage,
-  setDailyScoresToStorage,
-} from "../data/LocalStorageHelper";
 import { CopyOrShareButton } from "../data/CopyOrShareResults";
 import { isNewLocationTesting } from "../data/IsLatLngTesting";
 
 function GameOverResult({ totalScore, roundScores }) {
+  const { setDailyScoresToStorage, getGamesPlayedFromStorage } =
+    useLocalStorageHelper();
   const [numberOfGamesPlayed, setNumberOfGamesPlayed] = useState(0);
 
   function getGameOverTitle() {

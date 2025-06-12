@@ -4,7 +4,7 @@ name: Run React Unit Tests
 on:
   pull_request:
     branches:
-      - '**'
+      - "main"
 
 # Define the jobs that will run
 jobs:

@@ -5,7 +5,7 @@ import KeyDetector from "./KeyDetector";
 
 let timer = null;
 
-function HiddenLocation({ location }) {
+function HiddenLocation({ location, onRoundStartNotification }) {
   const [imageClassName, setImageClassName] = useState("countdown-container");
   const [isTimerActive, setIsActive] = useState(false);
   const [timeRemaining, setTimeRemaining] = useState(3);
@@ -17,6 +17,7 @@ function HiddenLocation({ location }) {
           clearInterval(timer);
           setIsActive(false);
           setImageClassName("hidden-location");
+          onRoundStartNotification();
         }
         setTimeRemaining((seconds) => seconds - 1);
       }, 1000);
@@ -24,7 +25,7 @@ function HiddenLocation({ location }) {
     return () => {
       clearInterval(timer);
     };
-  });
+  }, [isTimerActive, timeRemaining, onRoundStartNotification]);
 
   useMemo(() => {
     setTimeRemaining(3);
@@ -36,6 +37,10 @@ function HiddenLocation({ location }) {
     setTimeRemaining(0);
     setIsActive(false);
     clearInterval(timer);
+
+    if (timeRemaining !== 0) {
+      onRoundStartNotification();
+    }
 
     if (imageClassName === "hidden-location") {
       setImageClassName("countdown-container");
@@ -63,7 +68,7 @@ function HiddenLocation({ location }) {
         alt={location.image}
         className="hidden-location-image"
       />
-      {imageClassName === "countdown-container" && timeRemaining != 0 && (
+      {imageClassName === "countdown-container" && timeRemaining !== 0 && (
         <div className="countdown">{timeRemaining}</div>
       )}
     </div>

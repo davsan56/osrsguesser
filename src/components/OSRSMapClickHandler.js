@@ -5,8 +5,9 @@ import { Marker, Polyline, useMapEvents } from "react-leaflet";
 import { Icon, LatLng } from "leaflet";
 import markerIconPng from "leaflet/dist/images/marker-icon.png";
 import markerShadowPng from "leaflet/dist/images/marker-shadow.png";
+
+import { useLocalStorageHelper } from "../context/LocalStorageHelperContext";
 import { getRandomLocations } from "../data/HiddenLocations";
-import { getGuessedLocations } from "../data/LocalStorageHelper";
 
 const guessIcon = new Icon({
   iconUrl: markerIconPng,
@@ -28,6 +29,7 @@ function OSRSMapClickHandler({
   showGameOverResult,
   resetMap,
 }) {
+  const { getGuessedLocations, getCurrentGameMode } = useLocalStorageHelper();
   const [position, setPosition] = useState(null);
   const [allLocations, setAllLocations] = useState([]);
   const [allGuessedLocations, setAllGuessedLocations] = useState([]);
@@ -47,7 +49,7 @@ function OSRSMapClickHandler({
       map.setView([-35, 92.73], 5);
     }
     if (showGameOverResult) {
-      setAllLocations(getRandomLocations(5));
+      setAllLocations(getRandomLocations(5, getCurrentGameMode() === "timed"));
       setAllGuessedLocations(getGuessedLocations());
     }
   }, [showGuessResult, map, showGameOverResult]);

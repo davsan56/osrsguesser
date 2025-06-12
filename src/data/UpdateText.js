@@ -1,3 +1,3 @@
 export function newUpdateText() {
-  return "Updated game over experience and new locations!!";
+  return "Try playing the new Timed Game mode!!";
 }
