@@ -1,3 +1,3 @@
 export function newUpdateText() {
-  return "Try playing the new Timed Game mode!!";
+  return "12 new locations from community member FrostFire397!";
 }

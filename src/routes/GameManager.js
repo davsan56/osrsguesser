@@ -15,9 +15,24 @@ function GameManager({ isTimedGame = false }) {
   // Memoize locationsToGuess so it only recalculates when isTimedGame changes
   const [locationsToGuess, setLocationsToGuess] = useState([]);
   useEffect(() => {
-    setLocationsToGuess(
-      getRandomLocations(numberOfLocationsToGuess, isTimedGame)
-    );
+    if (isNewLocationTesting()) {
+      // Fill this variable to test specific locations
+      // Can be an array of up to 5 length
+      const testingLocations = [
+        "stranglewood_mine",
+        "uzer_temple",
+        "mynydd",
+        "mynydd_cenotaph",
+        "saltpetre",
+      ];
+      if (testingLocations !== null) {
+        setLocationsToGuess(getLocationsFrom(testingLocations));
+      }
+    } else {
+      setLocationsToGuess(
+        getRandomLocations(numberOfLocationsToGuess, isTimedGame)
+      );
+    }
   }, [isTimedGame]);
 
   // Only initialize currentLocation after locationsToGuess is set
@@ -51,21 +66,6 @@ function GameManager({ isTimedGame = false }) {
   const [startRound, setStartRound] = useState(false);
 
   useMemo(() => {
-    if (isNewLocationTesting()) {
-      // Fill this variable to test specific locations
-      // Can be an array of up to 5 length
-      const testingLocations = [
-        "arandar",
-        "fortis_cothon_thieves",
-        "keep_la_faye",
-        "mos_le'harmless_trees",
-        "ruins_of_ullek_teaks",
-      ];
-      if (testingLocations !== null) {
-        locationsToGuess = getLocationsFrom(testingLocations);
-      }
-    }
-
     // Set the game mode to timed or normal
     // This is used so if /game or /timedGame is accessed directly
     setCurrentGameMode(isTimedGame ? "timed" : "normal");
