@@ -1,12 +1,14 @@
 {
   "files": {
     "main.css": "/static/css/main.6e5a9229.css",
-    "main.js": "/static/js/main.b9f08f6d.js",
+    "main.js": "/static/js/main.f0f6afd6.js",
     "static/media/crash_island.png": "/static/media/crash_island.03d7fa898cb9a97e5045.png",
     "static/media/heroes_guild.png": "/static/media/heroes_guild.6cf442b30a554e96ed14.png",
     "static/media/entrana.png": "/static/media/entrana.df658a640ce7710a50b3.png",
     "static/media/fortis_cothon_thieves.png": "/static/media/fortis_cothon_thieves.31f08cef2da105723110.png",
     "static/media/kourend_woodlands.png": "/static/media/kourend_woodlands.2d4886a0ef2016e98879.png",
+    "static/media/dragontooth_island.png": "/static/media/dragontooth_island.8298b5b570bbfce83a24.png",
+    "static/media/digsite_hill.png": "/static/media/digsite_hill.e4934486d9ec6d565f4c.png",
     "static/media/wizards_guild.png": "/static/media/wizards_guild.876369b6eaac431f0b62.png",
     "static/media/ape_atoll.png": "/static/media/ape_atoll.fd2c46c7132c1b0d4f4d.png",
     "static/media/falcon_hunting.png": "/static/media/falcon_hunting.4c2a5f2bf7bba739c428.png",
@@ -14,12 +16,19 @@
     "static/media/keep_la_faye.png": "/static/media/keep_la_faye.777eacd449bd8648bca4.png",
     "static/media/hosidius_apples.png": "/static/media/hosidius_apples.e29eff2216f188ff72fd.png",
     "static/media/west_ardy.png": "/static/media/west_ardy.1cfdb88e68d2ca6ce621.png",
+    "static/media/saltpetre.png": "/static/media/saltpetre.96935561d1dfeb4e1de0.png",
+    "static/media/gu'tanoth.png": "/static/media/gu'tanoth.cb6602491c400796cce6.png",
+    "static/media/mynydd_cenotaph.png": "/static/media/mynydd_cenotaph.8f2a2db14eebc30e6468.png",
+    "static/media/forsaken_tower.png": "/static/media/forsaken_tower.7d4ef950c4f28b163bf2.png",
     "static/media/eagles_peak.png": "/static/media/eagles_peak.90565e803a7b78d7d3a8.png",
     "static/media/soul_wars_ruins.png": "/static/media/soul_wars_ruins.b0897d529ddaa0a4b369.png",
     "static/media/ranging_guild.png": "/static/media/ranging_guild.1353811581f8a8764942.png",
+    "static/media/mynydd.png": "/static/media/mynydd.13b3914230086d24367a.png",
     "static/media/varlamore_waterfall.png": "/static/media/varlamore_waterfall.1b435a035bd87b3d8f62.png",
     "static/media/tithe_farm.png": "/static/media/tithe_farm.29baf279660655e93929.png",
     "static/media/shilo_village.png": "/static/media/shilo_village.f01f1dcced6eee6a1bd3.png",
+    "static/media/molch_island.png": "/static/media/molch_island.d15d167146443a9753d9.png",
+    "static/media/mons_gratia.png": "/static/media/mons_gratia.fd736cb2077099c4de40.png",
     "static/media/witches_house.png": "/static/media/witches_house.48d8823aa1eb9bd52de3.png",
     "static/media/void_knights_outpost.png": "/static/media/void_knights_outpost.e74dc964fe91e466c767.png",
     "static/media/burthorpe_games_room.png": "/static/media/burthorpe_games_room.e24be8fa72ff91e0bbd2.png",
@@ -29,16 +38,19 @@
     "static/media/edgeville_yews.png": "/static/media/edgeville_yews.560244b3e6ae061ab7d9.png",
     "static/media/ruins_of_ullek_teaks.png": "/static/media/ruins_of_ullek_teaks.73dc3539bc43ed8a30f0.png",
     "static/media/warriors_guild.png": "/static/media/warriors_guild.61f468213dfd4d7ea9b9.png",
+    "static/media/desert_mining_camp.png": "/static/media/desert_mining_camp.90ff4a33cc67d407af8e.png",
     "static/media/tai_bwo_wannai.png": "/static/media/tai_bwo_wannai.ad32932924644df4e73d.png",
     "static/media/waterbirth_island.png": "/static/media/waterbirth_island.17ca5b8e9b96c9c2c343.png",
     "static/media/old_crones_house.png": "/static/media/old_crones_house.472dbb3c1f7c3ec2b336.png",
     "static/media/brimhaven.png": "/static/media/brimhaven.20ef1ec71e8d16c3194e.png",
+    "static/media/stranglewood_mine.png": "/static/media/stranglewood_mine.ecda13acfbe4f89b3e9d.png",
     "static/media/crafting_guild.png": "/static/media/crafting_guild.9bc7b5622b6b4678d041.png",
     "static/media/feldip_hills_hunter.png": "/static/media/feldip_hills_hunter.537ff0a027e1b9f98854.png",
     "static/media/kebos_swamp.png": "/static/media/kebos_swamp.383e7e317109def78f2a.png",
     "static/media/fountain_of_rune.png": "/static/media/fountain_of_rune.d581d0ba3379ff73ea98.png",
     "static/media/port_sarim.png": "/static/media/port_sarim.f2386e62466f2900a4d0.png",
     "static/media/grand_tree_entrance.png": "/static/media/grand_tree_entrance.5f299d07b2deedc1d729.png",
+    "static/media/uzer_temple.png": "/static/media/uzer_temple.38d20737df1839c0a964.png",
     "static/media/river_elid.png": "/static/media/river_elid.04d5b328ccf8c7f159cd.png",
     "static/media/port_piscarilius.png": "/static/media/port_piscarilius.9e540aa599ebf0b5b22f.png",
     "static/media/seers_church_yews.png": "/static/media/seers_church_yews.1edf741e0be20a4d9b92.png",
@@ -163,10 +175,10 @@
     "static/media/runescape.ttf": "/static/media/runescape.3c4bbb0ca8ee1b13d551.ttf",
     "index.html": "/index.html",
     "main.6e5a9229.css.map": "/static/css/main.6e5a9229.css.map",
-    "main.b9f08f6d.js.map": "/static/js/main.b9f08f6d.js.map"
+    "main.f0f6afd6.js.map": "/static/js/main.f0f6afd6.js.map"
   },
   "entrypoints": [
     "static/css/main.6e5a9229.css",
-    "static/js/main.b9f08f6d.js"
+    "static/js/main.f0f6afd6.js"
   ]
 }
