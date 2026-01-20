@@ -9,8 +9,8 @@ class Location {
 
 export const HiddenLocations = [
   new Location("al_kharid", new LatLng(-48.3671875, 110.34375)),
-  new Location("aldarin_grapes", new LatLng(-61.09375, 19.4453125)),
-  new Location("aldarin", new LatLng(-60.015625, 20.09375)),
+  new Location("aldarin_grapes", new LatLng(-62.1328125, 19.453125)),
+  new Location("aldarin", new LatLng(-61.046875, 20.1171875)),
   new Location("annakarl_teleport", new LatLng(-15.6640625, 109.28125)),
   new Location("ape_atoll", new LatLng(-68.6640625, 86.515625)),
   new Location("arandar", new LatLng(-42.796875, 64.7578125)),
@@ -139,7 +139,7 @@ export const HiddenLocations = [
   new Location("ruins_of_unkah", new LatLng(-64.6796875, 103.78125)),
   new Location("saltpetre", new LatLng(-32.390625, 35.1328125)),
   new Location("scorpia_entrance", new LatLng(-12.9921875, 106.6640625)),
-  new Location("seers_church_yews", new LatLng(-35.7265625, 82.0625)),
+  new Location("seers_church_yews", new LatLng(-35.6953125, 81.8671875)),
   new Location("shayzien_encampment", new LatLng(-25.9147865, 26.456785)),
   new Location("shayzien_graveyard", new LatLng(-30.55469, 24.296875)),
   new Location("shilo_village", new LatLng(-58.6015625, 87.75)),
@@ -302,13 +302,14 @@ function fillLeft(array, size, value) {
 }
 
 // Returns an array of locations based on the passed in names
-export function getLocationsFrom(locations) {
+// numberOfLocations defaults to 5 if not specified
+export function getLocationsFrom(locations, numberOfLocations = 5) {
   const locationArray = [];
   locations.forEach((location) => {
     locationArray.push(getEntryByString(HiddenLocations, location));
   });
 
-  fillLeft(locationArray, 5, getEntryByString(HiddenLocations, locations[0]));
+  fillLeft(locationArray, numberOfLocations, getEntryByString(HiddenLocations, locations[0]));
 
   return locationArray;
 }
