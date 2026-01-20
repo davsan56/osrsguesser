@@ -55,6 +55,27 @@
     </NetworkLink>
         
     <NetworkLink>
+      <name>6/35/3.png</name>
+      <Region>
+        <LatLonAltBox>
+          <north>-1536.00000000000000</north>
+          <south>-2048.00000000000000</south>
+          <east>18432.00000000000000</east>
+          <west>17920.00000000000000</west>
+        </LatLonAltBox>
+        <Lod>
+          <minLodPixels>128</minLodPixels>
+          <maxLodPixels>-1</maxLodPixels>
+        </Lod>
+      </Region>
+      <Link>
+        <href>../../6/35/3.kml</href>
+        <viewRefreshMode>onRegion</viewRefreshMode>
+        <viewFormat/>
+      </Link>
+    </NetworkLink>
+        
+    <NetworkLink>
       <name>6/34/2.png</name>
       <Region>
         <LatLonAltBox>
@@ -70,6 +91,27 @@
       </Region>
       <Link>
         <href>../../6/34/2.kml</href>
+        <viewRefreshMode>onRegion</viewRefreshMode>
+        <viewFormat/>
+      </Link>
+    </NetworkLink>
+        
+    <NetworkLink>
+      <name>6/35/2.png</name>
+      <Region>
+        <LatLonAltBox>
+          <north>-1024.00000000000000</north>
+          <south>-1536.00000000000000</south>
+          <east>18432.00000000000000</east>
+          <west>17920.00000000000000</west>
+        </LatLonAltBox>
+        <Lod>
+          <minLodPixels>128</minLodPixels>
+          <maxLodPixels>-1</maxLodPixels>
+        </Lod>
+      </Region>
+      <Link>
+        <href>../../6/35/2.kml</href>
         <viewRefreshMode>onRegion</viewRefreshMode>
         <viewFormat/>
       </Link>
