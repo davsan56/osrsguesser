@@ -1,3 +1,3 @@
 export function newUpdateText() {
-  return "12 new locations from community member FrostFire397!";
+  return "Updating the World Map for Sailing! More locations coming soon...";
 }

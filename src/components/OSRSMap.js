@@ -15,7 +15,9 @@ function OSRSMap({
   showGameOverResult,
   resetMap,
 }) {
-  const outerBounds = new LatLngBounds(latLng(-78, 0), latLng(0, 137.3));
+  // Scaled bounds based on new tile dimensions (9216 x 6528 vs old 8793 x 4993)
+  // Height scale: 6528/4993 ≈ 1.307, Width scale: 9216/8793 ≈ 1.048
+  const outerBounds = new LatLngBounds(latLng(-102, 0), latLng(0, 144));
 
   const mapRef = useRef(null);
 
@@ -23,7 +25,7 @@ function OSRSMap({
     <div className="map-container">
       <MapContainer
         ref={mapRef}
-        center={[-35, 92.73]}
+        center={[-51, 72]}
         zoom={5}
         maxZoom={7}
         minZoom={3}

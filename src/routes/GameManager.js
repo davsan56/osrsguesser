@@ -6,31 +6,38 @@ import OSRSMap from "../components/OSRSMap";
 import GameOverResult from "../components/GameOverResult";
 import GuessResult from "../components/GuessResult";
 import TimedScoreContainer from "../components/TimedScoreContainer";
-import { getRandomLocations, getLocationsFrom } from "../data/HiddenLocations";
+import { getRandomLocations, getLocationsFrom, HiddenLocations } from "../data/HiddenLocations";
 import { isNewLocationTesting } from "../data/IsLatLngTesting";
 
 function GameManager({ isTimedGame = false }) {
-  const numberOfLocationsToGuess = 5;
+  // Track numberOfLocationsToGuess as state so it updates properly
+  const [numberOfLocationsToGuess, setNumberOfLocationsToGuess] = useState(5);
 
   // Memoize locationsToGuess so it only recalculates when isTimedGame changes
   const [locationsToGuess, setLocationsToGuess] = useState([]);
   useEffect(() => {
     if (isNewLocationTesting()) {
-      // Fill this variable to test specific locations
-      // Can be an array of up to 5 length
+      // Fill this variable to test specific locations or use all locations
+      // Option 1: Test specific locations
       const testingLocations = [
-        "stranglewood_mine",
-        "uzer_temple",
-        "mynydd",
-        "mynydd_cenotaph",
-        "saltpetre",
+        "aldarin_grapes",
+        "aldarin",
+        "seers_church_yews",
       ];
+      
+      // Option 2: Use all locations from the database
+      // const testingLocations = HiddenLocations.map(location => location.image);
+      
+      // Set numberOfLocationsToGuess to the number of testing locations
+      setNumberOfLocationsToGuess(testingLocations.length);
+      
       if (testingLocations !== null) {
-        setLocationsToGuess(getLocationsFrom(testingLocations));
+        setLocationsToGuess(getLocationsFrom(testingLocations, testingLocations.length));
       }
     } else {
+      setNumberOfLocationsToGuess(5);
       setLocationsToGuess(
-        getRandomLocations(numberOfLocationsToGuess, isTimedGame)
+        getRandomLocations(5, isTimedGame)
       );
     }
   }, [isTimedGame]);
