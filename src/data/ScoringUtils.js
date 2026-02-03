@@ -6,7 +6,7 @@
  * Calculate the score for a location guess
  * @param {LatLng} guessedLocation - The guessed coordinates
  * @param {LatLng} actualLocation - The actual coordinates
- * @param {boolean} isTimedGame - Whether this is a timed game
+ * @param {boolean} isTimedGame - Whether this is a timed game (optional)
  * @param {number} currentScore - Current score for timed games (optional)
  * @returns {number} The calculated score (0-1000)
  */

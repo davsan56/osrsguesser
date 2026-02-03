@@ -42,7 +42,7 @@ export const HiddenLocations = [
   new Location("crandor", new LatLng(-44.8046875, 87.90625)),
   new Location("crash_island", new LatLng(-70.2890625, 91.875)),
   new Location("crazy_arch", new LatLng(-25.2578125, 94.5390625)),
-  new Location("crypt_of_tonalith", new LatLng(-55.6875, 16.1796875)),
+  new Location("crypt_of_tonali", new LatLng(-55.6875, 16.1796875)),
   new Location("custodia_mountains_mine", new LatLng(-37.9609375, 15.1953125)),
   new Location("custodia_pass", new LatLng(-41.2890625, 17.0703125)),
   new Location("dark_warriors_bridge", new LatLng(-27.7265625, 96.3046875)),
