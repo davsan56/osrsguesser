@@ -25,9 +25,21 @@ function GameManager({ isTimedGame = false }) {
       // Fill this variable to test specific locations or use all locations
       // Option 1: Test specific locations
       const testingLocations = [
-        "aldarin_grapes",
-        "aldarin",
-        "seers_church_yews",
+        "auburn_valley",
+        "auburnvale",
+        "corsair_cove",
+        "crypt_of_tonali",
+        "custodia_mountains_mine",
+        "custodia_pass",
+        "doom_entrance",
+        "gemstone_crab_kastori",
+        "gloomthorn_trail",
+        "kastori",
+        "nemus_retreat",
+        "tal_teklan",
+        "tal_teok",
+        "tlati_rainforest_bridge",
+        "tlati_rainforest_mahogany",
       ];
 
       // Option 2: Use all locations from the database
