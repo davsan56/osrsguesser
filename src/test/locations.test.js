@@ -2,6 +2,16 @@ import { HiddenLocations } from "../data/HiddenLocations";
 import { calculateScore } from "../data/ScoringUtils";
 import { LatLng } from "leaflet";
 
+test("make sure all locations have an image", () => {
+  HiddenLocations.forEach((location) => {
+    const filename = location.image;
+    const picture = require(
+      "../../public/locations/" + location.image + ".png",
+    );
+    expect(picture).toBeDefined();
+  });
+});
+
 describe("Location Guessing Tests", () => {
   HiddenLocations.forEach((location) => {
     const exactLatLng = location.latLng;
