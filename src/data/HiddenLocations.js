@@ -17,6 +17,8 @@ export const HiddenLocations = [
   new Location("arceuus_church", new LatLng(-20.1484375, 33.9375)),
   new Location("ardy_monastary", new LatLng(-47.5390625, 77.187)),
   new Location("ardy_zoo", new LatLng(-44.4765625, 77.9375)),
+  new Location("auburn_valley", new LatLng(-41.34375, 24.46875)),
+  new Location("auburnvale", new LatLng(-40.546875, 21.703125)),
   new Location("barbarian_village", new LatLng(-36.6953125, 99.3125)),
   new Location("bedabin_camp", new LatLng(-56.0390625, 103.421875)),
   new Location("black_chins", new LatLng(-20.78125, 101.9296875)),
@@ -35,15 +37,23 @@ export const HiddenLocations = [
   new Location("chompy_hunting", new LatLng(-54.4765625, 64.609375)),
   new Location("cooks_guild", new LatLng(-36.1875, 102.2578125)),
   new Location("corp_cave", new LatLng(-25.5390625, 105.125)),
+  new Location("corsair_cove", new LatLng(-63.734375, 76.1796875)),
   new Location("crafting_guild", new LatLng(-44.3046875, 92.140625)),
   new Location("crandor", new LatLng(-44.8046875, 87.90625)),
   new Location("crash_island", new LatLng(-70.2890625, 91.875)),
   new Location("crazy_arch", new LatLng(-25.2578125, 94.5390625)),
+  new Location("crypt_of_tonalith", new LatLng(-55.6875, 16.1796875)),
+  new Location("custodia_mountains_mine", new LatLng(-37.9609375, 15.1953125)),
+  new Location("custodia_pass", new LatLng(-41.2890625, 17.0703125)),
   new Location("dark_warriors_bridge", new LatLng(-27.7265625, 96.3046875)),
   new Location("darkmeyer", new LatLng(-42.4296875, 124.0625)),
   new Location("deep_wilderness_dungeon", new LatLng(-14.0703125, 97.921875)),
-  new Location("desert_mining_camp", new LatLng(-56.35652680233974, 109.07839342913171)),
+  new Location(
+    "desert_mining_camp",
+    new LatLng(-56.35652680233974, 109.07839342913171),
+  ),
   new Location("digsite_hill", new LatLng(-39.9609375, 112.3515625)),
+  new Location("doom_entrance", new LatLng(-52.546875, 16.53125)),
   new Location("dragontooth_island", new LatLng(-31.3515625, 132.7421875)),
   new Location("draynor_manor", new LatLng(-41.5859375, 99.875)),
   new Location("draynor_village_jail", new LatLng(-45.7890625, 101.640625)),
@@ -63,13 +73,15 @@ export const HiddenLocations = [
   new Location("fossil_island_house", new LatLng(-16.6171875, 131.109375)),
   new Location(
     "fossil_island_mushroom_forest",
-    new LatLng(-17.5234375, 127.40625)
+    new LatLng(-17.5234375, 127.40625),
   ),
   new Location("fossil_island_tar_swamp", new LatLng(-21.9453125, 127.640625)),
   new Location("fossil_island_volcano_2", new LatLng(-22.3203125, 131.109375)),
   new Location("fossil_island_volcano", new LatLng(-20.5703125, 133.09375)),
   new Location("fountain_of_rune", new LatLng(-16.3671875, 112.3828125)),
+  new Location("gemstone_crab_kastori", new LatLng(-51.8515625, 18.2578125)),
   new Location("giants_plateau", new LatLng(-50.2890625, 113.90625)),
+  new Location("gloomthorn_trail", new LatLng(-47.078125, 20.0546875)),
   new Location("grand_tree_entrance", new LatLng(-34.4453125, 70.609375)),
   new Location("gu'tanoth", new LatLng(-56.109375, 72.9140625)),
   new Location("harmony_island", new LatLng(-63.4939315, 133.048482)),
@@ -81,6 +93,7 @@ export const HiddenLocations = [
   new Location("icy_rune_rock", new LatLng(-14.6953125, 93.0625)),
   new Location("island_of_stone", new LatLng(-9.8828125, 70.796875)),
   new Location("jatizo_entrance", new LatLng(-20.0859375, 68.125)),
+  new Location("kastori", new LatLng(-56.3203125, 18.7265625)),
   new Location("kbd_ladder", new LatLng(-17.5703125, 96.515625)),
   new Location("kebos_swamp", new LatLng(-26.6953125, 13.046875)),
   new Location("keep_la_faye", new LatLng(-38.5703125, 84.4453125)),
@@ -116,6 +129,7 @@ export const HiddenLocations = [
   new Location("nardah_oven", new LatLng(-62.7734375, 116.046875)),
   new Location("necropolis", new LatLng(-70.4765625, 110.40625)),
   new Location("neitiznot_yaks", new LatLng(-20.4296875, 63.828125)),
+  new Location("nemus_retreat", new LatLng(-42.953125, 19.6640625)),
   new Location("observatory", new LatLng(-49.0859375, 70.265625)),
   new Location("old_crones_house", new LatLng(-31.6328125, 117.296875)),
   new Location("pirates_cove", new LatLng(-19.4140625, 58.296875)),
@@ -134,7 +148,7 @@ export const HiddenLocations = [
   new Location("rogues_castle", new LatLng(-13.0703125, 109.1953125)),
   new Location(
     "ruins_of_ullek_teaks",
-    new LatLng(-67.3100219185358655, 116.35943143366964)
+    new LatLng(-67.3100219185358655, 116.35943143366964),
   ),
   new Location("ruins_of_unkah", new LatLng(-64.6796875, 103.78125)),
   new Location("saltpetre", new LatLng(-32.390625, 35.1328125)),
@@ -153,8 +167,12 @@ export const HiddenLocations = [
   new Location("stranglewood_mine", new LatLng(-42.1328125, 9.6796875)),
   new Location("sunset_coast", new LatLng(-57.640625, 25.7734375)),
   new Location("tai_bwo_wannai", new LatLng(-54.8203125, 86.015625)),
+  new Location("tal_teklan", new LatLng(-51.484375, 12.4609375)),
+  new Location("tal_teok", new LatLng(-50.1953125, 13.4765625)),
   new Location("tecu_salamanders", new LatLng(-53.296875, 24.0390625)),
   new Location("tithe_farm", new LatLng(-34.6796875, 40.671875)),
+  new Location("tlati_rainforest_bridge", new LatLng(-50.265625, 16.7109375)),
+  new Location("tlati_rainforest_mahogany", new LatLng(-57.1640625, 14)),
   new Location("troll_stronghold", new LatLng(-25.2578125, 87.296875)),
   new Location("twilight_temple", new LatLng(-46.9375, 32.3203125)),
   new Location("undead_cow_pen", new LatLng(-32.9140625, 124.609375)),
@@ -172,7 +190,10 @@ export const HiddenLocations = [
   new Location("waterbirth_island", new LatLng(-22.6328125, 73.3125)),
   new Location("weiss", new LatLng(-13.4453125, 90.296875)),
   new Location("west_ardy", new LatLng(-43.27883, 71.134671)),
-  new Location("wilderness_agility_course", new LatLng(-13.5078125, 95.8984375)),
+  new Location(
+    "wilderness_agility_course",
+    new LatLng(-13.5078125, 95.8984375),
+  ),
   new Location("wilderness_ankou", new LatLng(-21.5390625, 94.71875)),
   new Location("wilderness_gwd_entrance", new LatLng(-22.78125, 96.2421875)),
   new Location("wilderness_sign", new LatLng(-32.0859375, 104.421875)),
@@ -232,7 +253,7 @@ function getUniqueEntries(
   array,
   numberOfLocationsToGuess,
   daysBeforeReshuffle,
-  modeSeed = 0
+  modeSeed = 0,
 ) {
   const currentDayNumber = getCurrentDayNumber();
   const currentYear = getCurrentYear();
@@ -268,7 +289,7 @@ export function getDateString() {
 // Returns an array of todays hidden location
 export function getRandomLocations(
   numberOfLocationsToGuess,
-  isTimedGame = false
+  isTimedGame = false,
 ) {
   const daysBeforeReshuffle = 7;
   const modeSeed = isTimedGame ? 1000 : 0;
@@ -277,7 +298,7 @@ export function getRandomLocations(
     HiddenLocations,
     numberOfLocationsToGuess,
     daysBeforeReshuffle,
-    modeSeed
+    modeSeed,
   );
 
   return todayLocations;
@@ -285,7 +306,7 @@ export function getRandomLocations(
 
 function getEntryByString(arr, str) {
   return arr.find((entry) =>
-    Object.values(entry).some((value) => String(value) === str)
+    Object.values(entry).some((value) => String(value) === str),
   );
 }
 
@@ -309,7 +330,11 @@ export function getLocationsFrom(locations, numberOfLocations = 5) {
     locationArray.push(getEntryByString(HiddenLocations, location));
   });
 
-  fillLeft(locationArray, numberOfLocations, getEntryByString(HiddenLocations, locations[0]));
+  fillLeft(
+    locationArray,
+    numberOfLocations,
+    getEntryByString(HiddenLocations, locations[0]),
+  );
 
   return locationArray;
 }
