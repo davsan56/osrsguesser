@@ -6,8 +6,13 @@ import OSRSMap from "../components/OSRSMap";
 import GameOverResult from "../components/GameOverResult";
 import GuessResult from "../components/GuessResult";
 import TimedScoreContainer from "../components/TimedScoreContainer";
-import { getRandomLocations, getLocationsFrom, HiddenLocations } from "../data/HiddenLocations";
+import {
+  getRandomLocations,
+  getLocationsFrom,
+  HiddenLocations,
+} from "../data/HiddenLocations";
 import { isNewLocationTesting } from "../data/IsLatLngTesting";
+import { calculateScore } from "../data/ScoringUtils";
 
 function GameManager({ isTimedGame = false }) {
   // Track numberOfLocationsToGuess as state so it updates properly
@@ -24,21 +29,21 @@ function GameManager({ isTimedGame = false }) {
         "aldarin",
         "seers_church_yews",
       ];
-      
+
       // Option 2: Use all locations from the database
       // const testingLocations = HiddenLocations.map(location => location.image);
-      
+
       // Set numberOfLocationsToGuess to the number of testing locations
       setNumberOfLocationsToGuess(testingLocations.length);
-      
+
       if (testingLocations !== null) {
-        setLocationsToGuess(getLocationsFrom(testingLocations, testingLocations.length));
+        setLocationsToGuess(
+          getLocationsFrom(testingLocations, testingLocations.length),
+        );
       }
     } else {
       setNumberOfLocationsToGuess(5);
-      setLocationsToGuess(
-        getRandomLocations(5, isTimedGame)
-      );
+      setLocationsToGuess(getRandomLocations(5, isTimedGame));
     }
   }, [isTimedGame]);
 
@@ -82,8 +87,8 @@ function GameManager({ isTimedGame = false }) {
       setRoundScores(dailyRoundScores);
       setTotalScore(
         dailyRoundScores.reduce(
-          (totalValue, currentValue) => totalValue + currentValue
-        )
+          (totalValue, currentValue) => totalValue + currentValue,
+        ),
       );
       setCurrentLocation(locationsToGuess[0]);
       setShowGameOverResult(true);
@@ -148,23 +153,12 @@ function GameManager({ isTimedGame = false }) {
   }
 
   function submitGuess() {
-    let dis = guessedLocation.distanceTo(currentLocation.latLng);
-    let distanceConversion = (dis / 1000).toFixed(0);
-    let distanceKm = distanceConversion;
-    let score = 1000 - distanceKm;
-    let roundScore = score < 0 ? 0 : score > 975 ? 1000 : score;
-
-    // If the game is a timed game, factor in the current score to the distance score
-    if (isTimedGame) {
-      // If perfect guess, set score to current score
-      if (roundScore === 1000) {
-        roundScore = currentScore;
-      }
-      // If the score is less than 1000, factor in the current score to the distance score
-      else {
-        roundScore = Math.floor((roundScore * currentScore) / 1000);
-      }
-    }
+    let roundScore = calculateScore(
+      guessedLocation,
+      currentLocation.latLng,
+      isTimedGame,
+      currentScore,
+    );
 
     // If the number of guessed locations in storage is different than the number of current game guesses
     // Delete all guessed locations from storage because a new game has started
