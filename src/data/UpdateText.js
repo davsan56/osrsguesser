@@ -1,3 +1,3 @@
 export function newUpdateText() {
-  return "Updating the World Map for Sailing! More locations coming soon...";
+  return "Adding 15 new Locations from Varlamore Pt. 3!!";
 }
